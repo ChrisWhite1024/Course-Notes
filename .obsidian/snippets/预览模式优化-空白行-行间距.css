@@ -1,0 +1,42 @@
+/*段落间距优化*/
+div.cm-line {
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+}
+
+div.HyperMD-header.cm-line{
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+
+div.HyperMD-list-line.cm-line{
+    padding-top: 0.1em !important;
+    padding-bottom: 0.1em !important;
+}
+
+div.HyperMD-codeblock.cm-line{
+    padding-top: 0em !important;
+    padding-bottom: 0em !important;
+}
+
+p>br {
+    content: '';
+    margin-top: 0.5em;
+    display: block;
+}
+
+/* 预览模式空白行优化 https://forum-zh.obsidian.md/t/topic/12515 */
+.is-live-preview :is(.HyperMD-quote, .cm-callout, .HyperMD-list-line) + [class="cm-active cm-line"] {
+  transition: 0.5s line-height;
+}
+
+.is-live-preview :is(.HyperMD-quote, .cm-callout, .HyperMD-list-line) + [class="cm-line"] {
+  line-height: 0.1;
+  transition: 0.5s line-height,0.5s background-color;
+  border-radius: var(--radius-s);
+}
+
+.is-live-preview :is(.HyperMD-quote, .cm-callout, .HyperMD-list-line) + [class="cm-line"]:hover {
+  background-color: hsla(var(--color-accent-hsl), 0.4);
+}
+

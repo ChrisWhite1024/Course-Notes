@@ -1,0 +1,12 @@
+{
+  "accentColor": "",
+  "cssTheme": "AnuPpuccin",
+  "theme": "system",
+  "enabledCssSnippets": [
+    "extended-colorschemes",
+    "段落首行缩进",
+    "预览模式优化-空白行-行间距",
+    "yaozhuwa@CSS"
+  ],
+  "baseFontSize": 16
+}

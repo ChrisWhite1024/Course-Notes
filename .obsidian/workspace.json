@@ -1,0 +1,190 @@
+{
+  "main": {
+    "id": "7779a5763f701c71",
+    "type": "split",
+    "children": [
+      {
+        "id": "4f377a84f6e57083",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d9889d5693268e5d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习/操作系统/操作系统上的程序.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "38c4b557aaf5abb1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习/Git版本控制.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fefa1add8426c7e1",
+    "type": "split",
+    "children": [
+      {
+        "id": "40f79398459b763c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "824ab2f124aeda9e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3561e74fceebe93f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1a64559aedf56bf9",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "1a89a116f3ab9898",
+    "type": "split",
+    "children": [
+      {
+        "id": "2af86c509b2a2f69",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8658075112abe980",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "学习/Git版本控制.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "68aeff84494ec5d7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "学习/Git版本控制.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1e4c86ddb68983c7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "aab82d1d31a043ef",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "学习/Git版本控制.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "canvas:新建白板": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "audio-recorder:开始/结束录音": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian42-brat:BRAT": false
+    }
+  },
+  "active": "38c4b557aaf5abb1",
+  "lastOpenFiles": [
+    "学习/Vim基础.md",
+    "学习/Latex数学公式.md",
+    "学习/JavaScript快速入门.md",
+    "学习/Git版本控制.md",
+    "学习/操作系统/操作系统上的程序.md",
+    "学习/操作系统/操作系统概述.md",
+    "学习/操作系统/Attachments/Pasted image 20230303084533.png",
+    "学习/操作系统/Attachments",
+    "Pasted image 20230303084324.png",
+    "学习/未命名/未命名.md",
+    "学习/操作系统",
+    "学习/未命名",
+    "学习/信息安全体系/信息安全概论.md",
+    "Ava - Getting Started.md",
+    "学习/计算机网络/网络层-数据平面.md",
+    "学习/计算机网络/因特网.md",
+    "学习/网络层-数据平面.md",
+    "2023-01-28.md",
+    "未命名.md"
+  ]
+}
