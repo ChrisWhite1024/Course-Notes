@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习/计算机科学/杂项/Git版本控制.md",
+                "file": "学习/计算机科学/操作系统/操作系统上的程序.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习/计算机科学/杂项/Git版本控制.md",
+                "file": "学习/计算机科学/操作系统/操作系统上的程序.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "学习/计算机科学/杂项/Git版本控制.md",
+                "file": "学习/计算机科学/操作系统/操作系统上的程序.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习/计算机科学/杂项/Git版本控制.md"
+                "file": "学习/计算机科学/操作系统/操作系统上的程序.md"
               }
             }
           }
@@ -167,11 +167,11 @@
   },
   "active": "38c4b557aaf5abb1",
   "lastOpenFiles": [
+    "学习/计算机科学/杂项/Git版本控制.md",
     "学习/计算机科学/杂项/Vim基础.md",
     "学习/JavaScript快速入门.md",
     "学习/计算机科学/计算机网络/因特网.md",
     "学习/计算机科学/计算机网络/网络层-数据平面.md",
-    "学习/计算机科学/杂项/Git版本控制.md",
     "学习/计算机科学/杂项",
     "学习/计算机科学",
     "学习/Latex数学公式.md",
