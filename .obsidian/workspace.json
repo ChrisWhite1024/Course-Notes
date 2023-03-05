@@ -25,14 +25,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习/计算机科学/操作系统/操作系统上的程序.md",
+                "file": "学习/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fbf68e4a9d9c6796",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -82,7 +94,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "1a89a116f3ab9898",
@@ -98,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习/计算机科学/操作系统/操作系统上的程序.md",
+                "file": "学习/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "学习/计算机科学/操作系统/操作系统上的程序.md",
+                "file": "学习/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习/计算机科学/操作系统/操作系统上的程序.md"
+                "file": "学习/计算机科学/操作系统/教材/2 Introduction to Opreation System.md"
               }
             }
           }
@@ -164,12 +177,13 @@
       "audio-recorder:开始/结束录音": false
     }
   },
-  "active": "67d3046d8390a98c",
+  "active": "fbf68e4a9d9c6796",
   "lastOpenFiles": [
-    "学习/计算机科学/操作系统/教材/Introduction to Opreation System.md",
+    "学习/计算机科学/操作系统/教材/26 Concurrency Introduction.md",
+    "学习/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
+    "学习/计算机科学/操作系统/操作系统上的程序.md",
     "学习/计算机科学/杂项/Git版本控制.md",
     "学习/计算机科学/操作系统/教材",
-    "学习/计算机科学/操作系统/操作系统上的程序.md",
     "学习/计算机科学/杂项/Vim基础.md",
     "学习/JavaScript快速入门.md",
     "学习/计算机科学/计算机网络/因特网.md",
