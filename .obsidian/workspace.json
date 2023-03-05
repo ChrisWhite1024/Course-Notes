@@ -4,23 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "4f377a84f6e57083",
+        "id": "4eea471d4c9755cc",
         "type": "tabs",
         "children": [
           {
-            "id": "d9889d5693268e5d",
+            "id": "947e68d164f306cb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习/计算机科学/操作系统/操作系统上的程序.md",
+                "file": "学习/计算机科学/杂项/Git版本控制.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "38c4b557aaf5abb1",
+            "id": "67d3046d8390a98c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -82,8 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "1a89a116f3ab9898",
@@ -153,21 +152,24 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian42-brat:BRAT": false,
       "canvas:新建白板": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "audio-recorder:开始/结束录音": false,
-      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian42-brat:BRAT": false
+      "audio-recorder:开始/结束录音": false
     }
   },
-  "active": "38c4b557aaf5abb1",
+  "active": "67d3046d8390a98c",
   "lastOpenFiles": [
+    "学习/计算机科学/操作系统/教材/Introduction to Opreation System.md",
     "学习/计算机科学/杂项/Git版本控制.md",
+    "学习/计算机科学/操作系统/教材",
+    "学习/计算机科学/操作系统/操作系统上的程序.md",
     "学习/计算机科学/杂项/Vim基础.md",
     "学习/JavaScript快速入门.md",
     "学习/计算机科学/计算机网络/因特网.md",
@@ -176,7 +178,6 @@
     "学习/计算机科学",
     "学习/Latex数学公式.md",
     "学习/计算机科学/操作系统/操作系统概述.md",
-    "学习/计算机科学/操作系统/操作系统上的程序.md",
     "学习/计算机科学/操作系统/Attachments/Pasted image 20230303084533.png",
     "学习/计算机科学/操作系统/Attachments",
     "Pasted image 20230303084324.png",
