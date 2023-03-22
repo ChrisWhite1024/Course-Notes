@@ -37,14 +37,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "学习/计算机科学/杂项/Git版本控制.md",
+                "file": "学习/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d7460dace5cda407",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习/计算机科学/操作系统/教材/26 Concurrency Introduction.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -94,8 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "1a89a116f3ab9898",
@@ -111,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "学习/计算机科学/杂项/Git版本控制.md",
+                "file": "学习/计算机科学/操作系统/教材/26 Concurrency Introduction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "学习/计算机科学/杂项/Git版本控制.md",
+                "file": "学习/计算机科学/操作系统/教材/26 Concurrency Introduction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "学习/计算机科学/杂项/Git版本控制.md"
+                "file": "学习/计算机科学/操作系统/教材/26 Concurrency Introduction.md"
               }
             }
           }
@@ -177,8 +188,11 @@
       "audio-recorder:开始/结束录音": false
     }
   },
-  "active": "4c29df7eb99ffe84",
+  "active": "d7460dace5cda407",
   "lastOpenFiles": [
+    "学习/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
+    "学习/计算机科学/操作系统/教材/26 Concurrency Introduction.md",
+    "学习/计算机科学/杂项/Git版本控制.md",
     "package.json",
     "package-lock.json",
     "node_modules/rxjs/LICENSE.txt",
@@ -189,7 +203,6 @@
     "node_modules/typescript/lib/tsserverlibrary.d.ts",
     "node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
     "node_modules/typescript/lib/lib.webworker.d.ts",
-    "node_modules/typescript/lib/lib.scripthost.d.ts",
     "node_modules/typescript/SECURITY.md",
     "node_modules/typescript/README.md",
     "node_modules/typescript/lib/README.md",
@@ -215,8 +228,6 @@
     "node_modules/inquirer/README.md",
     "node_modules/cosmiconfig/README.md",
     "node_modules/readable-stream/README.md",
-    "node_modules/readable-stream/GOVERNANCE.md",
-    "node_modules/readable-stream/CONTRIBUTING.md",
     "学习/计算机科学/操作系统/Attachments/Pasted image 20230303084533.png",
     "Pasted image 20230303084324.png"
   ]
