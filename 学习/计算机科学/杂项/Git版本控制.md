@@ -5,6 +5,7 @@
 git config --global user.name "" #用户名
 git config --global user.email "" #邮箱
 git config --list
+git config --global core.quotepath false #全局配置 Git 不对非英文字符转码
 ```
 
 ## 新建 Git 仓库
@@ -35,6 +36,7 @@ git merge #合并分支
 git diff #查看哪里发生了冲突
 git rebase <branch name> #变基 本质上把两个分支合并
 git cherry-pick <commit> #优选分支上的commit
+
 ```
 ## 远程仓库
 ```bash
