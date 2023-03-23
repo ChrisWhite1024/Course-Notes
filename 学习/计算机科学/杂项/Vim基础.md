@@ -1,25 +1,7 @@
----
-title: Vim基础
-categories:
-  - CS
-  - 杂项
-cover: https://file.chriswhite.top/Cover/3.jpg
-abbrlink: 539de644
-date: 2022-07-08 17:45:54
-tags: 杂项
-description: 是Vim娘(/≧▽≦)/
----
 
-{% note pink no-icon %}
-<p>初识Vim娘，很可能觉得很沮丧，因为用尽浑身解数也不能让她笑一笑，难道注定与她无缘？No！任何想要接近她的人都要学习一张密密麻麻、五颜六色的秘笈……然后为了能够和她更好的性……嗯，幸福生活，可能还需要自己创造秘笈。</p><br/><p align="right">——《萌娘百科》</p>
-{% endnote %}
+>初识Vim娘，很可能觉得很沮丧，因为用尽浑身解数也不能让她笑一笑，难道注定与她无缘？No！任何想要接近她的人都要学习一张密密麻麻、五颜六色的秘笈……然后为了能够和她更好的性……嗯，幸福生活，可能还需要自己创造秘笈。
 
-{% note primary no-icon %}
-由ChrisWhite翻译自{% btn 'https://quickref.me/vim',Vim cheatsheet,,outline larger %}
-{% endnote %}
-
-快速开始 
----------------
+>由ChrisWhite翻译自[Vim cheatsheet](https://quickref.me/vim)
 
 ### 光标动作图示 
 
