@@ -21,12 +21,9 @@
 > $\mathbb{A}$ **\\mathbb** 空心粗体
 
 # 基本命令
-> $$\sin \cos \tan \cot \arcsin \arccos \arctan \cot \sec \csc 
-$$
+> $$\sin \cos \tan \cot \arcsin \arccos \arctan \cot \sec \csc $$
 > $$\sinh \cosh \tanh \coth \log \lg \ln \ker \exp \dim \arg \deg $$
->$$
-\lim \limsup \liminf \sup \inf \min \max \det \Pr \gcd \mathrm{可带上下限参数}
-$$ 
+>$$\lim \limsup \liminf \sup \inf \min \max \det \Pr \gcd \mathrm{可带上下限参数}$$
 
 > $\mathop{max}\limits_{x}$ **\\mathop** 将符号转为数学操作符
 > $0\mathbin{-}2$  **\\mathbin** 将普通符号转换为二元运算符
