@@ -5,19 +5,15 @@ on:
     branches:
       - master  # 当代码被推送到主分支时触发
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    
-    - name: Setup git config
-      env:
-        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-      run: |
-        git config --global user.name "ChrisWhite1024"
-        git config --global user.email "chriswhite33333@gmail.com"
-      
+          
     - name: Checkout repository
       uses: actions/checkout@v2
 
