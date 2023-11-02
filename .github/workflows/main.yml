@@ -1,0 +1,20 @@
+name: Deploy Obsidian Webpages to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # 当代码被推送到主分支时触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build and deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.1
+      with:
+        branch: gh-pages  # 部署到gh-pages分支
+        folder: ./Web     # 要部署的文件夹路径
