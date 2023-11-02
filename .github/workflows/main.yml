@@ -1,4 +1,4 @@
-name: Deploy Obsidian Webpages to GitHub Pages
+name: Deploy Obsidian Webpages
 
 on:
   push:
@@ -10,6 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+    - name: Setup git config
+      env:
+        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+      run: |
+        git config user.name "ChrisWhite1024"
+        git config user.email "chriswhite33333@gmail.com"
+      
     - name: Checkout repository
       uses: actions/checkout@v2
 
