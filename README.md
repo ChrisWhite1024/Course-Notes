@@ -1,3 +1,4 @@
 # 🌟 Course-Note
 Course-Note is a repository that contains White’s study materials and notes, used to document the process of acquiring knowledge.
- ![[IMG_6931.png]]
+
+![](https://image.wh1te.dev/IMG_6931.png)
