@@ -5,4 +5,11 @@
     <meta http-equiv="refresh" content="0;url=readme.html" />
   </head>
   <body></body>
+  <script language="javascript">
+    //防止页面后退
+    history.pushState(null, null, document.URL);
+    window.addEventListener("popstate", function () {
+      history.pushState(null, null, document.URL);
+    });
+  </script>
 </html>
