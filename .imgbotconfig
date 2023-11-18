@@ -1,0 +1,8 @@
+{
+  "compressWiki": false,
+  "schedule": "daily",
+  "ignoredFiles": [
+    "*",
+    "!/Web/*"
+  ]
+}
