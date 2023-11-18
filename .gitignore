@@ -2,6 +2,10 @@
 ############################
 /.obsidian/*
 
+# White's secrets #
+###################
+/Secrets/*
+
 # Logs and databases #
 ######################
 *.log
