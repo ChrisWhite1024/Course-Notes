@@ -1,5 +1,4 @@
 {
-  "compressWiki": false,
   "schedule": "daily",
   "ignoredFiles": [
     "*",
