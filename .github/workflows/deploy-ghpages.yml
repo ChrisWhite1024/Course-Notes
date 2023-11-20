@@ -1,4 +1,4 @@
-name: Deploy Obsidian Webpages
+name: Deploy obsidian webpages
 
 on:
   push:
