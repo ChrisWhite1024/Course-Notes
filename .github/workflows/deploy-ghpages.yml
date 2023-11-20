@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master  # 当代码被推送到主分支时触发
+    paths:
+      - 'Web/**'
 
 permissions:
   contents: write
