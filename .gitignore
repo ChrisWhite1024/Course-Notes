@@ -20,6 +20,9 @@ ehthumbs.db
 Icon?
 Thumbs.db
 *.DS_Store
+
+# Pandoc
+/.pandoc/*
  
 # Xcode
 *.pbxuser
