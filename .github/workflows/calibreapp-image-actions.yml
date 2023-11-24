@@ -4,25 +4,24 @@ on:
     branches:
       - master
     paths:
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.png'
-      - '**.webp'
+      - 'Web/**'
 
 jobs:
   build:
     name: calibreapp/image-actions
     runs-on: ubuntu-latest
     steps:
+    
       - name: Checkout Repo
         uses: actions/checkout@v3
+        
       - name: Compress Images
         id: calibre
         uses: calibreapp/image-actions@main
         with:
           githubToken: ${{ secrets.PAT }}
           compressOnly: true
-          ignorePaths: 'Campus/**,Diary/**'
+          ignorePaths: '!(Web)/**'
           
       - name: Create New Pull Request If Needed
         if: steps.calibre.outputs.markdown != ''
@@ -33,3 +32,11 @@ jobs:
           branch-suffix: timestamp
           commit-message: Compressed Images
           body: ${{ steps.calibre.outputs.markdown }}
+          
+      - name: Enable Pull Request Automerge
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.PAT }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
