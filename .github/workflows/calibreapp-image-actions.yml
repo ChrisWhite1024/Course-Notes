@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, 'Merge branch') }}
     name: calibreapp/image-actions
     runs-on: ubuntu-latest
     steps:
