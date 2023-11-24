@@ -23,6 +23,7 @@ jobs:
         with:
           compressOnly: true
           ignorePaths: '!(Web)/**'
+          githubToken: ${{ secrets.PAT }}
       - name: Create New Pull Request If Needed
         if: steps.calibre.outputs.markdown != ''
         uses: peter-evans/create-pull-request@v4
