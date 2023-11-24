@@ -6,10 +6,6 @@ on:
     paths:
       - 'Web/**'
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   build:
     name: calibreapp/image-actions
@@ -28,7 +24,7 @@ jobs:
         if: steps.calibre.outputs.markdown != ''
         uses: peter-evans/create-pull-request@v4
         with:
-          githubToken: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT }}
           title: Compressed Images
           branch-suffix: timestamp
           commit-message: Compressed Images
