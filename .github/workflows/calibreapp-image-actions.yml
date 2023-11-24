@@ -37,6 +37,6 @@ jobs:
           body: ${{ steps.calibre.outputs.markdown }}
           
       - name: Enable Pull Request Automerge
-        run: gh pr merge --merge --auto "${{ steps.cpr.outputs.pull-request-number }}"
+        run: gh pr merge --merge --auto "$PULL_REQUEST_NUMBER"
         env:
           GH_TOKEN: ${{ secrets.PAT }}
