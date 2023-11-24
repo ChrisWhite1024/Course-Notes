@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, 'Merge branch') }}
+    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, 'Merge pull request #') }}
     name: calibreapp/image-actions
     runs-on: ubuntu-latest
     steps:
@@ -38,6 +38,7 @@ jobs:
           body: ${{ steps.calibre.outputs.markdown }}
           
       - name: Enable Pull Request Automerge
+        if: steps.calibre.outputs.markdown != ''
         run: gh pr merge --merge --auto "$PULL_REQUEST_NUMBER"
         env:
           GH_TOKEN: ${{ secrets.PAT }}
