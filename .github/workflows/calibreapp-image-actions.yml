@@ -4,7 +4,7 @@ on:
     branches:
       - master
     paths:
-      - '/Web/**'
+      - 'Web/**'
 jobs:
   build:
     name: calibreapp/image-actions
