@@ -21,13 +21,14 @@ jobs:
         id: calibre
         uses: calibreapp/image-actions@main
         with:
+          githubToken: ${{ secrets.PAT }}
           compressOnly: true
           ignorePaths: '!(Web)/**'
-          githubToken: ${{ secrets.PAT }}
       - name: Create New Pull Request If Needed
         if: steps.calibre.outputs.markdown != ''
         uses: peter-evans/create-pull-request@v4
         with:
+          githubToken: ${{ secrets.PAT }}
           title: Compressed Images
           branch-suffix: timestamp
           commit-message: Compressed Images
