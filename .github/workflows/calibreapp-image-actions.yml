@@ -20,12 +20,23 @@ jobs:
           githubToken: ${{ secrets.PAT }}
           compressOnly: true
           ignorePaths: '!(Web)/**'
-      - name: Create New Pull Request If Needed
-        if: steps.calibre.outputs.markdown != ''
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.PAT }}
-          title: Compressed Images
-          branch-suffix: timestamp
-          commit-message: Compressed Images
-          body: ${{ steps.calibre.outputs.markdown }}
+          
+#      - name: Create New Pull Request If Needed
+#        if: steps.calibre.outputs.markdown != ''
+#        uses: peter-evans/create-pull-request@v4
+#        with:
+#          token: ${{ secrets.PAT }}
+#          title: Compressed Images
+#          branch-suffix: timestamp
+#          commit-message: Compressed Images
+#          body: ${{ steps.calibre.outputs.markdown }}
+
+      - name: Push changes
+        run: |
+          git config --global user.name 'ChrisWhite1024'
+          git config --global user.email 'chriswhite33333@gmail.com'
+          git add .
+          git commit -m "Compressed Images"
+          git push origin master
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
