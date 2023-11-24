@@ -4,7 +4,10 @@ on:
     branches:
       - master
     paths:
-      - 'Web/**'
+      - 'Web/**.jpg'
+      - 'Web/**.jpeg'
+      - 'Web/**.png'
+      - 'Web/**.webp'
 
 jobs:
   build:
