@@ -500,6 +500,7 @@ Ii
 IDATg
 IAw
 IBXz
+INT
 BGP
 Bellman
 By
@@ -1645,6 +1646,7 @@ nBE
 nMp
 neVJ
 nGyj
+negetive
 least
 link
 layer
@@ -1908,6 +1910,7 @@ lZlr
 lKn
 lYG
 lbh
+little
 cost
 conserving
 classful
@@ -2169,6 +2172,7 @@ cCt
 cNY
 cPU
 contains
+complement
 path
 port
 prefix
@@ -2427,6 +2431,7 @@ pgC
 pGY
 paL
 poisoned
+printf
 shortest
 state
 service
@@ -2717,6 +2722,8 @@ sca
 study
 src
 style
+space
+short
 Link
 LS
 Line
@@ -3188,6 +3195,7 @@ Sqt
 SOf
 SKp
 StFq
+Sign
 Distance
 DV
 Dijkstra
@@ -3827,6 +3835,8 @@ bYY
 bNA
 bPi
 border
+byte
+big
 Ford
 FCFS
 First
@@ -4537,6 +4547,7 @@ fbq
 fZzhs
 fKB
 fAY
+fun
 table
 the
 tail
@@ -4806,6 +4817,7 @@ tcfA
 tNw
 tDo
 tWN
+two
 model
 matching
 message
@@ -5055,6 +5067,7 @@ mJT
 mfl
 mXH
 materials
+memory
 effort
 eg
 end
@@ -5278,6 +5291,7 @@ eBM
 erk
 ele
 exW
+endian
 input
 interface
 is
@@ -5466,6 +5480,7 @@ iCT
 iHw
 iSCpQ
 img
+int
 PCI
 Plug
 Play
@@ -6517,6 +6532,8 @@ Mxx
 MMFY
 MOH
 Mmc
+Magnitude
+MAX
 Head
 HOL
 Host
@@ -7958,6 +7975,8 @@ wBm
 wPsZ
 wms
 wtb
+word
+weight
 Weight
 WFQ
 Window
@@ -8431,6 +8450,7 @@ oiq
 oHF
 oLL
 oeS
+ones
 UDP
 Unit
 Us
@@ -9095,6 +9115,7 @@ uGw
 uYt
 uIO
 used
+unsigned
 known
 kHz
 kh
@@ -10669,6 +10690,7 @@ vge
 vuS
 vgj
 vzcA
+virtual
 years
 yi
 yX
@@ -11182,6 +11204,9 @@ xGC
 xad
 xgKx
 xsL
+xDF
+xffffff
+xffffffC
 XMP
 XRc
 XPp
