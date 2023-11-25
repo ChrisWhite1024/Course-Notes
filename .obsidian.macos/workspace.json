@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "6ae18d92304d0fc9",
+        "id": "7f98f90e73dd4469",
         "type": "tabs",
         "children": [
           {
-            "id": "f8980a8afac41e7f",
+            "id": "f842bb411fbef69b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md"
+              }
             }
           },
           {
@@ -167,8 +175,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f8980a8afac41e7f",
+  "active": "183896dd0949c83c",
   "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Drawing 2023-11-25 15.32.04.excalidraw.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
