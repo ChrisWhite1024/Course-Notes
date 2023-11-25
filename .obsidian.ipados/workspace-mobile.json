@@ -1,0 +1,192 @@
+{
+  "main": {
+    "id": "621d44e58513ffae",
+    "type": "split",
+    "children": [
+      {
+        "id": "3c3878b4e406fb83",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "be25209c59917781",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Drawing 2023-11-25 15.32.04.excalidraw.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8310835336f6600a",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "9beb30c253d86f8e",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "7fc0d00dcb338dfb",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "df37f227080a3cdb",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "49ced471290b1b34",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "e6567a96807a7bce",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "fff66e65de9a8309",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Drawing 2023-11-25 15.32.04.excalidraw.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "71a2a62ad9b18578",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Drawing 2023-11-25 15.32.04.excalidraw.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "3bf0f4a1b98c8a08",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Drawing 2023-11-25 15.32.04.excalidraw.md"
+          }
+        }
+      },
+      {
+        "id": "360545ea499298c6",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "be25209c59917781",
+  "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Drawing 2023-11-25 15.32.04.excalidraw.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+    "Excalidraw/Drawing 2023-11-25 15.18.27.excalidraw.md",
+    "Excalidraw",
+    "Self-Introduction.md",
+    "Campus/English-Notes/UCB-CS61A/labs/lab01/tests/if-statements.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab01/tests/__init__.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab01/tests/control.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab01/tests/clones.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab01/tests/short-circuit.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab01/tests/debugging-quiz.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab00/tests/python-basics.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab00/tests/__init__.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab02/tests/__init__.py",
+    "Campus/English-Notes/UCB-CS61A/labs/lab02/Q7.jpg",
+    "Campus/English-Notes/UCB-CS61A/labs/lab02/Q6.jpg",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231103113920.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231113151809.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231103154100.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231110084755.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231031145614.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231108125514.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231108112409.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231106084448.png",
+    "Campus/Chinese-Notes/计算机科学/操作系统/教材/26 Concurrency Introduction.md",
+    "Campus/Chinese-Notes/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
+    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
+    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
+    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/计算机系统漫游.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/JavaScript快速入门.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/GNU Make.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/Shell & Cli Tools.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/Latex数学公式.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/Git版本控制.md",
+    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统概述.md",
+    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统上的程序.md",
+    "Campus/Chinese-Notes/计算机科学/操作系统/多处理器编程.md",
+    "Campus/Chinese-Notes/数学/Introduction to Linear Algebra/Chapter 1.md",
+    "Campus/English-Notes/UCB-CS61A/myProgress.md",
+    "Campus/English-Notes/MS-AI For Beginners/未命名.md",
+    "README.md"
+  ]
+}
