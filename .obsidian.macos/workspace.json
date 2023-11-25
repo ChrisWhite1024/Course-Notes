@@ -136,9 +136,25 @@
               "type": "calendar",
               "state": {}
             }
+          },
+          {
+            "id": "183896dd0949c83c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "643972cc69f580be",
+            "type": "leaf",
+            "state": {
+              "type": "ReferenceListView",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -159,7 +175,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "a78f3bc1b592ffb8",
+  "active": "183896dd0949c83c",
   "lastOpenFiles": [
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
