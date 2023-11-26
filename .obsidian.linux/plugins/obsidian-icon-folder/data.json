@@ -1,7 +1,7 @@
 {
   "settings": {
     "migrated": 3,
-    "iconPacksPath": ".obsidian.macos/icons",
+    "iconPacksPath": ".obsidian.linux/icons",
     "fontSize": 16,
     "emojiStyle": "none",
     "iconColor": null,
