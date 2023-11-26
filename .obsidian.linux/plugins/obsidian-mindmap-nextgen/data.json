@@ -1,7 +1,15 @@
 {
   "version": "2.0",
   "layout": [
-    null
+    [
+      null
+    ],
+    [
+      {
+        "type": "pinned",
+        "path": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md"
+      }
+    ]
   ],
   "settings": {
     "splitDirection": "horizontal",
