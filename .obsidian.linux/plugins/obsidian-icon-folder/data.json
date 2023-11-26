@@ -1,0 +1,33 @@
+{
+  "settings": {
+    "migrated": 3,
+    "iconPacksPath": ".obsidian.linux/icons",
+    "fontSize": 16,
+    "emojiStyle": "none",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "LiBook",
+      "RiLock2Line",
+      "LiBraces",
+      "LiBookLock",
+      "LiSchool"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false,
+    "iconInTitleEnabled": false,
+    "iconInFrontmatterEnabled": false,
+    "iconsBackgroundCheckEnabled": false,
+    "iconsInNotesEnabled": true
+  },
+  "Campus": "LiSchool",
+  "Diary": "LiBook",
+  "Web": "LiBraces",
+  "Secrets": "LiBookLock"
+}
