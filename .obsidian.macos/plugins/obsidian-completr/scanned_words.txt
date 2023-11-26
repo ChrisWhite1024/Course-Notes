@@ -3393,6 +3393,8 @@ Dpd
 Dko
 DaG
 Dve
+Deficit
+Disorder
 Vector
 Version
 VA
@@ -6281,6 +6283,8 @@ Amn
 Arm
 AXN
 AdO
+ADHD
+Attention
 Memory
 Management
 MTU
@@ -6703,6 +6707,7 @@ HiKgo
 Hekü
 HAY
 Hvm
+Hyperactivity
 drop
 discipline
 dotted
@@ -7286,6 +7291,7 @@ Rjs
 RMr
 RtM
 Rfw
+Ritalin
 Early
 ECN
 Event
@@ -9849,6 +9855,7 @@ hFM
 hHl
 hdJ
 hGm
+hhh
 Jan
 Jul
 John

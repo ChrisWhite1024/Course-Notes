@@ -11,9 +11,11 @@
             "id": "f842bb411fbef69b",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md"
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md"
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md"
               }
             }
           },
@@ -152,7 +154,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -175,12 +177,15 @@
   },
   "active": "f842bb411fbef69b",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+    "Diary/2023-11-25.md",
+    "Diary/2023-11-01.md",
+    "Diary/2023-10-31.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw",
     "Excalidraw/Drawing 2023-11-25 16.34.02.excalidraw.md",
     "Excalidraw",

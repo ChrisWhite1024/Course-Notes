@@ -15,6 +15,6 @@
   "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/association-for-computing-machinery.csl",
   "hideLinks": true,
   "enableCiteKeyCompletion": true,
-  "showCitekeyTooltips": false,
+  "showCitekeyTooltips": true,
   "cslLang": "en-US"
 }
