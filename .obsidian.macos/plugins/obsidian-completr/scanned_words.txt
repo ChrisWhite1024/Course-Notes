@@ -672,6 +672,7 @@ Bwp
 Bfd
 BFQ
 BpB
+Broader
 routing
 router
 rule
@@ -1145,6 +1146,7 @@ agm
 ayk
 aXFa
 acquiring
+autonomous
 graph
 gray
 geographically
@@ -2724,6 +2726,7 @@ src
 style
 space
 short
+system
 Link
 LS
 Line
@@ -5483,6 +5486,8 @@ iHw
 iSCpQ
 img
 int
+intra
+inter
 PCI
 Plug
 Play
@@ -6285,6 +6290,7 @@ AXN
 AdO
 ADHD
 Attention
+Autonomous
 Memory
 Management
 MTU
@@ -9630,6 +9636,7 @@ GHf
 GEA
 Gü
 GAU
+Gateway
 handshake
 header
 html

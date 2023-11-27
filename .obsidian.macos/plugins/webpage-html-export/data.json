@@ -2,7 +2,7 @@
   "inlineCSS": false,
   "inlineJS": false,
   "inlineImages": false,
-  "includePluginCSS": "dataview\ncm-editor-syntax-highlight-obsidian\nobsidian-icon-folder\nobsidian-pandoc-reference-list",
+  "includePluginCSS": "dataview\ncm-editor-syntax-highlight-obsidian\nobsidian-icon-folder",
   "includeSvelteCSS": true,
   "makeNamesWebStyle": true,
   "allowFoldingHeadings": true,
