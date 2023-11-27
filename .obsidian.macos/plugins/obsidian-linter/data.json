@@ -246,7 +246,14 @@
   "linterLocale": "system-default",
   "logLevel": "ERROR",
   "lintCommands": [],
-  "customRegexes": [],
+  "customRegexes": [
+    {
+      "label": "hi",
+      "find": "(!\\[\\[.*?\\]\\])",
+      "replace": "\\n\\n$1",
+      "flags": "gm"
+    }
+  ],
   "commonStyles": {
     "aliasArrayStyle": "single-line",
     "tagArrayStyle": "single-line",

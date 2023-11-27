@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2240dcd02812dfda",
+        "id": "116d550f1f3e9589",
         "type": "tabs",
         "children": [
           {
-            "id": "175b69add3ae21bf",
+            "id": "d81a4676c839f3f3",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -104,7 +104,7 @@
               "state": {
                 "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
                 "linksCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -175,13 +175,16 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "175b69add3ae21bf",
+  "active": "d81a4676c839f3f3",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面 1.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面 1.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "网络层-控制平面.md",
     "Attachments/Pasted image 20231023191228.png",
     "Attachments/Pasted image 20231111125547.png",
@@ -195,7 +198,6 @@
     "Attachments/Pasted image 20231101104900.png",
     "Attachments",
     "Campus/Chinese-Notes/计算机科学/计算机网络/missfont.log",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
     "Diary/2023-11-25.md",
     "Diary/2023-11-01.md",
     "Diary/2023-10-31.md",
