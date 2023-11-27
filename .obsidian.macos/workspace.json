@@ -11,6 +11,17 @@
             "id": "16ab466ef3a8ff52",
             "type": "leaf",
             "state": {
+              "type": "diff-view",
+              "state": {
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+                "staged": false
+              }
+            }
+          },
+          {
+            "id": "5977302a33630734",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
                 "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
@@ -19,7 +30,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -175,13 +187,26 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "16ab466ef3a8ff52",
+  "active": "5977302a33630734",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+    "网络层-控制平面.md",
+    "Attachments/Pasted image 20231023191228.png",
+    "Attachments/Pasted image 20231111125547.png",
+    "Attachments/Pasted image 20231110172736.png",
+    "Attachments/Pasted image 20231107151326.png",
+    "Attachments/IMG_2980B2168CAF-1.jpeg",
+    "Attachments/Pasted image 20231108104004.png",
+    "Attachments/Pasted image 20231108103623.png",
+    "Attachments/Pasted image 20231102103136.png",
+    "Attachments/Pasted image 20231031163253.png",
+    "Attachments/Pasted image 20231101104900.png",
+    "Attachments",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/missfont.log",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
     "Diary/2023-11-25.md",
     "Diary/2023-11-01.md",
     "Diary/2023-10-31.md",

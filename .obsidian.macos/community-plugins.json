@@ -20,5 +20,7 @@
   "obsidian-pandoc-reference-list",
   "obsidian-admonition",
   "obsidian-zotero-desktop-connector",
-  "obsidian-mindmap-nextgen"
+  "obsidian-mindmap-nextgen",
+  "obsidian-link-converter",
+  "obsidian-enhancing-export"
 ]

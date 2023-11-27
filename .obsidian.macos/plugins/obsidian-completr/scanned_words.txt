@@ -1452,6 +1452,7 @@ gNh
 gnA
 gMWs
 gQq
+gateway
 neighbor
 network
 non
@@ -5297,6 +5298,7 @@ erk
 ele
 exW
 endian
+eBGP
 input
 interface
 is
@@ -5488,6 +5490,8 @@ img
 int
 intra
 inter
+internal
+iBGP
 PCI
 Plug
 Play
@@ -5662,6 +5666,7 @@ PRx
 PkN
 Pon
 Poc
+Pasted
 Tenary
 TCAM
 TCP
@@ -6071,6 +6076,7 @@ CjNbs
 CAc
 CljW
 Course
+Connection
 Address
 Active
 AQM
