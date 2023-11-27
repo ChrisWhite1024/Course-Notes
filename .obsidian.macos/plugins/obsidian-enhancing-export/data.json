@@ -7,7 +7,8 @@
       "name": "Markdown (Hugo)"
     },
     {
-      "name": "Html"
+      "name": "Html",
+      "arguments": "-f markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/math_block.lua\" --embed-resources --standalone --metadata title=\"${currentFileName}\" -s -o \"${outputPath}\" -t html"
     },
     {
       "name": "TextBundle"
@@ -47,13 +48,6 @@
     },
     {
       "name": "Bibliography"
-    },
-    {
-      "name": "Test",
-      "type": "pandoc",
-      "arguments": "-f markdown --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/math_block.lua\" --embed-resources --standalone --metadata title=\"${currentFileName}\" -s -o \"${outputPath}\" -t html",
-      "customArguments": "--mathjax=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js\"",
-      "extension": ".html"
     }
   ],
   "defaultExportDirectoryMode": "Auto",
