@@ -1,6 +1,6 @@
 %%
-% Copyright (c) 2017 - 2023, Pascal Wagler;
-% Copyright (c) 2014 - 2023, John MacFarlane
+% Copyright (c) 2017 - 2021, Pascal Wagler;
+% Copyright (c) 2014 - 2021, John MacFarlane
 %
 % All rights reserved.
 %
@@ -46,6 +46,8 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names,table}{xcolor}
 $if(CJKmainfont)$
 \PassOptionsToPackage{space}{xeCJK}
+\usepackage{datetime}
+
 $endif$
 %
 \documentclass[
@@ -76,11 +78,9 @@ $if(background-image)$
 \usebackgroundtemplate{%
   \includegraphics[width=\paperwidth]{$background-image$}%
 }
-% In beamer background-image does not work well when other images are used, so this is the workaround
-\pgfdeclareimage[width=\paperwidth,height=\paperheight]{background}{$background-image$}
-\usebackgroundtemplate{\pgfuseimage{background}}
 $endif$
-\usepackage{pgfpages}
+
+
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
 \setbeamercolor{caption name}{fg=normal text.fg}
@@ -213,12 +213,6 @@ $if(CJKmainfont)$
   \ifXeTeX
     \usepackage{xeCJK}
     \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
-    $if(CJKsansfont)$
-      \setCJKsansfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKsansfont$}
-    $endif$
-    $if(CJKmonofont)$
-      \setCJKmonofont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmonofont$}
-    $endif$
   \fi
 $endif$
 $if(luatexjapresetoptions)$
@@ -260,6 +254,11 @@ $endif$
 }{}
 $if(indent)$
 $else$
+
+\usepackage{pgfpages} 
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{ragged2e}
 \makeatletter
 \@ifundefined{KOMAClassName}{% if non-KOMA class
   \IfFileExists{parskip.sty}{%
@@ -299,10 +298,7 @@ $else$
 \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering,$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $endif$
-$if(titlepage-logo)$
-\usepackage[export]{adjustbox}
-\usepackage{graphicx}
-$endif$
+
 $if(beamer)$
 \newif\ifbibliography
 $endif$
@@ -374,10 +370,7 @@ $if(graphics)$
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htbp
 \makeatletter
-% Make use of float-package and set default placement for figures to H.
-% The option H means 'PUT IT HERE' (as  opposed to the standard h option which means 'You may put it here if you like').
-\usepackage{float}
-\floatplacement{figure}{$if(float-placement-figure)$$float-placement-figure$$else$H$endif$}
+\def\fps@figure{htbp}
 \makeatother
 $endif$
 $if(svg)$
@@ -385,19 +378,7 @@ $if(svg)$
 $endif$
 $if(strikeout)$
 $-- also used for underline
-\ifLuaTeX
-  \usepackage{luacolor}
-  \usepackage[soul]{lua-ul}
-\else
 \usepackage{soul}
-$if(CJKmainfont)$
-  \ifXeTeX
-    % soul's \st doesn't work for CJK:
-    \usepackage{xeCJKfntef}
-    \renewcommand{\st}[1]{\sout{#1}}
-  \fi
-$endif$
-\fi
 $endif$
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
@@ -406,9 +387,6 @@ $if(numbersections)$
 \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
 $else$
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-$endif$
-$if(subfigure)$
-\usepackage{subcaption}
 $endif$
 $if(beamer)$
 $else$
@@ -428,38 +406,28 @@ $if(pagestyle)$
 \pagestyle{$pagestyle$}
 $endif$
 $if(csl-refs)$
-% definitions for citeproc citations
-\NewDocumentCommand\citeproctext{}{}
-\NewDocumentCommand\citeproc{mm}{%
-  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
-\makeatletter
- % allow citations to break across lines
- \let\@cite@ofmt\@firstofone
- % avoid brackets around text for \cite:
- \def\@biblabel#1{}
- \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
-\makeatother
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
-  {\begin{list}{}{%
-   \setlength{\itemindent}{0pt}
-   \setlength{\leftmargin}{0pt}
-   \setlength{\parsep}{0pt}
-   % turn on hanging indent if param 1 is 1
-   \ifodd #1
-    \setlength{\leftmargin}{\cslhangindent}
-    \setlength{\itemindent}{-1\cslhangindent}
-   \fi
-   % set entry spacing
-   \setlength{\itemsep}{#2\baselineskip}}}
-  {\end{list}}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
 \usepackage{calc}
-\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 $endif$
 $if(lang)$
@@ -470,18 +438,9 @@ $if(lang)$
 \fi
 $if(babel-lang)$
 \babelprovide[main,import]{$babel-lang$}
-$if(mainfont)$
-\ifPDFTeX
-\else
-\babelfont{rm}[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
-\fi
-$endif$
 $endif$
 $for(babel-otherlangs)$
 \babelprovide[import]{$babel-otherlangs$}
-$endfor$
-$for(babelfonts/pairs)$
-\babelfont[$babelfonts.key$]{rm}{$babelfonts.value$}
 $endfor$
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
@@ -554,9 +513,9 @@ $else$
   hidelinks,
 $endif$
   breaklinks=true,
-  pdfcreator={LaTeX via pandoc}}
+  pdfcreator={LaTeX via pandoc with the Eisvogel template}}
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+\title{$if(title)$$title$$else$Set up Title in Frontmatter (see abstract)$endif$}
 $endif$
 $if(subtitle)$
 $if(beamer)$
@@ -571,7 +530,12 @@ $endif$
 \subtitle{$subtitle$}
 $endif$
 \author{$for(author)$$author$$sep$ \and $endfor$}
-\date{$date$}
+$if(date)$
+  \date{$date$}
+$else$
+  \date{\today}
+$endif$
+
 $if(beamer)$
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
@@ -597,7 +561,9 @@ $endif$
 %
 % for the background color of the title page
 %
-$if(titlepage)$
+$if(notitlepage)$
+
+$else$
 \usepackage{pagecolor}
 \usepackage{afterpage}
 $if(titlepage-background)$
@@ -626,7 +592,7 @@ $endif$
 \definecolor{caption-color}{HTML}{777777}
 $if(beamer)$
 $else$
-\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=$if(caption-justification)$$caption-justification$$else$raggedright$endif$]{caption}
+\usepackage[font={stretch=1.2}, textfont={color=caption-color}, position=top, skip=4mm, labelfont=bf, singlelinecheck=false, justification=$if(caption-justification)$$caption-justification$$else$justified$endif$]{caption}
 \setcapindent{0em}
 $endif$
 
@@ -641,7 +607,7 @@ $endif$
 \item\relax\color{blockquote-text}\ignorespaces}{\unskip\unskip\endlist\end{customblockquote}}
 
 %
-% Source Sans Pro as the default font family
+% Source Sans Pro as the de­fault font fam­ily
 % Source Code Pro for monospace text
 %
 % 'default' option sets the default
@@ -656,9 +622,6 @@ $endif$
 \else % if not pdftex
   $if(mainfont)$
   $else$
-  \usepackage[fallback]{xeCJK}
-  \setCJKmainfont{STFangsong}[BoldFont=STHeiti, ItalicFont=STKaiti]
-  \setCJKfallbackfamilyfont{rm}{STFangsong}
   \usepackage[default]{sourcesanspro}
   \usepackage{sourcecodepro}
 
@@ -720,6 +683,11 @@ $if(tables)$
 \renewcommand{\arraystretch}{1.3}     % spacing (padding)
 
 $if(table-use-row-colors)$
+% TODO: This doesn't work anymore. I don't know why.
+% Reset rownum counter so that each table
+% starts with the same row colors.
+% https://tex.stackexchange.com/questions/170637/restarting-rowcolors
+%
 % Unfortunately the colored cells extend beyond the edge of the
 % table because pandoc uses @-expressions (@{}) like so:
 %
@@ -727,16 +695,18 @@ $if(table-use-row-colors)$
 % \end{longtable}
 %
 % https://en.wikibooks.org/wiki/LaTeX/Tables#.40-expressions
-\usepackage{etoolbox}
-\AtBeginEnvironment{longtable}{\rowcolors{2}{}{table-row-color!100}}
-\preto{\toprule}{\hiderowcolors}{}{}
-\appto{\endhead}{\showrowcolors}{}{}
-\appto{\endfirsthead}{\showrowcolors}{}{}
+\let\oldlongtable\longtable
+\let\endoldlongtable\endlongtable
+\renewenvironment{longtable}{
+\rowcolors{3}{}{table-row-color!100}  % row color
+\oldlongtable} {
+\endoldlongtable
+\global\rownum=0\relax}
 $endif$
 $endif$
 
 %
-% remove paragraph indentation
+% remove paragraph indention
 %
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
@@ -802,8 +772,8 @@ $endif$
   literate         =
   {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
   {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-  {À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {à}{{\`a}}1 {è}{{\'e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
   {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
   {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
   {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
@@ -912,9 +882,11 @@ $endif$
 %%
 %% end added
 %%
-\usepackage[fallback]{xeCJK}
-\setCJKmainfont{STFangsong}[BoldFont=STHeiti, ItalicFont=STKaiti]
-\setCJKfallbackfamilyfont{rm}{STFangsong}
+\usepackage{pgfpages}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+
 
 \begin{document}
 
@@ -923,12 +895,12 @@ $endif$
 %%
 $if(beamer)$
 $else$
-$if(titlepage)$
+$if(notitlepage)$
+$else$
 \begin{titlepage}
 $if(titlepage-background)$
 \newgeometry{top=2cm, right=4cm, bottom=3cm, left=4cm}
 $else$
-\newgeometry{left=6cm}
 $endif$
 $if(titlepage-color)$
 \definecolor{titlepage-color}{HTML}{$titlepage-color$}
@@ -941,8 +913,8 @@ $endif$
 \begin{flushleft}
 \noindent
 \\[-1em]
-\color[HTML]{$if(titlepage-text-color)$$titlepage-text-color$$else$5F5F5F$endif$}
-\makebox[0pt][l]{\colorRule[$if(titlepage-rule-color)$$titlepage-rule-color$$else$435488$endif$]{1.3\textwidth}{$if(titlepage-rule-height)$$titlepage-rule-height$$else$4$endif$pt}}
+\color[HTML]{$if(titlepage-text-color)$$titlepage-text-color$$else$000000$endif$}
+\makebox[0pt][l]{\colorRule[$if(titlepage-rule-color)$$titlepage-rule-color$$else$FFFFFF$endif$]{1.3\textwidth}{$if(titlepage-rule-height)$$titlepage-rule-height$$else$0$endif$pt}}
 \par
 \noindent
 
@@ -952,43 +924,77 @@ $if(titlepage-background)$
   \setstretch{2}
   \vfill
   \vskip -8em
-  \noindent {\huge \textbf{\textsf{$title$}}}
+  \noindent {\huge \textbf{\textsf{
+  $if(title)$
+    $title$
+  $else$
+    Set up Title in Frontmatter (see Abstract)
+  $endif$
+}}}
   $if(subtitle)$
   \vskip 1em
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
+  \noindent {\Large \textit{$for(author)$$author$$sep$, $endfor$} \vskip 0.6em \textsf{$date$}}
   \vfill
 }
 $else$
 {
+  \begin{center}
   \setstretch{1.4}
   \vfill
-  \noindent {\huge \textbf{\textsf{$title$}}}
+  \noindent {\huge \textbf{\textsf{
+  $if(title)$
+    $title$
+  $else$
+    Set up Title in Frontmatter (see Abstract)
+  $endif$
+}}}
   $if(subtitle)$
   \vskip 1em
   {\Large \textsf{$subtitle$}}
   $endif$
   \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}
+  \noindent {\Large \textit{$for(author)$$author$$sep$, $endfor$}}
   \vfill
+  \end{center}
 }
 $endif$
 
 $if(titlepage-logo)$
 \noindent
-\includegraphics[width=$if(logo-width)$$logo-width$$else$35mm$endif$, left]{$titlepage-logo$}
+\begin{center}
+\includegraphics[width=$if(logo-width)$$logo-width$$else$35mm$endif$]{$titlepage-logo$}
+\end{center}
 $endif$
-
+$if(text1)$
+\begin{center}
+{\large \textsf{$text1$}}
+\end{center}
+$endif$
+$if(text2)$
+\begin{center}
+{\large \textsf{$text2$}}
+\end{center}
+$endif$
+$if(text3)$
+\begin{center}
+{\large \textsf{$text3$}}
+\end{center}
+$endif$
+$if(text4)$
+\begin{center}
+{\large \textsf{$text4$}}
+\end{center}
+$endif$
 $if(titlepage-background)$
 $else$
-\textsf{$date$}
 $endif$
 \end{flushleft}
 \end{titlepage}
 \restoregeometry
-\pagenumbering{arabic}
+\pagenumbering{arabic} 
 $endif$
 $endif$
 
@@ -998,20 +1004,75 @@ $endif$
 
 $if(has-frontmatter)$
 \frontmatter
-$endif$
-$if(title)$
-$if(beamer)$
 \frame{\titlepage}
 % don't generate the default title
 % $else$
 % \maketitle
-$endif$
-$if(abstract)$
+\pagenumbering{Roman} % set the numbering style to lowercase letter
+
+\begin{center}
+ {\LARGE \textbf{\textsf{Abstract}}}
+\end{center}
+
 \begin{abstract}
-$abstract$
+\begin{justify}
+  $if(abstract)$
+  $abstract$
+  $else$
+  Add your abstract at the beginning of your markdown file like this 
+  \begin{verbatim}
+  ---
+  title: "Your Title" 
+  abstract: "your abstract here"
+  author: Leonardo V. Castorina, Another 1, Another 2
+  titlepage-logo: /absolute/path/to/logo.pdf
+  acknowledgements: "I would like to thank my dog Data."
+  declaration: "I declare that this thesis was composed by myself."
+  ---
+  \end{verbatim}
+  This is called YAML frontmatter.  Make sure to set up a title! If you set your abstract correctly you should not see this message.
+
+  Optionally you can set up \texttt{titlepage-logo} for a logo in the cover page, \texttt{acknowledgements} section, and  \texttt{declaration} section.
+
+  $endif$
+\end{justify}
 \end{abstract}
+\pagebreak
+
+
+$if(acknowledgements)$
+\begin{center}
+ {\LARGE \textbf{\textsf{Acknowledgements}}}
+\end{center}
+
+\begin{abstract}
+\begin{justify}
+$acknowledgements$
+\end{justify}
+\end{abstract}
+\pagebreak
+
 $endif$
+
+$if(declaration)$
+\begin{center}
+ {\LARGE \textbf{\textsf{Declaration}}}
+\end{center}
+
+\begin{abstract}
+\begin{justify}
+  $declaration$ \par
+   \vspace{1in}\raggedleft({\em $author$\/})
+\end{justify}
+\end{abstract}
+\pagebreak
+
+
+
 $endif$
+\pagenumbering{arabic} % set the numbering style to lowercase letter
+\setcounter{page}{0} % Set the page counter to 3
+
 
 $if(first-chapter)$
 \setcounter{chapter}{$first-chapter$}
@@ -1022,9 +1083,10 @@ $for(include-before)$
 $include-before$
 
 $endfor$
-$if(toc)$
-$if(toc-title)$
+$if(no-toc)$
+$else$
 \renewcommand*\contentsname{$toc-title$}
+\renewcommand*\contentsname{Table of Contents}
 $endif$
 $if(beamer)$
 \begin{frame}[allowframebreaks]
@@ -1033,9 +1095,7 @@ $if(toc-title)$
 $endif$
   \tableofcontents[hideallsubsections]
 \end{frame}
-$if(toc-own-page)$
 \newpage
-$endif$
 $else$
 {
 $if(colorlinks)$
@@ -1043,9 +1103,7 @@ $if(colorlinks)$
 $endif$
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
-$if(toc-own-page)$
 \newpage
-$endif$
 }
 $endif$
 $endif$

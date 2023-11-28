@@ -154,7 +154,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -177,11 +177,15 @@
   },
   "active": "9dc86f0e14c22046",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128142543.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128111424.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128111008.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128110916.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128101839.png",
     "Campus/English-Notes/MS-AI For Beginners/未命名.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128100312.png",
@@ -193,10 +197,6 @@
     "网络层-控制平面.md",
     "Attachments/Pasted image 20231023191228.png",
     "Attachments/Pasted image 20231111125547.png",
-    "Attachments/Pasted image 20231110172736.png",
-    "Attachments/Pasted image 20231107151326.png",
-    "Attachments/IMG_2980B2168CAF-1.jpeg",
-    "Attachments/Pasted image 20231108104004.png",
     "Attachments",
     "Campus/Chinese-Notes/计算机科学/计算机网络/missfont.log",
     "Diary/2023-11-25.md",
