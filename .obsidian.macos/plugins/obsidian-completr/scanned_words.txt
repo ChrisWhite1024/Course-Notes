@@ -1147,6 +1147,7 @@ ayk
 aXFa
 acquiring
 autonomous
+attribute
 graph
 gray
 geographically
@@ -1914,6 +1915,7 @@ lKn
 lYG
 lbh
 little
+local
 cost
 conserving
 classful
@@ -2435,6 +2437,8 @@ pGY
 paL
 poisoned
 printf
+potato
+preference
 shortest
 state
 service
@@ -2965,6 +2969,7 @@ LcD
 LIV
 LrAf
 LUV
+Local
 State
 Software
 SDN
@@ -4314,6 +4319,7 @@ NqQ
 NhD
 Notes
 Note
+NEXT
 forwarding
 fd
 fragment
@@ -5667,6 +5673,8 @@ PkN
 Pon
 Poc
 Pasted
+PATH
+Potato
 Tenary
 TCAM
 TCP
@@ -6720,6 +6728,8 @@ Hekü
 HAY
 Hvm
 Hyperactivity
+HOP
+Hot
 drop
 discipline
 dotted
@@ -9869,6 +9879,7 @@ hHl
 hdJ
 hGm
 hhh
+hot
 Jan
 Jul
 John
