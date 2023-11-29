@@ -2,7 +2,7 @@
   "inlineCSS": false,
   "inlineJS": false,
   "inlineImages": false,
-  "includePluginCSS": "dataview\ncm-editor-syntax-highlight-obsidian\nobsidian-icon-folder",
+  "includePluginCSS": "dataview\nobsidian-icon-folder\ncm-editor-syntax-highlight-obsidian",
   "includeSvelteCSS": true,
   "makeNamesWebStyle": true,
   "allowFoldingHeadings": true,
