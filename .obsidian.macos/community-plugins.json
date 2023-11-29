@@ -16,11 +16,11 @@
   "webpage-html-export",
   "obsidian-icon-folder",
   "obsidian-wakatime",
-  "obsidian-completr",
   "obsidian-pandoc-reference-list",
   "obsidian-admonition",
   "obsidian-zotero-desktop-connector",
   "obsidian-mindmap-nextgen",
   "obsidian-enhancing-export",
-  "obsidian-linter"
+  "obsidian-linter",
+  "obsidian-completr"
 ]

@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "a32a9df1112dbb66",
+        "id": "5ab7892a8165daf4",
         "type": "tabs",
         "children": [
           {
-            "id": "9dc86f0e14c22046",
+            "id": "391bf0fca728371c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md"
-              }
+              "state": {}
             }
           },
           {
@@ -175,65 +167,29 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "floating": {
-    "id": "ba1bc7f5addcca42",
-    "type": "floating",
-    "children": [
-      {
-        "id": "bac8a8bebc16f4f1",
-        "type": "window",
-        "children": [
-          {
-            "id": "c44aa7c301b12ecf",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "3c5ebd82391da638",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
-                    "mode": "preview",
-                    "source": false
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 306,
-        "y": 457,
-        "width": 800,
-        "height": 400,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "3c5ebd82391da638",
+  "active": "391bf0fca728371c",
   "lastOpenFiles": [
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128142543.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128111424.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128111008.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128110916.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231129160250.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231129154719.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231129115525.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231129115749.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231129115455.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231129100416.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231129160250.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231129154719.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231129115749.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231129115525.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128101839.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面^分组.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/English-Notes/MS-AI For Beginners/未命名.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128100312.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231128095437.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231127172612.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面 1.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面 1.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
     "网络层-控制平面.md",
-    "Attachments/Pasted image 20231023191228.png",
-    "Attachments/Pasted image 20231111125547.png",
     "Attachments",
     "Campus/Chinese-Notes/计算机科学/计算机网络/missfont.log",
     "Diary/2023-11-25.md",
