@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -145,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md"
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md"
               }
             }
           },
@@ -174,7 +174,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -195,15 +195,52 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "391bf0fca728371c",
+  "floating": {
+    "id": "ba1bc7f5addcca42",
+    "type": "floating",
+    "children": [
+      {
+        "id": "3fd8fe8f35641f63",
+        "type": "window",
+        "children": [
+          {
+            "id": "778767a9f5868fcc",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "3fdd8e521a3b9578",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
+                    "mode": "preview",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 306,
+        "y": 457,
+        "width": 800,
+        "height": 400,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "3fdd8e521a3b9578",
   "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130180250.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130173734.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130170308.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
