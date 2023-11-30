@@ -1216,6 +1216,7 @@ axyY
 aBg
 aAAc
 aoM
+adapter
 graph
 gray
 geographically
@@ -2027,6 +2028,7 @@ lMW
 lDpF
 lTP
 lrA
+level
 cost
 conserving
 classful
@@ -2301,6 +2303,7 @@ ccv
 cHg
 cSxg
 cfcb
+correction
 path
 port
 prefix
@@ -2573,6 +2576,7 @@ pZB
 pHC
 pHBm
 pGw
+parity
 shortest
 state
 service
@@ -4291,6 +4295,8 @@ FKm
 FUu
 FgR
 FPN
+Forward
+FEC
 Networking
 NAT
 Night
@@ -4804,6 +4810,7 @@ fkN
 fbS
 fdA
 fOV
+framing
 table
 the
 tail
@@ -6422,6 +6429,8 @@ Cogent
 Communications
 Center
 Consortium
+Card
+Correction
 Address
 Active
 AQM
@@ -6924,6 +6933,8 @@ MZm
 MbPR
 Maryland
 MIB
+Medium
+MAC
 Head
 HOL
 Host
@@ -7108,6 +7119,7 @@ HKD
 Htz
 Hre
 HOSTNAME
+Hybird
 drop
 discipline
 dotted
@@ -7393,6 +7405,8 @@ dkmS
 dNl
 dnr
 dad
+detection
+dimension
 Queue
 Queuing
 Qos
@@ -7931,6 +7945,8 @@ EKl
 EUf
 EIdE
 EAq
+Error
+EDC
 queuing
 quality
 queue
@@ -9681,6 +9697,7 @@ uMWR
 uun
 ulC
 umG
+undetected
 known
 kHz
 kh
