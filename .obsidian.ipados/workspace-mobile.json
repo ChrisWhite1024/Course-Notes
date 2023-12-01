@@ -11,9 +11,11 @@
             "id": "980f495d93dc6514",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md"
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
+            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
+            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -112,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md"
+            "file": "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md"
           }
         }
       },
@@ -137,7 +139,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -145,17 +146,27 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "980f495d93dc6514",
   "lastOpenFiles": [
-    "Diary/2023-11-25.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130173734.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130180250.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130170308.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/链路层和局域网.html",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
+    "Diary/2023-11-25.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Drawing 2023-11-25 15.32.04.excalidraw.md",
     "2023-11-25.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/数学/Introduction to Linear Algebra/Chapter 1.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
@@ -171,17 +182,10 @@
     "Campus/English-Notes/UCB-CS61A/labs/lab01/tests/short-circuit.py",
     "Campus/English-Notes/UCB-CS61A/labs/lab01/tests/debugging-quiz.py",
     "Campus/English-Notes/UCB-CS61A/labs/lab00/tests/python-basics.py",
-    "Campus/English-Notes/UCB-CS61A/labs/lab00/tests/__init__.py",
     "Campus/English-Notes/UCB-CS61A/labs/lab02/Q7.jpg",
     "Campus/English-Notes/UCB-CS61A/labs/lab02/Q6.jpg",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231103113920.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231113151809.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231103154100.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231110084755.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231031145614.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231108125514.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231108112409.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231106084448.png",
     "Campus/Chinese-Notes/计算机科学/操作系统/教材/26 Concurrency Introduction.md",
     "Campus/Chinese-Notes/计算机科学/操作系统/教材/2 Introduction to Opreation System.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
@@ -194,8 +198,6 @@
     "Campus/Chinese-Notes/计算机科学/杂项/GNU Make.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Shell & Cli Tools.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Latex数学公式.md",
-    "Campus/Chinese-Notes/计算机科学/杂项/Git版本控制.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统概述.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统上的程序.md"
+    "Campus/Chinese-Notes/计算机科学/杂项/Git版本控制.md"
   ]
 }
