@@ -286,6 +286,7 @@ OzXz
 OLX
 OtRa
 OPERATOR
+Object
 ISP
 IP
 IO
@@ -536,6 +537,8 @@ Inc
 Information
 Institute
 InformRequest
+Include
+Ifdef
 BGP
 Bellman
 By
@@ -1217,6 +1220,8 @@ aBg
 aAAc
 aoM
 adapter
+abstract
+armv
 graph
 gray
 geographically
@@ -1543,6 +1548,8 @@ gcd
 gSz
 gtL
 glg
+generator
+gcc
 neighbor
 network
 non
@@ -2304,6 +2311,7 @@ cHg
 cSxg
 cfcb
 correction
+cpp
 path
 port
 prefix
@@ -2577,6 +2585,7 @@ pHC
 pHBm
 pGw
 parity
+polynomial
 shortest
 state
 service
@@ -2892,6 +2901,7 @@ svv
 sxu
 stc
 servers
+syntax
 Link
 LS
 Line
@@ -3386,6 +3396,7 @@ SMI
 Structure
 SNMP
 SetRequest
+Statement
 Distance
 DV
 Dijkstra
@@ -3597,6 +3608,8 @@ DOw
 DvF
 Department
 Defense
+Define
+Data
 Vector
 Version
 VA
@@ -4297,6 +4310,7 @@ FgR
 FPN
 Forward
 FEC
+File
 Networking
 NAT
 Night
@@ -4811,6 +4825,7 @@ fbS
 fdA
 fOV
 framing
+function
 table
 the
 tail
@@ -5100,6 +5115,7 @@ tzQ
 tfsm
 ttl
 trap
+tree
 model
 matching
 message
@@ -5367,6 +5383,7 @@ mdv
 managing
 managed
 management
+main
 effort
 eg
 end
@@ -5601,6 +5618,7 @@ ech
 eghu
 eCz
 eFS
+entry
 input
 interface
 is
@@ -5805,6 +5823,7 @@ ivs
 iFz
 iST
 iframe
+include
 PCI
 Plug
 Play
@@ -5991,6 +6010,11 @@ Pjn
 Pdc
 PDr
 Project
+Pre
+Process
+Pragma
+Parsing
+Pro
 Tenary
 TCAM
 TCP
@@ -6188,6 +6212,7 @@ TGg
 TgB
 Teq
 Traceroute
+Tokenizing
 Content
 CPU
 Come
@@ -6431,6 +6456,12 @@ Center
 Consortium
 Card
 Correction
+CRC
+Cyclic
+Check
+Crash
+Constant
+Chip
 Address
 Active
 AQM
@@ -7739,6 +7770,7 @@ Rym
 RCF
 Research
 RIPE
+Redundancy
 Early
 ECN
 Event
@@ -7947,6 +7979,7 @@ EIdE
 EAq
 Error
 EDC
+Evaluate
 queuing
 quality
 queue
@@ -12160,6 +12193,7 @@ XKdg
 XRA
 XDE
 XYs
+XTP
 YZe
 Yb
 Yz
