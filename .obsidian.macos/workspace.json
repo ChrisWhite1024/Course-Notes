@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Secrets/CTF/PCTF 2023.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "c7fd161155415650",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Secrets/CTF/PCTF 2023.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Secrets/CTF/PCTF 2023.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Secrets/CTF/PCTF 2023.md"
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md"
               }
             }
           },
@@ -176,10 +175,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "350dca6c82d831b9",
+  "active": "f2ffd5b90c241419",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+    "Diary/2023-11-01.md",
     "Secrets/CTF/PCTF 2023.md",
+    "Secrets/CTF/PCTF 2023 1.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
     "Secrets/CTF",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
@@ -208,7 +209,6 @@
     "Attachments",
     "Campus/Chinese-Notes/计算机科学/计算机网络/missfont.log",
     "Diary/2023-11-25.md",
-    "Diary/2023-11-01.md",
     "Diary/2023-10-31.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw",
     "Excalidraw/Drawing 2023-11-25 16.34.02.excalidraw.md",
