@@ -884,4 +884,153 @@ int main()
 ## 继承
 1. 类继承使类之间存在相互关联的层级关系
 2. 可以帮助避免很多重复代码
-3. 通常将通用
+3. 继承可以将一系列通用代码放入基类中
+```cpp
+#include <iostream>
+
+class Entity
+{
+public:
+	float X, Y;
+
+	void Move(float xa, float ya) {
+		X += xa;
+		Y += ya;
+	}
+};
+
+class Player : public Entity // Player不仅仅是Player类，同时也是Entity类，Entity中的任何公有成员Player都能访问到，Player是Entity的一个超集
+{							 // 多态是使用一个符号表示多种类型
+public:
+	const char* Name;
+
+	void PrintName() {
+		std::cout << Name << std::endl;
+	}
+};
+
+int main()
+{
+	std::cout << sizeof(Player) << " " << sizeof(Entity) << std::endl; // 类的大小是可变化的，如果要重写Player中的函数就要维护一个虚函数表，会占用额外的内存
+
+	std::cin.get();
+}
+```
+## 虚函数
+1. 虚函数可以在子类中重写方法
+2. 虚函数引入了动态分配，通过虚表 (vtable) 来实现编译，虚表是包含类中所有虚函数映射的列表，可以通过虚表在运行时找到正确的被重写的函数，如果要重写一个函数，需要把基类中的原函数设置为虚函数
+3. 使用虚函数时的额外开销，需要额外的内存来存储虚表，基类中还有一个指针成员指向虚表，每次调用虚函数时必须遍历虚表去找到最终要运行的函数，在一些嵌入式平台上虚函数的开销可能成为考虑的内容
+```cpp
+#include <iostream>
+
+class Entity
+{
+public:
+	virtual std::string GetName() { return "Entity"; };
+};
+
+class Player : public Entity
+{
+private:
+	std::string m_Name;
+
+public:
+	Player(const std::string &name)
+		: m_Name(name) {} // 初始化列表，用于在构造函数体执行前初始化成员变量和基类
+
+	std::string GetName() override { return m_Name; }
+};
+
+void PrintName(Entity* entity) {
+	std::cout << entity->GetName() << std::endl;
+}
+
+
+int main()
+{
+	Entity* e = new Entity();
+	PrintName(e);
+
+	Player* p = new Player("Cherno");
+	PrintName(p);						//在类中正常声明的函数或方法调用方法时会去调用属于该类型的方法
+
+	std::cin.get();
+}
+```
+
+## 纯虚函数
+1. 纯虚函数允许定义一个在基类中没有实现的函数，强制子类去实现这个函数
+2. 在 [[CS144-Lab#虚函数|虚函数]] 实现的 `GetName()` 方法对于子类的重写是没有强制的
+3. 有时候需要强制子类为某个特定的函数提供自己的定义
+4. 接口：只包含为实现的方法并作为一个模版的类，由于接口类实际上不包含方法实现，所以无法实例化这个类
+5. 只能实例化实现了所有纯虚函数的类，纯虚函数只要在一条继承链上被实现过就可以，重点是虚函数必须被实现
+```cpp
+#include <iostream>
+
+class Printable
+{
+public:
+	virtual std::string GetClassName() = 0;
+};
+
+class Entity : public Printable
+{
+public:
+	std::string GetClassName() override { return "Entity"; }
+};
+
+class Player : public Entity
+{
+private:
+	std::string m_Name;
+
+public:
+	Player(const std::string &name)
+		: m_Name(name) {}
+
+	std::string GetClassName() override { return "Player"; }
+};
+
+void Print(Printable *obj)
+{
+	std::cout << obj->GetClassName() << std::endl;
+}
+
+int main()
+{
+	Entity *e = new Entity();
+	Player *p = new Player("Cherno");
+
+	Print(e);
+	Print(p);
+
+	std::cin.get();
+}
+```
+
+## 可见性
+1. 指一个类中的成员和方法是否可见 (能够被访问、调用或使用)
+2. 可见性对于程序程序的性能不会造成影响
+3. 三种基础的可见修饰符 `private` `protected` `public`
+4. `private`：只有当前类可以访问到这些变量 (`friend` 允许其他类访问该类的私有成员)
+5. `protected`：可见性比 `private` 更高，但要低于 `public`，当前类以及当前类的派生类都能访问到这些成员
+6. 可见性更方便维护、理解和拓展代码，确保他人不会调用不应该被调用的代码
+```cpp
+class Entity
+{
+protected:
+	int X, Y;
+public:
+	Entity() {
+		X = 0;
+	}
+};
+
+class Player : Entity
+{
+public:
+	Player() {
+		X = 2;
+	}
+};
+```

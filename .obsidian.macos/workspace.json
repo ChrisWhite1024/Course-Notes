@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bb2aad53bb93a4a2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -175,15 +188,16 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "350dca6c82d831b9",
+  "active": "bb2aad53bb93a4a2",
   "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/TCP 拥塞控制算法.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
     "Diary/2023-11-01.md",
     "Secrets/CTF/PCTF 2023.md",
     "Secrets/CTF/PCTF 2023 1.md",
