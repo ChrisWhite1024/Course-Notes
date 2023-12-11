@@ -1034,3 +1034,33 @@ public:
 	}
 };
 ```
+## 数组
+1. 数组是一些元素的集合，是按照特定顺序排列的东西
+2. 当索引一个数组中的元素时，会得到一个底层的数据类型
+3. 当访问一个不在数组中的索引时会产生内存访问冲突 (memory access violation) ，所以要确定在数组的规定范围内操作
+4. 数组常伴随 `for` 循环，可以在特定范围内使用索引进行遍历
+5. 数组就是一个指针，指向一个连续的数据块
+6. 内存间接寻址，比如在类的地址处存储一个指针指向数组的内存地址，间接寻址会影响性能
+7. C++11 中的数组 `std::array` ，有边界检查并且记录数组的大小，使用普通的堆上数组无法得知数组的大小，需要手动维护数组大小，而栈上数组又存在作用域限制
+8. 当在栈中用数组申请内存时，数组大小需要是一个编译时就知道的常量，需要使用关键字 `constexpr` ，同时类中的 `constexpr` 变量需要是静态的
+```cpp
+#include <iostream>
+#include <array>
+
+class Entity
+{
+public:
+	static const int exampleSize = 5;
+	int example[exampleSize];
+
+	std::array<int, 5> another;
+
+	Entity() {
+		for (int i = 0; i < another.size(); i++) {
+			example[i] = 2;
+		}
+	}
+}
+```
+
+## 字符串
