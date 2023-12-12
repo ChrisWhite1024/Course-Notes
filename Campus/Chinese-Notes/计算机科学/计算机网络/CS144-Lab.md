@@ -1062,5 +1062,180 @@ public:
 	}
 }
 ```
-
+### `std::array`
+1. 可以用最多 N 个可转换为 T 的初始值进行聚合初始化 `std::array<int, 3> a = {1, 2, 3};`
+2. `N == 0` 时 `array.begin() == array.end()` , `front()` 和 `back()` 的结果是未定义的
 ## 字符串
+1. 字符串是一种能够表示和处理文本的方法，是一个字符数组
+2. C++中处理字符的编码方式是 ASCII
+3. 字符串结束的位置有一个空中止符 (the null termination character)
+4. `std::string` 本质上是 `std::basic_string` 将 char 作为模版参数 (template specializaton) 的模版类实例
+```cpp
+#include <iostream>
+// #include <string>
+
+/*
+把类对象传给一个函数实际上是创建了这个对象的拷贝然后再传给函数，
+复制string意味着要在堆上创建全新的 char 数组来存储得到的完全相同的文本
+这非常慢
+*/
+void PrintString(std::string& string) { 
+	std::cout << string << std::endl;
+}
+
+int main()
+{
+	// C++中用字符串定义时实际的类型是 const char*
+	std::string name = "Cherno"; // name 是在栈上分配的，无法使用 delete
+	name += "Hello";
+	name.size();
+	bool contains = name.find("no") != std::string::npos; // find 返回文本的位置
+	std::cout << name << std::endl; // string头文件重载了 << 操作符，允许将字符串传入输出流
+
+	std::cin.get();
+}
+```
+
+## 字符串字面量
+1. 字符串字面量是在双引号之间的字符
+```cpp
+#include <iostream>
+
+int main()
+{
+	using namespace std::string_literals;
+
+	std::string name0 = "Cherno"s + "hello";
+	std::wstring name0 = L"Cherno"s + L"hello";
+	std::u32string name0 = U"Cherno"s + U"hello";
+
+	const char* example = R"(Line1
+Line2
+Line3
+Line4)";
+
+	const char* ex = "Line1\n"
+		"Line2\n"
+		"Line3\n";
+
+	const char* name = "Cherno";
+	// name[2] = 'a'; // 不可以，实际上指针指向了字符串字面量的位置，但字符串字面量存储在内存的只读部分不可以修改
+	const wchar_t* name2 = L"Cherno"; //表示字符串字面量是由宽字符组成的，wchar_t 的大小是由编译器决定的
+
+	// C++11引入的新类型
+	const char16_t* name3 = u"Cherno";
+	const char32_t* name4 = U"Cherno";
+
+	std::cin.get();
+}
+```
+
+## `const`
+1. `const` 像一个假关键字，因为在生成代码时并没有做什么
+2. 与类和结构体成员的可见性相似，是对开发人员的限制，可以简化代码
+3. `const` 即开发人员做出承诺某些东西是不会改动的，但可以绕过
+```cpp
+#include <iostream>
+
+class Entity
+{
+private:
+	int m_X, m_Y;
+	int* p_X, p_Y; // p_Y 仍然是 int 类型
+	// int *p_X, *p_Y;
+	mutable int var;
+public:
+	int GetX() const // 用在方法之后，表示这个方法不会修改任何实际的类，这是一个只读的方法
+	{
+		var = 2; // mutable 的变量在 const 方法中仍然可以被修改
+		// m_X = 2;     // 不行
+		return m_X;
+	}
+
+	int GetX() // 所以在类中有可能存在同一个函数的两个版本
+	{
+
+	}
+
+	const int* const GetpX() const // 返回了一个不能修改的指针，指针指向的内存也不能被修改，也不会修改 Entity 类
+	{
+
+	}
+
+	void SetX(int x)
+	{
+
+	}
+};
+
+void PrintEntity(const Entity& e) {
+	e = Entity(); // 不可以改变 e 的内容
+	// 不仅不可以直接修改，通过方法间接修改也是不允许的
+	std::cout << e.GetX() << std::endl; // 移除 GetX 后的 const 则该方法不能被调用，因为不能保证 GetX 不改变 e 的内容
+}
+
+int main()
+{
+	const int MAX_AGE = 90;
+
+	int* a = new int;
+	*a = 2;                // 不使用 const 可以做两件事，这里可以改变指针指向内存的内容
+	a = (int *)&MAX_AGE;   // 也可以改变指针指向的内存地址
+
+	const int* b = new int;
+	// int const* b = new int;
+	*b = 2;                // 在指针之前加上 const 以后无法修改内存位置的数据
+	b = (int *)&MAX_AGE;   // 但是可以改变指针的地址
+
+	int* const c = new int;
+	*c = 2;                // 但是可以修改指向地址的内容
+	c = (int*)&MAX_AGE;    // 在指针之后加上 const 无法修改指针指向的地址
+	c = nullptr;           // 不可以
+
+	std::cin.get();
+}
+```
+
+## `mutable`
+1. 与 `const` 一起使用
+2. 在 `lambda` 中使用
+```cpp
+#include <iostream>
+
+class Entity
+{
+private:
+	std::string m_Name;
+	mutable int m_DebugCount;
+
+public:
+	const std::string &GetName() const
+	{
+		m_DebugCount++;
+		return m_Name;
+	}
+};
+
+int main()
+{
+	const Entity e;
+	e.GetName();
+
+	int x = 8;
+	auto f = [=]() mutable // &x引用传递 x值传递 &所有变量引用传递 =所有变量值传递
+	{
+		x++; // 不使用 mutable 会报错
+
+		int y = x;
+		y++;		//和使用 mutable 的结果是相同的，使用 mutable 简洁一些
+		std::cout << x << std::endl;
+	};
+
+	f();
+	//x = 8
+
+	std::cin.get();
+}
+```
+
+## 构造函数初始化列表
