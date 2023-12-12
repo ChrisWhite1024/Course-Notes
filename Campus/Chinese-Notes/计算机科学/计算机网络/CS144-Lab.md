@@ -1239,3 +1239,109 @@ int main()
 ```
 
 ## 构造函数初始化列表
+```cpp
+#include <iostream>
+
+class Example
+{
+public:
+	Example()
+	{
+		std::cout << "Created Entity!" << std::endl;
+	}
+	Example(int x)
+	{
+		std::cout << "Created Entity with " << x << "!" << std::endl;
+	}
+};
+
+class Entity
+{
+private:
+	std::string m_Name;
+	Example m_Example;
+
+public:
+	Entity() : m_Name("Unknown") // 尽量保持初始化列表和成员变量的声明顺序相同
+	{
+		// m_Name = "Unknown"; // 如果写在函数中字符串对象会被构造两次，造成性能浪费
+		m_Example = Example(8);
+	}
+
+	Entity(const std::string &name) : m_Name(name)
+	{
+	}
+
+	const std::string &GetName() const { return m_Name; }
+};
+
+int main()
+{
+	Entity e;
+	std::cin.get();
+}
+```
+
+```bash
+(base) ➜  Dev ./a.out        
+Created Entity!
+Created Entity with 8!
+```
+
+## 三元运算符
+1. 三元运算符只是 if 语句的语法糖
+```cpp
+#include <iostream>
+
+static int s_Level = 1;
+static int s_Speed = 2;
+
+int main()
+{
+	s_Speed = s_Level > 5 ? 10 : 5;
+	s_Speed = s_Level > 5 ? s_Level > 10 ? 15 : 10 : 5;
+
+	std::string rank = s_Level > 10 ? "Master" : "Beginner"; // 没有构建中间字符串的原因和返回值优化有关
+
+	std::cin.get();
+}
+```
+
+## 类的实例化
+1. 栈对象的生命周期是由声明的地方的作用域决定的，如果超出作用域，对象的内存会被释放
+2. 在堆上创建的对象会在程序运行过程中一直存在直到被手动释放
+```cpp
+#include <iostream>
+
+using String = std::string;
+
+class Entity
+{
+private:
+	String m_Name;
+public:
+	Entity() : m_Name("Unknown") {}
+	Entity(const String& name) : m_Name(name) {}
+
+	const String& GetName() const {return m_Name;}
+
+};
+
+int main()
+{
+	Entity* e;
+	{
+		Entity entity("Cherno");
+		e = &entity;
+		std::cout << entity.GetName() << std::endl;
+	}                   // 跳出作用域时 entity 被销毁了，e 变成了野指针
+	std::cin.get();
+}
+```
+1. 如果想让 entity 离开作用域就需要把它分配到堆上
+2. 如果有很多的 Entity 栈空间可能太小不足以分配，不得不在堆上分配
+3. 在堆上创建的对象需要手动释放，如果忘记 `delete` 就会造成内存泄露，所以也可以使用智能指针，在指针超出作用域时，对象会被自动删除，或者使用共享指针，如果没有指向他的引用时也会被自动删除
+4. **如果对象非常大或需要显示控制对象的生命周差就需要在堆上分配**
+
+## `new`
+
