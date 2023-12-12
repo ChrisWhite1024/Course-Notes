@@ -1344,4 +1344,85 @@ int main()
 4. **如果对象非常大或需要显示控制对象的生命周差就需要在堆上分配**
 
 ## `new`
+1. `new` 的主要目的是在堆上分配内存，根据所写的类型以字节为单位决定要分配内存的大小
+2. 使用 `new` 分配空间，不仅分配了空间，还调用了构造函数
+3. `new` 只是一个操作符，通常使用 `new` 会调用底层的 C 函数 `malloc`
+```cpp
+#include <iostream>
 
+using String = std::string;
+
+class Entity
+{
+private:
+	String m_Name;
+public:
+	Entity() : m_Name("Unknown") {}
+	Entity(const String& name) : m_Name(name) {}
+
+	const String& GetName() const {return m_Name;}
+
+};
+
+int main()
+{
+	int a = 2;
+	int* b = new int[50]; // 200B
+
+	Entity* e = new(b) Entity(); // placement new
+	Entity* e = new Entity();
+	// Entity* e = (Entity*)malloc(sizeof(Entity)); // 两者的区别是 new 还调用了构造函数
+
+	delete e;
+	delete[] b;
+	
+	std::cin.get();
+	delete e;
+}
+```
+
+## 隐式转换和 explicit 关键字
+1. C++允许编译器对代码进行一次隐式的转换
+2.  使用 `explicit` 关键字后需要显式调用构造函数, 写低级封装时会派上用场，防止偶然转换或导致性能问题 
+```cpp
+#include <iostream>
+
+using String = std::string;
+
+class Entity
+{
+private:
+	String m_Name;
+	int m_Age;
+public:
+	Entity(const String& name) : m_Name(name), m_Age(-1) {}
+	explicit Entity(int age) : m_Name("Unknown"), m_Age(age) {}
+
+	const String& GetName() const {return m_Name;}
+
+};
+
+void PrintEntity(const Entity& entity) {
+
+}
+
+int main()
+{
+	PrintEntity(22); // 构造函数加上 explicit 无法隐式转换 
+	PrintEntity(Entity(22));
+	//PrintEntity("Cherno"); //不可以工作，因为 Cherno 的类型是 const char*，并不是 std::string 类型，C++需要做两次隐式转换，是不符合要求的
+	PrintEntity(String("Cherno"));
+	PrintEntity(Entity("Cherno"));
+
+
+	Entity a = String("Cherno");
+	Entity b = 22; // 将 int 隐式转换为了 Entity，加上 explicit 关键字后无法隐式转换
+	Entity b(22);
+	Entity b = Entity(22);
+	
+	std::cin.get();
+}
+```
+
+## 操作符和操作符重载
+1. 操作符是代替函数执行某些事情的符号
