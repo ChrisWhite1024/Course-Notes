@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md"
+                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md"
               }
             }
           },
@@ -190,16 +190,17 @@
   },
   "active": "bb2aad53bb93a4a2",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
+    "Secrets/CTF/PCTF 2023.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/TCP 拥塞控制算法.md",
     "Diary/2023-11-01.md",
-    "Secrets/CTF/PCTF 2023.md",
     "Secrets/CTF/PCTF 2023 1.md",
     "Secrets/CTF",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
