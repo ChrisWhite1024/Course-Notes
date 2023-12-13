@@ -1777,3 +1777,101 @@ int main()
 ```
 
 ## `std::vector`
+1. 标准模版库可以模版化任何东西，容器的底层数据类型由程序员决定，所有东西都由模版组成
+2. 模版可以处理程序员提供的底层数据类型
+3. `vector` 更应该被称为 `arraylist` 动态数组，跟原始的 `array` 类型不同，`vector` 可以动态调整大小
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+struct Vertex
+{
+	float x, y, z;
+};
+
+std::ostream& operator<<(std::ostream& stream, const Vertex& vertex)
+{
+	stream << vertex.x << ", " << vertex.y << ", " << vertex.z;
+	return stream;
+}
+
+void Function(const std::vector<Vertex>& vertices)
+{
+
+}
+
+int main()
+{
+	/*
+	应该存储堆分配的指针还是对象视情况而定，当然存储对象是理想的，
+	因为动态数组的内存是连续分配的，如果要遍历、读取等更方便，但是如果要调整 vector 的大小时开销更大
+	*/
+	std::vector<Vertex> vertices; 
+	vertices.push_back({ 1, 2, 3 }); // 列表初始化
+	Function(vertices); // 确保通过引用传递
+	vertices.push_back({ 4, 5, 6 });
+
+	for (int i = 0; i < vertices.size(); i++)
+	{
+		std::cout << vertices[i] << std::endl;
+	}
+
+	for (const Vertex& v : vertices)
+		std::cout << v << std::endl; // 如果直接使用变量实际上将每个 Vertex 都复制到了 v 中，所以使用引用可以得到相同的结果但没有拷贝过程
+
+	vertices.erase(vertices.begin() + 1);
+	vertices.clear();
+
+	std::cin.get();
+}
+```
+
+## `vector` 使用优化
+1. 向 vector 中 push_back 元素时，如果 vector 不够大，需要分配新的内存，并将当前的内容复制到新内存的位置，然后释放旧位置的内存
+2. 降低运行速度的原因是需要不断重新分配内存并复制元素，所以优化的方案是如何避免拷贝，需要知道拷贝是什么时候发生的
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+struct Vertex
+{
+	float x, y, z;
+
+	Vertex(float x, float y, float z)
+		: x(x), y(y), z(z)
+	{
+
+	}
+
+	Vertex(const Vertex& vertex)
+		: x(vertex.x), y(vertex.y), z(vertex.z)
+	{
+		std::cout << "Copied!" << std::endl;
+	}
+};
+
+std::ostream& operator<<(std::ostream& stream, const Vertex& vertex)
+{
+	stream << vertex.x << ", " << vertex.y << ", " << vertex.z;
+	return stream;
+}
+
+int main()
+{
+	std::vector<Vertex> vertices; 
+	vertices.reserve(3); // 确保拥有足够的内存 优化策略2
+	// 创建 vertex 时实际上是在主函数的栈帧上创建(main)，所以 push 时需要将 Vertex 拷贝到 vector 分配的内存中
+	/*
+	优化策略1：在适当的位置构造 Vertex ，在 vector 分配的内存中
+	优化策略2：如果了解环境，直接告诉 vector 不用再调整大小
+	*/
+	vertices.emplace_back(1, 2, 3); // 仅传递了构造函数的参数列表
+	vertices.push_back(Vertex(4, 5, 6)); // 每次 push 一个元素，vertices 的 capacity 就增加 1
+	vertices.push_back(Vertex(7, 8, 9));
+
+	std::cin.get();
+}
+```
+
