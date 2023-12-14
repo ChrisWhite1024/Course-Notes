@@ -2229,3 +2229,126 @@ int main()
 }
 ```
 
+## 函数指针
+1. 函数指针是将一个函数赋值给一个变量的方法
+2. 通过函数指针可以将函数赋值给一个变量，也可以将函数作为参数传递给其他函数
+3. 在可执行文件中找到函数指令的内存地址
+```cpp
+#include <iostream>
+
+void HelloWorld(int a)
+{
+	std::cout << "Hello World! Value: " << a << std::endl;
+}
+
+int main()
+{
+	void(*chris)(int) = HelloWorld;
+
+	auto chris = HelloWorld; // 函数只是 cpu 指令
+
+	typedef void(*HelloWorldFunction)(int);
+	HelloWorldFunction function = HelloWorld;
+
+	function(8);
+
+	std::cin.get();
+}
+```
+
+```cpp
+#include <iostream>
+#include <vector>
+
+void PrintValue(int value)
+{
+	std::cout << "Value: " << value << std::endl;
+}
+
+void ForEach(const std::vector<int>& values, void(*func)(int))
+{
+	for (int value : values)
+		func(value);
+}
+
+int main()
+{
+	std::vector<int> values = { 1, 5, 4, 2, 3 };
+	ForEach(values, PrintValue);
+	ForEach(values, [](int value){std::cout << "Value: " << value << std::endl;}); // [] 捕获模式
+
+	std::cin.get();
+}
+```
+
+## `lambda`
+1. 只要有函数指针就可以在 C++ 中使用 `lambda`
+```cpp
+#include <iostream>
+#include <vector>
+#include <functional>
+#include <algorithm>
+
+void PrintValue(int value)
+{
+	std::cout << "Value: " << value << std::endl;
+}
+
+void ForEach(const std::vector<int>& values, const std::function<void(int)>& func)
+{
+	for (int value : values)
+		func(value);
+}
+
+int main()
+{
+	std::vector<int> values = { 1, 5, 4, 2, 3 };
+	auto it = std::find_if(values.begin(), values.end(), [](int value){ return value > 3; });
+	std::cout << *it << std::endl;
+
+	ForEach(values, PrintValue);
+
+	int a = 5;
+	auto lambda = [=](int value) mutable { a = 5; std::cout << "Value: " << a << std::endl; };
+
+	ForEach(values, lambda); // [] 捕获模式
+
+	std::cin.get();
+}
+```
+
+## `using namespace`
+1. 如果需要使用就尽量在较小的作用域下使用
+```cpp
+#include <iostream>
+#include <string>
+
+namespace apple {
+	void print(const std::string& text)
+	{
+		std::cout << text << std::endl;
+	}
+}
+
+namespace orange {
+	void print(const char* text)
+	{
+		std::string temp = text;
+		std::reverse(temp.begin(), temp.end());
+		std::cout << temp << std::endl;
+	}
+}
+
+using namespace apple;
+using namespace orange;
+
+int main()
+{
+	print("Hello"); // 不使用 orange 命名空间时实际发生了隐式转换，当使用 orange 其提供的 print函数 更加匹配
+	// 所以不要用 using namespace
+
+	std::cin.get();
+}
+```
+
+## 名称空间
