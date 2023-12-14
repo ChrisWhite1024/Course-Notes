@@ -1886,4 +1886,346 @@ int main()
 8. cpp 中使用 c 语言库需要使用 `extern "C"`
 
 ## 动态库
-1. 静态链接在编译时发生，动态链接在运行时发生，静态链接和动态链接存在性能差异
+1. 静态链接在编译时发生，动态链接在运行时发生，静态链接和动态链接存在性能差异，静态链接允许更多优化发生
+2. 动态库具有静态的动态库版本，即应用程序已经知道动态库中存在什么函数，或可以使用什么函数，另一种是任意加载这个动态库，但不知道里面有什么
+3. 头文件同时支持动态链接和动态链接
+4. Windows 使用动态链接库可以将 dll 文件放在可执行程序的同一目录下
+
+## 创建和使用库
+1. Cherno 如果包含了 VS 解决方案外的东西 (完全与项目无关的外部依赖项) 会使用尖括号，如果是在解决方案中找到的会使用引号
+ 
+## 多返回值
+1. 具有多返回值时可以通过参数传递而不使用返回值，最好在参数之前加上 `out`
+2. 返回一个数组，但是使用 new 导致堆分配的发生，也可以返回 `array` 和 `vector` ，由于 `array` 在栈上创建而 `vector` 数据存储在堆中，所以 `array` 通常会更快
+3. 使用 `tuple` 或 `pair`，`tuple` 是一个包括多个变量的类但是不关心变量的类型
+4. 使用结构体返回
+```cpp
+#include <iostream>
+#include <string>
+#include <tuple>
+
+struct RetString
+{
+	std::string string1;
+	std::string string2;
+};
+
+std::tuple<std::string, std::string> RetMultStringWithTuple()
+{
+	std::string string1("Hello");
+	std::string string2("Hello");
+
+	return std::make_pair(string1, string2);
+}
+
+std::pair<std::string, std::string> RetMultStringWithPair()
+{
+	std::string string1("Hello");
+	std::string string2("Hello");
+
+	return std::make_pair(string1, string2);
+}
+
+RetString RetMultStringWithStruct()
+{
+	std::string string1("Hello");
+	std::string string2("Hello");
+
+	return { string1, string2 }; 
+}
+
+int main()
+{
+	// std::tuple<std::string, std::string> sources = RetMultString();
+	auto sources = RetMultStringWithTuple();
+	std::string string1 = std::get<0>(sources);
+
+	auto sources_pair = RetMultStringWithPair();
+	std::string string2 = sources_pair.second; // 但是将返回值传入新函数时容易搞混每个变量分别是什么
+
+	auto sources_struct = RetMultStringWithStruct();
+	std::string string3 = sources_struct.string1;
+
+	std::cin.get();
+}
+```
+
+## 模版
+1. 模版和宏有点类似，但模版被 evaluate 的时间更晚
+2. 模版允许定义一个根据用途进行编译的模版，基于提供给编译器的规则让编译器写代码
+```cpp
+#include <iostream>
+
+/*
+三个函数的不同是输入参数，实际上定义了三个 Print 的重载函数
+*/
+// void Print(int value)
+// {
+// 	std::cout << value << std::endl;
+// }
+
+// void Print(std::string value)
+// {
+// 	std::cout << value << std::endl;
+// }
+
+// void Print(float value)
+// {
+// 	std::cout << value << std::endl;
+// }
+
+/*
+在被调用时函数才被创建
+*/
+template <typename T> // <>中的是模版参数，类型为 typename / class ，名称是 T
+void Print(T value) // 当调用函数时传入的参数就时模版中的参数类型，Print方法只是一个模版，当被调用时模版才真正被创建
+{
+	std::cout << value << std::endl;
+}
+
+void Print(int value) // 被调用时相当于进行了填空，在模版实例化阶段被创建
+{
+	std::cout << value << std::endl;
+}
+
+template <typename T>
+void Printerr(T value) // 不调用函数，编译不会报错 (由编译器决定)
+{
+	std::cout << val << std::endl;
+}
+
+int main()
+{
+	Print(5);  // 根据传递参数的不同，函数被创建并作为源代码被编译
+	Print("Hello"); // 自动根据传递的参数类型进行推导
+	Print(5.5f);
+	
+	Print<int>(5); // 显式指定类型
+	Print<std::string>("Hello");
+	std::cin.get();
+}
+```
+1. 模版也可以使用在类上
+```cpp
+#include <iostream>
+
+template<typename T, int N>
+class Array
+{
+private:
+	T m_Array[N]; // 栈分配的数组所以在编译的时候就必须知道大小
+public:
+	int GetSize() const { return N; }
+};
+
+int main()
+{
+	Array<int, 5> array;
+	Array<std::string, 50> array;
+
+	std::cin.get();
+}
+```
+1. 当模版变的越来越复杂时，需要花很多时间搞清楚哪些东西被编译了，所以要适度使用模版
+
+## 堆与栈内存的比较
+1. `new` 关键字实际上调用了 `malloc` 函数，随后调用操作系统底层的函数在堆上分配内存，程序维护一个空闲列表，使用 `malloc` 时程序浏览空闲列表找到空闲内存返回一个指针
+2. 使用堆容易出现缓存不命中
+```cpp
+#include <iostream>
+
+struct Vector3
+{
+	float x, y, z;
+	Vector3()
+		: x(10), y(11), z(12)
+	{
+
+	}
+};
+
+int main()
+{
+	int value = 5;
+	int array[5];
+	array[0] = 1;
+	array[1] = 2;
+	array[2] = 3;
+	array[3] = 4;
+	array[4] = 5;
+	int* hvalue = new int;
+	*hvalue = 5;
+	int* harray = new int[5];
+	harray[0] = 1;
+	harray[1] = 2;
+	harray[2] = 3;
+	harray[3] = 4;
+	harray[4] = 5;
+
+	Vector3* hvector = new Vector3();
+
+	delete hvalue;
+	delete[] harray;
+	delete hvector;
+
+	std::cin.get();
+}
+```
+
+## 宏
+1. 使用预处理器实现自动化
+2. 预处理阶段实际上是文本编辑的阶段，可以控制输入给编译器的文本
+3. 使用宏可以将代码中的文本替换为其他东西，就像遍历代码执行查找和替换
+```cpp
+#include <iostream>
+
+#define OPEN_CURLY {
+
+int main()
+OPEN_CURLY	
+	std::cin.get();
+}
+```
+
+```cpp
+#include <iostream>
+
+#define PR_DEBUG 1 
+
+#if PR_DEBUG == 1 // 如果仅仅判断是否定义了一个 value，如果要修改的话只能注释或者删除先前的定义，取值的话比较可控
+#define LOG(x) std::cout << x << std::endl
+#elif defined(PR_RELEASE)
+#define LOG(x)
+#endif
+
+#define MAIN int main() \ // 宏定义可以用反斜杠(Enter 的转义)包含多行，不能 \[space] 会被作为空格的转义
+{\
+	std::cin.get();\
+}
+
+#if 0 // if 可以将整块代码禁用
+void Print()
+{
+
+}
+#endif
+
+int main()
+{
+	LOG("Hello");
+	std::cin.get();
+}
+```
+
+## `auto`
+1. 使用 `auto` 可以让 C++ 自动推导出数据类型，不管是创建、初始化还是赋值时
+2. 如果类型非常长使用 auto 能够简化代码，或者进入复杂的代码集包含了模版等，不得不使用 auto
+3. auto 也可以用于后置返回类型
+```cpp
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+auto GetName() -> char* // 后置返回类型
+{
+
+}
+
+char* GetName() // 如果将 std::string 改为 char * 在 main 函数中使用 auto 就不用重复修改了
+{
+	return "Cherno";
+}
+
+class Device {};
+
+class DeviceManager
+{
+private:
+	std::unordered_map<std::string, std::vector<Device *>> m_Devices;
+public:
+	const std::unordered_map<std::string, std::vector<Device *>>& GetDevices() const
+	{
+		return m_Devices;
+	}
+	
+};
+
+int main()
+{
+	int a = 5;
+	auto b = a;
+
+	std::cout << b << std::endl;
+
+	/*
+	如果改变 api 客户端不用做出任何改变，但是我也不知道返回值改变了，
+	导致原来返回类型的一些方法可能无法使用，并破坏依赖于特定类型的代码
+	所以是有两面性的
+	*/
+	auto name = GetName(); 
+	std::string name1 = GetName();
+
+	// name.size(); 不可以
+	name1.size();
+
+	std::vector<std::string> strings;
+	strings.push_back("Apple");
+	strings.push_back("Orange");
+
+	// for (std::vector<std::string>::iterator it = strings.begin();
+	// 		it != strings.end(); it++)
+	// {
+	// 	std::cout << *it << std::endl;
+	// }
+
+	for (auto it = strings.begin();
+			it != strings.end(); it++)
+	{
+		std::cout << *it << std::endl;
+	}
+
+	using DeviceMap = std::unordered_map<std::string. std::vector<Device*>>;
+	DeviceManager dm;
+	const DeviceMap&
+		devices = dm.GetDevices();
+
+	const auto& devices_auto = dm.GetDevices();
+	auto d =dm.GetDevices(); // 增加一次拷贝。返回引用时要给 auto 加上引用符号
+	std::cin.get();
+}
+```
+
+## `std::array`
+1. 处理静态数组的类，不能改变大小
+2.  `std::array` 有可选的边界检查
+3. `size()` 返回的类型是 constexpr 说明 `size()` 方法返回的就是一个数值
+```cpp
+      // Capacity.
+      [[__nodiscard__, __gnu__::__const__, __gnu__::__always_inline__]]
+      constexpr size_type
+      size() const noexcept { return _Nm; }
+```
+
+```cpp
+#include <iostream>
+#include <array>
+#include <algorithm>
+
+void PrintArray(const std::array<int, 5>&  data)
+{
+	
+}
+
+int main()
+{
+
+	std::array<int, 5> data;
+	data.size();
+	std::sort(data.begin(), data.end());
+	data[0] = 2;
+	data[4] = 1;
+
+	std::cin.get();
+}
+```
+
