@@ -2352,3 +2352,244 @@ int main()
 ```
 
 ## 名称空间
+1. 名称空间的作用是防止名称冲突
+2. 类本身也是一个名称空间
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+namespace apple {
+	void print(const char* text)
+	{
+		std::cout << text << std::endl;
+	}
+
+	void print_again()
+	{
+
+	}
+}
+
+namespace orange {
+	void print(const char* text)
+	{
+		std::string temp = text;
+		std::reverse(temp.begin(), temp.end());
+		std::cout << temp << std::endl;
+	}
+}
+
+using namespace apple;
+using namespace orange;
+
+int main()
+{
+	using apple::print; // 如果仅仅想使用命名空间中的特定方法可以这么写
+	namespace a = apple; // 当然命名空间可以嵌套 namespace a = apple::function ...
+
+	print("Hello"); // C语言没有名称空间，所以不得不将库的名字放在 symbol 之前
+	a::print("Hello");
+	apple::print_again(); 
+
+	std::cin.get();
+}
+```
+
+## 线程
+```cpp
+#include <iostream>
+#include <thread>
+
+static bool s_Finished = false;
+
+void DoWork()
+{	
+	using namespace std::literals::chrono_literals;
+
+	std::cout << "Started thread id =" << std::this_thread::get_id() << std::endl;
+
+	while (!s_Finished)
+	{
+		std::cout << "Working...\n";
+		std::this_thread::sleep_for(1s);
+	}
+}
+
+int main()
+{
+	std::thread worker(DoWork);
+
+	std::cin.get();
+	s_Finished = true;
+
+	worker.join(); // 在主线程上等待工作进程完成所有的执行后，再继续执行主线程
+
+	std::cout << "Finished." << std::endl;
+	
+	std::cin.get();
+}
+```
+
+## 计时
+1. 如果需要高精确度的计时需要使用操作系统库
+```cpp
+#include <iostream>
+#include <chrono>
+#include <thread>
+
+struct Timer
+{
+	std::chrono::_V2::system_clock::time_point start, end;
+	std::chrono::duration<float> duration;
+
+	Timer()
+	{
+		start = std::chrono::high_resolution_clock::now();
+	}
+
+	~Timer()
+	{
+		end = std::chrono::high_resolution_clock::now();
+		duration = end - start;
+
+		float ms = duration.count() * 1000.0f;
+		std::cout << "Timer took " << ms << "ms " << std::endl; 
+	}
+};
+
+void Function()
+{
+	Timer timer;
+	for (int i = 0; i < 100; i++)
+		std::cout << "Hello" << std::endl; // io 多程序更慢
+}
+
+int main()
+{
+	using namespace std::literals::chrono_literals;
+
+	Function();
+
+	auto start = std::chrono::high_resolution_clock::now();
+
+	std::this_thread::sleep_for(1s);
+	
+	
+	auto end = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<float> duration = end - start;
+	std::cout << duration.count() << "s" << std::endl;
+	
+	std::cin.get();
+}
+```
+
+## 多维数组
+```cpp
+#include <iostream>
+
+int main()
+{
+	int* array = new int[5];
+	int** a2d = new int*[5];
+	for (int i = 0; i < 5; i++) // 会造成内存碎片的问题
+		a2d[i] = new int [5];
+
+	for (int i = 0; i < 5; i++)
+	{
+		delete[] a2d[i];
+	}
+
+	delete[] a2d;
+
+	int*** a3d = new int**[5];
+	for (int i = 0; i < 5; i++)
+	{
+		a3d[i] = new int*[5];
+		for (int j = 0; j < 5; j++)
+			a3d[i][j] = new int[5];
+	}
+
+	a3d[0][0][0] = 0;
+
+	int* array = new int[5 * 5];
+	for (int y = 0; y < 5; y++)
+	{
+		for (int x = 0; x < 5; x++)
+		{
+			array[x + y * 5] = 2;
+		}
+	}
+
+	std::cin.get();
+}
+```
+
+## 排序
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <functional>
+
+int main()
+{
+	std::vector<int> values = {3, 5, 1, 4, 2};
+	std::sort(values.begin(), values.end()); // 会使用 operator< 进行排序
+	std::sort(values.begin(), values.end(), std::greater<int>()); // 使用标准库的函数进行排序
+	std::sort(values.begin(), values.end(), [](int a, int b){
+		if (a == 1)
+			return false; // a 要排在后面
+		if (b == 1)
+			return true; // a 要排在前面 true 就是 a, b 这个顺序 false 交换一下
+		return a < b; // 如果 a > b 返回 false 把 a 排在 b 后面
+	});
+
+	for(int value : values)
+	{
+		std::cout << value << std::endl;
+	}
+
+	std::cin.get();
+}
+```
+
+## 类型双关
+1. 比如如果有一个类，想把这个类解释为一段字节流
+2. 把拥有的一段内存当作不同类型的内存来对待，将原始类型作为指针，并且将其转换为另一个指针
+```cpp
+#include <iostream>
+
+struct Entity
+{
+	int x, y;
+
+	int* GetPositions()
+	{
+		return &x;
+	}
+};
+
+int main()
+{
+	int a = 50;
+	// double value = a;  实际上做了一次隐式转换，在内存中的另一个地方存储了 value
+
+	double value = *(double*)&a; // int 占 4 字节 double 占 8 字节
+	// double& value = *(double*)&a; // dangerous
+	std::cout << value << std::endl;
+
+	Entity e = { 1, 2 }; // 结构体 2 * 4B 没有多余的空间，可以把这个结构体当作一个一维数组
+	int* position = (int *)&e;
+
+	int y = *(int*)((char*)&e + 4);
+
+	std::cout << position[0] << ", " << position[1] << std::endl;
+	std::cout << y << std::endl;
+
+	std::cin.get();
+}
+```
+
+## 联合体
+1. 联合体只能拥有一个成员
