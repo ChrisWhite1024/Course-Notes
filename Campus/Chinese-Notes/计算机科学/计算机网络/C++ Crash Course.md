@@ -2593,3 +2593,478 @@ int main()
 
 ## 联合体
 1. 联合体只能拥有一个成员
+```cpp
+#include <iostream>
+
+struct Vector2
+{
+	float x, y;
+};
+
+struct Vector4
+{
+	union
+	{
+		struct
+		{
+			float x, y, z, w;
+		};
+		struct
+		{
+			Vector2 a, b;
+		};
+	};
+
+	// Vector2& GetA()
+	// {
+	// 	return *(Vector2*)&x;
+	// }
+};
+
+void PrintVector2(const Vector2& vector)
+{
+	std::cout << vector.x << ", " << vector.y << std::endl;
+}
+
+int main()
+{
+	struct Union
+	{
+		union
+		{
+			float a;
+			int b;
+		};
+	};
+
+	Union u;
+	u.a = 2.0f;
+	std::cout << u.a << ", " << u.b << std::endl;
+
+	Vector4 vector = { 1.0f, 2.0f, 3.0f, 4.0f };
+	vector.x = 2.0f;
+	PrintVector2(vector.a);
+
+	std::cin.get();
+}
+```
+
+## 虚析构函数
+1. 如果有一个类 A ，类 B 派生于类 A，想把类 B 引用为类 A，但是实际上是类 B ，然后决定删除 A 或者 A 以某种方式被删除了，但是还是希望运行 B 的析构函数，而不是运行 A 的析构函数
+2. 只要允许一个类拥有子类，就需要声明析构函数为虚函数，否则无法安全地扩展这个类
+```cpp
+#include <iostream>
+
+class Base
+{
+public:
+	Base()
+	{
+		std::cout << "Base Constructor\n";
+	}
+	virtual ~Base()
+	{
+		std::cout << "Base Destructor\n";
+	}
+};
+
+class Derived : public Base
+{
+public:
+	Derived()
+	{
+		m_Array = new int[5];
+		std::cout << "Derived Constructor\n";
+	}
+	~Derived()
+	{
+		delete[] m_Array;
+		std::cout << "Derived Destructor\n";
+	}
+
+private:
+	int *m_Array;
+};
+
+int main()
+{
+	Base *base = new Base();
+	delete base;
+	std::cout << "---------------------\n";
+	Derived *derived = new Derived();
+	delete derived;
+
+	/*
+	Base Constructor
+	Base Destructor
+	---------------------
+	Base Constructor
+	Derived Constructor
+	Derived Destructor
+	Base Destructor
+	*/
+
+	std::cout << "---------------------\n";
+	Base *poly = new Derived();
+	delete poly;
+
+	/*
+	---------------------
+	Base Constructor
+	Derived Constructor
+	Base Destructor <-- 内存泄漏
+	*/
+
+	/* 使用虚析构函数后
+	---------------------
+	Base Constructor
+	Derived Constructor
+	Derived Destructor
+	Base Destructor
+	*/
+
+	std::cin.get();
+}
+```
+
+## 类型转换
+1. 显式类型转换有 C 风格的还有 C++ 风格的
+```cpp
+#include <iostream>
+
+class Base
+{
+public:
+	Base() { }
+	virtual ~Base() { }
+};
+
+class Derived : public Base
+{
+public:
+	Derived() { }
+	~Derived() { }
+};
+
+class AnotherClass : public Base
+{
+public:
+	AnotherClass() { }
+	~AnotherClass() { }
+};
+
+int main()
+{
+
+	int a = 5;
+	double value = a;
+
+	double value = 5.25;
+	double a = (int)value + 5.3; // C Style Cast
+
+	double s = static_cast<int>(value) + 5.3; // C++ Style Cast Syntax Sugar 方便的地方可以更快地找到转换的位置，增加代码可读性
+
+	double s_inv = static_cast<Derived*>(value); // 可以检查转换是否合法
+	Derived* ss = reinterpret_cast<Derived*>(&value); // 参考类型双关
+
+
+	Derived* derived = new Derived();
+	Base* base = derived;
+	AnotherClass* ac = dynamic_cast<AnotherClass*>(base); // 做运行时检查，可以检查转换的派生类是否一致，不一致返回一个空指针
+	Derived* ac = dynamic_cast<AnotherClass*>(base); // OK
+
+	std::cin.get();
+}
+```
+
+## 应用在断点上的条件与操作
+1. 条件断点是设置一个断点，当满足特定条件时触发，操作断点允许遇到断点时进行某些操作
+2. 有两种类型的操作断点，一种是输出需要的东西后继续执行，或者输出后仍然中断程序
+
+## 预编译头文件
+1. 抓取一堆头文件，并转换成编译器可以使用的格式，不用一遍又一遍读取这些头文件
+2. 例如每次包含 vector 头文件时，需要读取整个头文件并编译它，vector 还包含了一些头文件也需要被读取，所有的代码都需要被拷贝到编译单元中进行编译
+3. 每次对源文件进行修改，整个文件都需要被重新编译
+4. 当项目文件很多时，需要一遍又一遍地解析并编译同一个头文件，需要花费很多时间
+5. 预编译头文件的作用是接收一堆头文件，只编译一次以二进制格式存储, 可以大大加速编译时间
+6. 如果放入预编译头文件中的内容发生变化，需要重新构建预编译的头文件，会导致编译速度变慢
+7. 预编译头文件可能会隐藏实际使用的库，阅读的时候会无法辨别需要什么依赖
+
+## 基准测试
+1. 无论在测试什么，都要确保确实做了这个事情 (有可能有编译优化存在实际上程序并没有按照预想的方式执行)
+```cpp
+#include <iostream>
+
+#include <chrono>
+
+#include <array>
+#include <memory>
+
+
+class Timer
+{
+public:
+	Timer()
+	{
+		m_StartTimepoint = std::chrono::high_resolution_clock::now();
+	}
+
+	~Timer()
+	{
+		Stop();
+	}
+
+	void Stop()
+	{
+		auto endTimepoint = std::chrono::high_resolution_clock::now();
+		auto start = std::chrono::time_point_cast<std::chrono::microseconds>(m_StartTimepoint).time_since_epoch().count();
+		auto end = std::chrono::time_point_cast<std::chrono::microseconds>(endTimepoint).time_since_epoch().count();
+
+		auto duration = end - start;
+		double ms = duration * 0.001;
+
+		std::cout << duration << "us (" << ms << "ms)\n";
+	}
+private:
+	std::chrono::time_point<std::chrono::high_resolution_clock> m_StartTimepoint;
+
+};
+
+int main()
+{
+	int value = 0;
+	{
+		Timer timer;
+		for (int i = 0; i < 1000000; i++)
+			value += 2;
+	}
+
+	std::cout << value << std::endl;
+
+	struct Vector2
+	{
+		float x, y;
+	};
+
+	std::cout << "Make Shared\n";
+
+	{
+		std::array<std::shared_ptr<Vector2>, 1000> sharedPtrs;
+		Timer timer;
+		for (int i = 0; i < sharedPtrs.size(); i++)
+			sharedPtrs[i] = std::make_shared<Vector2>(); 
+	}
+
+	std::cout << "New Shared\n";
+
+	{
+		std::array<std::shared_ptr<Vector2>, 1000> sharedPtrs;
+		Timer timer;
+		for (int i = 0; i < sharedPtrs.size(); i++)
+			sharedPtrs[i] = std::shared_ptr<Vector2>(new Vector2);
+	}
+
+	std::cout << "Make Unique\n";
+
+	{
+		std::array<std::unique_ptr<Vector2>, 1000> sharedPtrs;
+		Timer timer;
+		for (int i = 0; i < sharedPtrs.size(); i++)
+			sharedPtrs[i] = std::make_unique<Vector2>();
+	}
+	__builtin_trap();
+}
+```
+
+```bash
+(base) ➜  Dev g++-13 main.cpp -o main
+(base) ➜  Dev ./main
+2215us (2.215ms)
+2000000
+Make Shared
+77us (0.077ms)
+New Shared
+63us (0.063ms)
+Make Unique
+61us (0.061ms)
+[1]    97000 trace trap  ./main
+(base) ➜  Dev g++-13 -O2 main.cpp -o main
+(base) ➜  Dev ./main                     
+0us (0ms)
+2000000
+Make Shared
+40us (0.04ms)
+New Shared
+119us (0.119ms)
+Make Unique
+46us (0.046ms)
+[1]    97076 trace trap  ./main
+```
+
+## 结构化绑定
+```cpp
+#include <iostream>
+#include <string>
+#include <tuple>
+
+struct Person
+{
+	std::string Name;
+	int Age;
+};
+
+std::tuple<std::string, int> CreatePerson()
+{
+	return { "Cherno", 24 };
+}
+
+
+int main()
+{
+	auto person = CreatePerson();
+	std::string& name = std::get<0>(person);
+	int age = std::get<1>(person);
+
+	std::string name;
+	int age;
+	std::tie(name, age) = CreatePerson();
+}
+```
+
+```cpp
+#include <iostream>
+#include <string>
+#include <tuple>
+
+std::tuple<std::string, int> CreatePerson()
+{
+	return { "Cherno", 24 };
+}
+
+int main()
+{
+	auto[name, age] = CreatePerson();
+	std::cout << name << std::endl;
+}
+```
+
+## 如何处理 Optional 数据
+```cpp
+#include <iostream>
+#include <fstream>
+#include <optional>
+
+
+std::string ReadFileAsString(const std::string& filepath)
+{
+	std::ifstream stream(filepath);
+	if (stream)
+	{
+		std::string result;
+		// read file
+		stream.close();
+		return result;
+	}
+	
+	return std::string();
+}
+
+std::string ReadFileAsString2(const std::string& filepath, bool& outSuccess)
+{
+	std::ifstream stream(filepath);
+	if (stream)
+	{
+		std::string result;
+		// read file
+		stream.close();
+		outSuccess = true;
+		return result;
+	}
+	
+	outSuccess = false;
+	return std::string();
+}
+
+std::optional<std::string> ReadFileAsString3(const std::string& filepath)
+{
+	std::ifstream stream(filepath);
+	if (stream)
+	{
+		std::string result;
+
+		stream.close();
+		return result;
+
+	}
+	return {};
+}
+
+int main()
+{
+	// bool fileOpenSuccessfully;
+	// std::string data = ReadFileAsString2("data.txt", fileOpenSuccessfully);
+	// if(fileOpenSuccessfully)
+	// {
+
+	// }
+
+	std::optional<std::string> data = ReadFileAsString3("data.txt");
+
+	std::string value = data.value_or("Not Present"); // 如果没有值就返回一个默认值
+	std::cout << value << std::endl;
+	if (data)
+	{
+		std::cout << "File read successfully!\n";
+	}
+	else
+	{
+		std::cout << "FIle could not be opened\n";
+	}
+
+	std::cin.get();
+}
+```
+
+## 单一变量存放多类型的数据
+```cpp
+#include <iostream>
+#include <variant>
+#include <optional>
+
+enum class ErrorCode
+{
+	None = 0, NotFound = 1, NoAccess = 2
+};
+
+std::variant<std::string, ErrorCode> ReadFileString()
+{
+	return {};
+}
+
+int main()
+{
+	std::variant<std::string, int> data;
+
+	std::cout << sizeof(int) << "\n";
+	std::cout << sizeof(std::string) << "\n";
+	std::cout << sizeof(data) << "\n";
+
+	data = "Cherno";
+	std::cout << std::get<std::string>(data) << std::endl;
+	if (auto value = std::get_if<std::string>(&data))
+	{
+		std::string& v = *value;		
+	}
+	
+
+	data = 2;
+	data.index(); // 1
+
+	std::cout << std::get<std::string>(data) << std::endl;
+	std::cout << std::get<int>(data) << std::endl;
+
+	std::cin.get();
+}
+```
+
+## 单一变量存储任意类型的数据
