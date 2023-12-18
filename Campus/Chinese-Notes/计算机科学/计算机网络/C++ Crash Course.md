@@ -3068,3 +3068,26 @@ int main()
 ```
 
 ## 单一变量存储任意类型的数据
+```cpp
+#include <iostream>
+#include <any>
+#include <variant>
+
+struct CustomClass
+{
+	std::string s0, s1;
+};
+
+int main()
+{
+	std::any data; // 对于小类型 any 将变量存储为一个 Union，对于大类型，会使用大空间 void *，动态分配内存 
+	data = 2;
+	data = std::string("Cherno");
+	data = CustomClass(); // 当超过 32 字节，会调用 new 动态分配内存
+
+	std::string string = std::any_cast<std::string>(data);
+	std::string& string = std::any_cast<std::string&>(data);
+
+	std::cin.get();
+}
+```
