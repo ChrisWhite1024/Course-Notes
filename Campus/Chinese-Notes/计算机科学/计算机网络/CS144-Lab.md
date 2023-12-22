@@ -229,3 +229,208 @@ El Psy Kongroo
 
 ![[Pasted image 20231218190807.png]]
 
+### Listening and connecting
+```bash
+cs144@vm:~/cs144-computer-network$ netcat -v -l -p 9090
+Listening on 0.0.0.0 9090
+Connection received on localhost 33278
+Hello
+Hello
+El Psy Kongroo
+^C
+```
+
+```bash
+cs144@vm:~/cs144-computer-network$ telnet localhost 9090
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Hello
+Hello
+El Psy Kongroo
+Connection closed by foreign host.
+```
+
+## Writing a network program using an OS stream socket
+### Modern C++: mostly safe but still fast and low-level
+
+### Writing webget
+```cpp
+void get_URL( const string& host, const string& path )
+{
+  cerr << "Function called: get_URL(" << host << ", " << path << ")\n";
+
+  const std::string service = "http";
+  const Address addr( host, service );
+  TCPSocket socket;
+  socket.connect( addr );
+  std::cout << "Peer Address: " << socket.peer_address().to_string() << "\n";
+  std::cout << "Local Address: " << socket.local_address().to_string() << "\n";
+
+  const std::string http_request = "GET " + path
+                                   + " HTTP/1.1\r\n"
+                                     "Host: "
+                                   + host
+                                   + "\r\n"
+                                     "Connection: close\r\n\r\n";
+  std::string http_response, buffer;
+  socket.write( http_request );
+  while ( !socket.eof() ) {
+	/* 
+	 * 由于 FDwrapper 中 non_blocking_ 被初始化为 false 
+	 * 如果无数据可读 read 函数会被阻塞，直到有数据可读才返回
+	 * 直到 read 函数返回 0 FDwrapper的 eof_ 才被置 1
+	 */
+    socket.read( buffer );
+    http_response += buffer;
+  }
+
+  socket.close();
+
+  std::cout << http_response;
+}
+```
+
+```bash
+cs144@vm:~/cs144-computer-network$ cmake --build build --target check_webget
+Test project /home/cs144/cs144-computer-network/build
+    Start 1: compile with bug-checkers
+1/2 Test #1: compile with bug-checkers ........   Passed    0.27 sec
+    Start 2: t_webget
+2/2 Test #2: t_webget .........................   Passed    0.95 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   1.24 sec
+Built target check_webget
+```
+
+## An in-memory reliable byte stream
+```cpp
+class ByteStream
+{
+protected:
+  uint64_t capacity_;
+  uint64_t bytes_pushed_ = 0;
+  uint64_t bytes_poped_ = 0;
+  bool eof_ = false;
+  bool closed_ = false;
+  bool error_ = false;
+  std::string buffer_; // 需要在构造函数初始化列表中初始化
+// ......
+```
+
+```cpp
+ByteStream::ByteStream( uint64_t capacity ) : capacity_( capacity ), buffer_() {}
+
+// 如果 data 超过 available capacity 就仅传输 available capacity 大小的数据
+void Writer::push( string data )
+{
+  uint64_t available = available_capacity();
+  if ( data.size() > available ) {
+    // throw runtime_error("ByteStream don't have enough capacity");
+    data.erase( available, data.size() - available );
+  }
+
+  buffer_ += data;
+
+  // cout << "Successfully push: " << data.size() << " Bytes of data\n";
+  bytes_pushed_ += data.size();
+}
+
+void Writer::close()
+{
+  eof_ = closed_ = true;
+}
+
+void Writer::set_error()
+{
+  error_ = true;
+}
+
+bool Writer::is_closed() const
+{
+  return closed_;
+}
+
+uint64_t Writer::available_capacity() const
+{
+  return capacity_ - static_cast<uint64_t>( buffer_.size() );
+}
+
+uint64_t Writer::bytes_pushed() const
+{
+  return bytes_pushed_;
+}
+
+string_view Reader::peek() const
+{
+  string_view string( buffer_.begin(), buffer_.end() );
+  return string;
+}
+
+bool Reader::is_finished() const
+{
+
+  return closed_ && buffer_.empty();
+}
+
+bool Reader::has_error() const
+{
+  return error_;
+}
+
+void Reader::pop( uint64_t len )
+{
+  buffer_.erase( 0, len );
+  bytes_poped_ += len;
+}
+
+uint64_t Reader::bytes_buffered() const
+{
+  return buffer_.size();
+}
+
+uint64_t Reader::bytes_popped() const
+{
+  return bytes_poped_;
+}
+```
+
+```bash
+cs144@vm:~/cs144-computer-network$ cmake --build build --target check0
+Test project /home/cs144/cs144-computer-network/build
+      Start  1: compile with bug-checkers
+ 1/10 Test  #1: compile with bug-checkers ........   Passed    0.23 sec
+      Start  2: t_webget
+ 2/10 Test  #2: t_webget .........................   Passed    1.23 sec
+      Start  3: byte_stream_basics
+ 3/10 Test  #3: byte_stream_basics ...............   Passed    0.93 sec
+      Start  4: byte_stream_capacity
+ 4/10 Test  #4: byte_stream_capacity .............   Passed    0.93 sec
+      Start  5: byte_stream_one_write
+ 5/10 Test  #5: byte_stream_one_write ............   Passed    0.92 sec
+      Start  6: byte_stream_two_writes
+ 6/10 Test  #6: byte_stream_two_writes ...........   Passed    0.90 sec
+      Start  7: byte_stream_many_writes
+ 7/10 Test  #7: byte_stream_many_writes ..........   Passed    0.96 sec
+      Start  8: byte_stream_stress_test
+ 8/10 Test  #8: byte_stream_stress_test ..........   Passed    0.96 sec
+      Start  9: compile with optimization
+ 9/10 Test  #9: compile with optimization ........   Passed    0.11 sec
+      Start 10: byte_stream_speed_test
+             ByteStream throughput: 1.98 Gbit/s
+10/10 Test #10: byte_stream_speed_test ...........   Passed    0.12 sec
+
+100% tests passed, 0 tests failed out of 10
+
+Total Test time (real) =   7.30 sec
+Built target check0
+```
+
+### `std::string_view`[@sbAnswerWhatString_view2013]
+1. `string_view` 提供了对原始字符串的视图，对 `string_view` 使用修改方法不会影响到原始字符串，只是修改了查看原始字符串的方式
+2. 如果原始字符串被修改或销毁，`std::string_view` 可能会变得无效。因此需要确保 `std::string_view` 的生命周期不会超过它所查看的字符串
+>It is the programmer's responsibility to ensure that `std::string_view` does not outlive the pointed-to character array
+
+# Checkpoint 1
