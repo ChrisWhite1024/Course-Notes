@@ -25,10 +25,10 @@
     "defaultColor": "#b58900",
     "defaultThickness": "1",
     "screenshotBgColor": "#002b36",
-    "screenshotBgStyle": "transparent",
+    "screenshotBgStyle": "color",
     "screenshotTextColor": "#fdf6e3",
     "screenshotTextColorEnabled": false,
     "titleAsRootNode": true,
-    "useThemeFont": true
+    "useThemeFont": false
   }
 }
