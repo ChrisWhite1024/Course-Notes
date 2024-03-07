@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Course-Notes]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>Course-Notes</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Thu, 07 Mar 2024 07:57:23 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Thu, 07 Mar 2024 07:57:13 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[C++ Crash Course]]></title><description><![CDATA[ 
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Course-Notes]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>Course-Notes</title><link/></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Thu, 07 Mar 2024 08:33:25 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Thu, 07 Mar 2024 08:33:24 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[Vim Cheatsheet]]></title><description><![CDATA[ 
+ <br>
+初识Vim娘，很可能觉得很沮丧，因为用尽浑身解数也不能让她笑一笑，难道注定与她无缘？No！任何想要接近她的人都要学习一张密密麻麻、五颜六色的秘笈……然后为了能够和她更好的性……嗯，幸福生活，可能还需要自己创造秘笈。
+<br>
+由ChrisWhite翻译自<a data-tooltip-position="top" aria-label="https://quickref.me/vim" rel="noopener" class="external-link" href="https://quickref.me/vim" target="_blank">Vim&nbsp;cheatsheet</a>
+<br><br>▼/▶ Cursor   ▽/▷ Target
+Copy<br><br>┌───────────── |      
+├───────────── 0      $ ──────────────┐ 
+│  ┌────────── ^      fe ────────┐    │
+│  │  ┌─────── Fo     te ───────┐│    │
+│  │  │┌────── To     30| ───┐  ││    │
+│  │  ││ ┌──── ge     w ───┐ │  ││    │
+│  │  ││ │ ┌── b      e ─┐ │ │  ││    │
+│  │  ││ │ │  ┌h      l┐ │ │ │  ││    │
+▽  ▽  ▽▽ ▽ ▽  ▽▼      ▼▽ ▽ ▽ ▽  ▽▽    ▽
+   echo "A cheatsheet from quickref.me"
+Copy<br><br>                 - SCREEN 1 START
+   ┌─┬─────────▷ #!/usr/bin/python
+   │ │     ┌───▷     
+   │ │     │     print("Hello")
+   │ │     { } ▶ print("Vim")
+   │ │       │   print("!")
+   │ │       └─▷    
+   │ │ ┌───┬───▷ print("Welcome")
+G gg H M L k j ▶ print("to")
+│        │   └─▷ print("quickref.me")
+│        │       print("/vim")
+│        │     
+│        └─────▷ 
+│                - SCREEN 1 END
+└──────────────▷ print("SCREEN 2")
+Copy<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>不仅是 i ，你可以设置宏为任何字母<br><br><br><br>将操作符和动作符结合来使用<br><br><br><br><br><br>[count] &lt;operator&gt; &lt;motion&gt;
+&lt;operator&gt; [count] &lt;motion&gt;
+Copy<br><br><br><br><br><br>操作属性为inner或者around的文本块<br><br><br>详见 :help text-objects<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>:[range]s/{pattern}/{str}/[flags]
+Copy<br><br><br><br>:%s/{pattern}/{str}/[flags]
+Copy<br><br><br><br><br><br>:[range]g/{pattern}/[command]
+Copy<br><br><br><br>:[range]v/{pattern}/[command]
+Copy<br><br><br><br><br><br><br><br>:s/a\|b/xxx\0xxx/g		         # Modifies "a b"      to "xxxaxxx xxxbxxx"
+:s/test/\U&amp; file/                # Modifies "test"     to "TEST FILE"
+:s/\(test\)/\U\1\e file/         # Modifies "test"     to "TEST file"
+:s/\v([abc])([efg])/\2\1/g	     # Modifies "af fa bg" to "fa fa gb"
+:s/\v\w+/\u\0/g		             # Modifies "bla bla"  to "Bla Bla"
+:s/\v([ab])|([cd])/\1x/g         # Modifies "a b c d"  to "ax bx x x"
+:%s/.*/\L&amp;/                      # Modifies "HTML"     to "html"
+:s/\v&lt;(.)(\w*)/\u\1\L\2/g        # Make every first letter of a word uppercase
+:%s/^\(.*\)\n\1/\1/              # Remove duplicate lines
+:%s/&lt;\/\=\(\w\+\)\&gt;/\U&amp;/g        # Convert HTML-Tags to uppercase
+:g/^pattern/s/$/mytext           # Find and append text to the end
+:g/pattern/norm! @i              # Run a macro on matching lines
+/^\(.*\)\(\r\?\n\1\)\+$          # View the duplicates lines
+/\v^(.*)(\r?\n\1)+$              # View the duplicates lines (very magic)
+:v/./,/./-j                      # Compress blank lines into a blank line
+:g/&lt;p1&gt;/,/&lt;p2&gt;/d                 # Delete inclusively from &lt;p1&gt; to &lt;p2&gt;
+Copy<br><br><br>
+$ vimdiff file1 file2 [file3]
+$ vim -d file1 file2 [file3]
+Copy<br><br>:[range]diffget [bufspec]
+:[range]diffput [bufspec]
+Copy<br><br><br>See: <a class="internal-link" data-href="#ranges" href="/#ranges" target="_self" rel="noopener">Ranges</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>详见 :help formatting<br><br><br><br><br>在插入模式下进行以上操作<br><br><br><br><br><br>移除重复行<br>:sort | %!uniq -u
+Copy<br>在文件中给行编号<br>:%!cat -n
+Copy<br>拷贝整个文档到剪贴板<br>:%w !pbcopy            # Mac OS X
+:%w !xclip -i -sel c   # GNU/Linux
+:%w !xsel -i -b        # GNU/Linux
+Copy<br><br>
+<br><a data-tooltip-position="top" aria-label="https://devhints.io/vim" rel="noopener" class="external-link" href="https://devhints.io/vim" target="_blank">Devhints</a> (devhints.io)
+<br><a data-tooltip-position="top" aria-label="https://vim.rtorr.com/" rel="noopener" class="external-link" href="https://vim.rtorr.com/" target="_blank">Vim cheatsheet</a> (vim.rotrr.com)
+<br><a data-tooltip-position="top" aria-label="http://vimdoc.sourceforge.net/htmldoc/" rel="noopener" class="external-link" href="http://vimdoc.sourceforge.net/htmldoc/" target="_blank">Vim documentation</a> (vimdoc.sourceforge.net)
+<br><a data-tooltip-position="top" aria-label="http://openvim.com/" rel="noopener" class="external-link" href="http://openvim.com/" target="_blank">Interactive Vim tutorial</a> (openvim.com)
+]]></description><link>campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md</guid><pubDate>Fri, 22 Dec 2023 11:04:19 GMT</pubDate></item><item><title><![CDATA[C++ Crash Course]]></title><description><![CDATA[ 
  <br><br><br>
 <br>C++ 编译器在编译过程中将文本文件 (Text File) 转变为对象文件 (Object File)，随后产生的对象文件再被链接器处理
 <br>在编译过程中会经过几个过程
@@ -2852,7 +2920,7 @@ int main()
 
 	std::cin.get();
 }
-Copy]]></description><link>campus/chinese-notes/计算机科学/计算机网络/c++-crash-course.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[什么是因特网]]></title><description><![CDATA[ 
+Copy]]></description><link>campus/chinese-notes/计算机科学/计算机网络/c++-crash-course.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[什么是因特网]]></title><description><![CDATA[ 
  <br><br>
 <br>根据构成因特网的基本硬件和软件组件描述
 <br>根据为分布式应用提供服务的互联网基础设施描述
@@ -3258,7 +3326,7 @@ Copy
 <br>运输层报文段(transport-layer segment)：运输层收到应用层报文并附上运输层首部信息，封装了应用层报文
 <br>网络层数据报(network-layer datagram)：网络层添加了如源和目的端系统地址等网络层首部信息
 <br>链路层帧(link-layer frame)：链路层添加链路层首部信息
-]]></description><link>campus/chinese-notes/计算机科学/计算机网络/因特网.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231101104608.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231101104608.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[应用层协议原理]]></title><description><![CDATA[ 
+]]></description><link>campus/chinese-notes/计算机科学/计算机网络/因特网.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231101104608.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231101104608.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[应用层协议原理]]></title><description><![CDATA[ 
  <br><br>
 <br>研发网络应用程序的核心是写出能够运行在不同的端系统和通过网络彼此通信的程序
 <br>即将应用软件限制在端系统的方法．促进了大量的网络应用程序的迅速研发和部署
@@ -3971,7 +4039,7 @@ Copy<br>
 
 
 
-]]></description><link>campus/chinese-notes/计算机科学/计算机网络/应用层.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231023191228.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231023191228.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[网络层-控制平面]]></title><description><![CDATA[ 
+]]></description><link>campus/chinese-notes/计算机科学/计算机网络/应用层.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231023191228.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231023191228.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[网络层-控制平面]]></title><description><![CDATA[ 
  <br><br>
 <br>控制平面不仅控制沿着从源主机到目的主机的端到端路径间的路由器如何转发数据报，而且控制网络层组件和服务如何配置和管理
 <br>OSPF 是一种运行在单一 ISP 网络中的路由选择算法，BGP 是一种在因特网中用于互联所有网络的路由选择算法
@@ -4269,7 +4337,7 @@ Copy<br>
 <br>陷阱报文异步产生，为了响应管理服务器要求的事件
 
 
-]]></description><link>campus/chinese-notes/计算机科学/计算机网络/网络层-控制平面.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231122115215.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231122115215.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[网络层概述]]></title><description><![CDATA[ 
+]]></description><link>campus/chinese-notes/计算机科学/计算机网络/网络层-控制平面.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231122115215.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231122115215.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[网络层概述]]></title><description><![CDATA[ 
  <br><br>
 <br>网络层的分解
 
@@ -4602,7 +4670,7 @@ Copy<br>
 <br>修改字段：分组被转发到输出端口前，分组首部除了 IP 协议的 Layer 2.3.4 字段可重写
 
 
-]]></description><link>campus/chinese-notes/计算机科学/计算机网络/网络层-数据平面.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231116172535.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231116172535.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[概述和运输层服务]]></title><description><![CDATA[ 
+]]></description><link>campus/chinese-notes/计算机科学/计算机网络/网络层-数据平面.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231116172535.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231116172535.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[概述和运输层服务]]></title><description><![CDATA[ 
  <br><br>
 <br>逻辑通信 (logic communication)： 
 
@@ -5227,7 +5295,7 @@ Copy<br><br>
 <br>RFC 3168 [@floydAdditionExplicitCongestion2001] 推荐仅当拥塞持续不断存在时才设置 ECN 比特
 <br>对于具有 ECE 拥塞指示的 ACK ，TCP 发送方将拥塞窗口减半作为回应，并在下个发送方到接收方的报文段中对 <a data-tooltip-position="top" aria-label="运输层 > ^2d9580" data-href="运输层#^2d9580" href="/campus/chinese-notes/计算机科学/计算机网络/运输层.html#^2d9580" class="internal-link" target="_self" rel="noopener">CWR</a> (拥塞窗口缩减) 置位
 <br>其他能利用网络层发送 ECN 信号的协议有数据报拥塞控制协议 (Datagram Congestion Control Protocol, DCCP)，DCTCP (数据中心 TCP) 
-]]></description><link>campus/chinese-notes/计算机科学/计算机网络/运输层.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231107111221.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231107111221.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[链路层概述]]></title><description><![CDATA[ 
+]]></description><link>campus/chinese-notes/计算机科学/计算机网络/运输层.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231107111221.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231107111221.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[链路层概述]]></title><description><![CDATA[ 
  <br>
 <br>广播信道：用于连接有线局域网、卫星网和<a data-tooltip-position="top" aria-label="因特网 > ^57ab0b" data-href="因特网#^57ab0b" href="/campus/chinese-notes/计算机科学/计算机网络/因特网.html#^57ab0b" class="internal-link" target="_self" rel="noopener">混合光纤同轴电缆</a> (Hybird Fiber Coaxial cable, HFC) 接入网中的多轴，需要媒体访问协议来协调帧传输
 <br>点对点通信链路
@@ -5286,5 +5354,5 @@ Copy<br><br>
 <br>时分多路复用 (TDM)
 <br>频分多路复用 (FDM)
 <br>码分多址 (Code Division Multiple Access, CDMA)
-<br><br>]]></description><link>campus/chinese-notes/计算机科学/计算机网络/链路层和局域网.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md</guid><pubDate>Mon, 25 Dec 2023 03:54:38 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[🌟 Course-Notes]]></title><description><![CDATA[ 
- <br><br>Course-Note is a repository that contains White’s study materials and notes, used to document the process of acquiring knowledge.<br><img style="border-radius: 15px;" src="https://image.wh1te.dev/IMG_6931.png" referrerpolicy="no-referrer">]]></description><link>readme.html</link><guid isPermaLink="false">README.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="https://image.wh1te.dev/IMG_6931.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;https://image.wh1te.dev/IMG_6931.png&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
+<br><br>]]></description><link>campus/chinese-notes/计算机科学/计算机网络/链路层和局域网.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md</guid><pubDate>Mon, 25 Dec 2023 03:54:38 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[🌟 Course-Notes]]></title><description><![CDATA[ 
+ <br><br>Course-Note is a repository that contains White’s study materials and notes, used to document the process of acquiring knowledge.<br><img style="border-radius: 15px;" src="https://image.wh1te.dev/IMG_6931.png" referrerpolicy="no-referrer">]]></description><link>readme.html</link><guid isPermaLink="false">README.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="https://image.wh1te.dev/IMG_6931.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="https://image.wh1te.dev/IMG_6931.png"&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>

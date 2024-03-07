@@ -167,7 +167,44 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "00940b5e4670e2eb",
+  "floating": {
+    "id": "040982b1424efb8d",
+    "type": "floating",
+    "children": [
+      {
+        "id": "8d2a146ff6f5479c",
+        "type": "window",
+        "children": [
+          {
+            "id": "c7e5c135d61129f1",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "99de5b5bf4a127c8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 306,
+        "y": 457,
+        "width": 900,
+        "height": 500,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "99de5b5bf4a127c8",
   "lastOpenFiles": [
     "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Shell & Cli Tools.md",
