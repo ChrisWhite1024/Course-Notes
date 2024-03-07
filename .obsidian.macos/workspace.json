@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md"
+                "file": "README.md"
               }
             }
           },
@@ -167,25 +167,62 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "00940b5e4670e2eb",
+  "floating": {
+    "id": "457a7347980e1d3a",
+    "type": "floating",
+    "children": [
+      {
+        "id": "7b0b48779ae12139",
+        "type": "window",
+        "children": [
+          {
+            "id": "79a20e79daf325d5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0c281ce31b050237",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "README.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 306,
+        "y": 457,
+        "width": 900,
+        "height": 500,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "0c281ce31b050237",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
     "Campus/Chinese-Notes/考研/DS/绪论.md",
     "Campus/Chinese-Notes/考研/DS/线性表.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/计算机系统漫游.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
     "Campus/Chinese-Notes/计算机科学/操作系统/多处理器编程.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/考研/OS",
     "Campus/Chinese-Notes/考研/DS",
     "Campus/Chinese-Notes/考研/数学",
     "Campus/Chinese-Notes/考研",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/TCP 拥塞控制算法.md",
     "Campus/Chinese-Notes/计算机科学/操作系统/操作系统上的程序.md",
     "Campus/Chinese-Notes/计算机科学/操作系统/Attachments/Pasted image 20230303084533.png",
