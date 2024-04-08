@@ -646,7 +646,7 @@ public:
 
 	void Error(const char* message) {
 		if (m_LogLevel >= LogLevelError)
-			std::cout << "[Warning]: " << message << std::endl;		
+			std::cout << "[Error]: " << message << std::endl;		
 	} 
 	void Warn(const char* message) {
 		if (m_LogLevel >= LogLevelWarning)
@@ -764,7 +764,7 @@ public:
 	void Error(const char *message)
 	{
 		if (m_LogLevel >= LevelError)
-			std::cout << "[Warning]: " << message << std::endl;
+			std::cout << "[Error]: " << message << std::endl;
 	}
 	void Warn(const char *message)
 	{

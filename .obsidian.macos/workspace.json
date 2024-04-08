@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "7691d4282125631d",
+        "id": "9322543da488fc54",
         "type": "tabs",
         "children": [
           {
-            "id": "00940b5e4670e2eb",
+            "id": "b0e368c99b9b873e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "c7fd161155415650",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md"
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md"
               }
             }
           },
@@ -144,9 +145,25 @@
               "type": "git-view",
               "state": {}
             }
+          },
+          {
+            "id": "15987d9aa80cc837",
+            "type": "leaf",
+            "state": {
+              "type": "ReferenceListView",
+              "state": {}
+            }
+          },
+          {
+            "id": "8c9ab86f68cc5715",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -167,61 +184,35 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "floating": {
-    "id": "040982b1424efb8d",
-    "type": "floating",
-    "children": [
-      {
-        "id": "8d2a146ff6f5479c",
-        "type": "window",
-        "children": [
-          {
-            "id": "c7e5c135d61129f1",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "99de5b5bf4a127c8",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 306,
-        "y": 457,
-        "width": 900,
-        "height": 500,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "99de5b5bf4a127c8",
+  "active": "b0e368c99b9b873e",
   "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408202050.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408200824.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408200542.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408191455.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
+    "Self-Introduction.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20240404151417.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20240404134242.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/TCP 拥塞控制算法.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
+    "Campus/Chinese-Notes/计算机科学/考研/DS/绪论.md",
+    "Campus/Chinese-Notes/计算机科学/考研/DS/线性表.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Shell & Cli Tools.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Latex数学公式.md",
     "Campus/Chinese-Notes/计算机科学/杂项/GNU Make.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/计算机系统漫游.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/TCP 拥塞控制算法.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
     "README.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/考研/DS/绪论.md",
     "Campus/Chinese-Notes/考研/DS/线性表.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
@@ -232,25 +223,14 @@
     "Campus/Chinese-Notes/考研",
     "Campus/Chinese-Notes/计算机科学/操作系统/操作系统上的程序.md",
     "Campus/Chinese-Notes/计算机科学/操作系统/Attachments/Pasted image 20230303084533.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/军事理论课论文.md",
     "Campus/Chinese-Notes/计算机科学/数据结构",
-    "Campus/Chinese-Notes/计算机科学/杂项/JavaScript快速入门.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统概述.md",
-    "Campus/Chinese-Notes/计算机科学/杂项/Git版本控制.md",
-    "Secrets/CTF/PCTF 2023.md",
     "Secrets/CTF",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231202223027.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231202220808.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231202214923.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231201150249.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/未命名",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130180250.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130173734.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231130170308.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231129160250.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231129154719.png",
     "Attachments",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/missfont.log",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw"
+    "Campus/Chinese-Notes/计算机科学/计算机网络/missfont.log"
   ]
 }
