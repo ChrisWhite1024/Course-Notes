@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
+                "file": "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
+                "file": "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
+                "file": "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md"
+                "file": "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md"
               }
             }
           },
@@ -163,7 +163,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -186,18 +186,27 @@
   },
   "active": "b0e368c99b9b873e",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408202050.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408200824.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408200542.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408191455.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410093828.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410093305.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410091843.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410091558.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410090902.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410090239.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410085107.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410084839.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410084624.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410084551.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测",
+    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408212837.png",
     "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
     "Self-Introduction.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20240404151417.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20240404134242.png",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
@@ -215,22 +224,13 @@
     "README.md",
     "Campus/Chinese-Notes/考研/DS/绪论.md",
     "Campus/Chinese-Notes/考研/DS/线性表.md",
-    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
     "Campus/Chinese-Notes/计算机科学/操作系统/多处理器编程.md",
     "Campus/Chinese-Notes/考研/OS",
     "Campus/Chinese-Notes/考研/DS",
     "Campus/Chinese-Notes/考研/数学",
     "Campus/Chinese-Notes/考研",
-    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统上的程序.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/Attachments/Pasted image 20230303084533.png",
     "Campus/Chinese-Notes/计算机科学/数据结构",
     "Secrets/CTF",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231202223027.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231202220808.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231202214923.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/Pasted image 20231201150249.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/未命名",
-    "Attachments",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/missfont.log"
+    "Campus/Chinese-Notes/计算机科学/计算机网络/未命名"
   ]
 }
