@@ -113,6 +113,7 @@ typedef struct _IMAGE_FILE_HEADER {
 ```
 ![[Pasted image 20240410093828.png]]
 ### IMAGE_OPTIONAL_HEADER
+![[Pasted image 20240410101046.png]]![[Pasted image 20240410101436.png]]
 ```
 typedef struct _IMAGE_OPTIONAL_HEADER {
   WORD                 Magic;                            /* +0018h 魔数 */
@@ -148,3 +149,16 @@ typedef struct _IMAGE_OPTIONAL_HEADER {
   IMAGE_DATA_DIRECTORY DataDirectory[IMAGE_NUMBEROF_DIRECTORY_ENTRIES];     /* +0078h 指向数据目录中第一个 IMAGE_DATA_DIRECTORY 结构体的指针 */
 } IMAGE_OPTIONAL_HEADER32, *PIMAGE_OPTIONAL_HEADER32;
 ```
+1. 提供了加载时必要的信息
+2. `Magic`：指明映像文件的类型
+	1. `0x0107` ROM 映像
+	2. `0x010B` PE32
+	3. `0x020B` PE32+
+3. `MajorLinkerVersion`：链接器主要版本号
+4. `MinorLinkerVersion`：链接器次要版本号
+5. `SizeOfCode`：所有包含代码节的总大小 (文件对齐后)，判断某个节是否包含代码根据节属性是否包含 `IMAGE_SCN_CNT_CODE`![[Pasted image 20240410102330.png]]
+6. `SizeOfInitializedData`：所有包含已初始化数据节的总大小
+7. `SizeOfUninitializedData`：所有包含未初始化数据节的总大小
+8. `AddressOfEntryPoint`：入口点函数指针相对于映像文件加载基址的偏移量
+9. `BaseOfCode`：代码节 RVA ，节名为 ".text"
+10. ``

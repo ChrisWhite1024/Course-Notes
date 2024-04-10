@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "c7fd161155415650",
@@ -186,6 +185,12 @@
   },
   "active": "b0e368c99b9b873e",
   "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410102330.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410084551.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410101436.png",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410101046.png",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410093828.png",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410093305.png",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410091843.png",
@@ -193,15 +198,10 @@
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410090902.png",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410090239.png",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410085107.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410084839.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410084624.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410084551.png",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240408212837.png",
     "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
     "Self-Introduction.md",
@@ -211,7 +211,6 @@
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/TCP 拥塞控制算法.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
     "Campus/Chinese-Notes/计算机科学/考研/DS/绪论.md",
     "Campus/Chinese-Notes/计算机科学/考研/DS/线性表.md",
