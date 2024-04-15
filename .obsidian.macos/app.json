@@ -8,5 +8,6 @@
   "readableLineLength": false,
   "strictLineBreaks": false,
   "showLineNumber": true,
-  "showIndentGuide": true
+  "showIndentGuide": true,
+  "promptDelete": false
 }

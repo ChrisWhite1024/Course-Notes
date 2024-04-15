@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md"
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md"
               }
             }
           },
@@ -162,7 +162,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -185,24 +185,39 @@
   },
   "active": "b0e368c99b9b873e",
   "lastOpenFiles": [
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410102330.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410084551.png",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240415104227.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240415104056.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240415103934.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240415103251.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240415102712.png",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410101436.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410101046.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410093828.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410093305.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410091843.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410091558.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410090902.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410090239.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments/Pasted image 20240410085107.png",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Attachments",
     "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测",
+    "Campus/Chinese-Notes/计算机科学/考研/DS/线性表.md",
+    "Campus/Chinese-Notes/计算机科学/考研/DS/绪论.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Untitled.md",
+    "export/Untitled/plugin/chalkboard/img/whiteboard.png",
+    "export/Untitled/plugin/chalkboard/img/sponge.png",
+    "export/Untitled/plugin/chalkboard/img/chalk-yellow.png",
+    "export/Untitled/plugin/chalkboard/img/chalk-white.png",
+    "export/Untitled/plugin/chalkboard/img/chalk-red.png",
+    "export/Untitled/plugin/chalkboard/img/chalk-purple.png",
+    "export/Untitled/plugin/chalkboard/style.css",
+    "export/Untitled/plugin/chalkboard/plugin.js",
+    "export/Untitled/plugin/chalkboard/plugin (copy).js",
+    "export/Untitled/plugin/chalkboard/img",
+    "export/Untitled/plugin/chalkboard/_style.css",
+    "export/Untitled/plugin/chalkboard/README.md",
+    "export/Untitled/plugin/chalkboard",
+    "export/Untitled/plugin/chart/plugin.js",
+    "export/Untitled/plugin/chart/chart.min.js",
+    "export/Untitled/plugin/chart/README.md",
+    "export/Untitled/plugin/chart",
+    "export/Untitled/plugin/customcontrols/style.css",
+    "export/Untitled/plugin/customcontrols/README.md",
+    "export/Untitled/plugin/menu/README.md",
+    "export/Untitled/plugin/menu/CONTRIBUTING.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments",
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
     "Self-Introduction.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
@@ -212,24 +227,9 @@
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/TCP 拥塞控制算法.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
-    "Campus/Chinese-Notes/计算机科学/考研/DS/绪论.md",
-    "Campus/Chinese-Notes/计算机科学/考研/DS/线性表.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Shell & Cli Tools.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Latex数学公式.md",
-    "Campus/Chinese-Notes/计算机科学/杂项/GNU Make.md",
-    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
-    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/计算机系统漫游.md",
-    "README.md",
-    "Campus/Chinese-Notes/考研/DS/绪论.md",
-    "Campus/Chinese-Notes/考研/DS/线性表.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/多处理器编程.md",
-    "Campus/Chinese-Notes/考研/OS",
-    "Campus/Chinese-Notes/考研/DS",
-    "Campus/Chinese-Notes/考研/数学",
-    "Campus/Chinese-Notes/考研",
-    "Campus/Chinese-Notes/计算机科学/数据结构",
-    "Secrets/CTF",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/未命名"
+    "Campus/Chinese-Notes/计算机科学/杂项/GNU Make.md"
   ]
 }
