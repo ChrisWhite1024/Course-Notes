@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "c7fd161155415650",
@@ -183,8 +184,9 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "f2ffd5b90c241419",
+  "active": "b0e368c99b9b873e",
   "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240603104619.png",
     "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
@@ -229,7 +231,6 @@
     "Self-Introduction.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md"
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md"
   ]
 }
