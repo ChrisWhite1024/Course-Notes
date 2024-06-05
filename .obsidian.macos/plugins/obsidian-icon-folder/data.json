@@ -1,9 +1,9 @@
 {
   "settings": {
-    "migrated": 4,
+    "migrated": 5,
     "iconPacksPath": ".obsidian.macos/icons",
     "fontSize": 16,
-    "emojiStyle": "none",
+    "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
       "LiBook",
@@ -25,7 +25,12 @@
     "iconInFrontmatterEnabled": false,
     "iconsBackgroundCheckEnabled": false,
     "iconsInNotesEnabled": true,
-    "iconIdentifier": ":"
+    "iconIdentifier": ":",
+    "iconInTitlePosition": "above",
+    "iconInFrontmatterFieldName": "icon",
+    "iconColorInFrontmatterFieldName": "iconColor",
+    "iconsInLinksEnabled": true,
+    "debugMode": false
   },
   "Campus": "LiSchool",
   "Diary": "LiBook",

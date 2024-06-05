@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "9322543da488fc54",
+        "id": "c9dd1a2f518caaff",
         "type": "tabs",
         "children": [
           {
-            "id": "b0e368c99b9b873e",
+            "id": "beb309beed6192b3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md"
+                "file": "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md"
               }
             }
           },
@@ -170,6 +170,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-kanban:Create new board": false,
       "webpage-html-export:Export Vault to HTML": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -183,35 +184,40 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "b0e368c99b9b873e",
+  "active": "beb309beed6192b3",
   "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/考研/OS/内存管理.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/内存管理 1.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240605162233.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240605154846.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240605122553.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240605103936.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
+    "Diary/2024-06-05.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240604191915.png",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240604190834.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/多处理器编程.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统概述.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统上的程序.md",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240603104619.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
-    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
-    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/计算机系统漫游.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
-    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
+    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
+    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
     "Campus/Chinese-Notes/计算机科学/考研/DS/线性表.md",
     "Campus/Chinese-Notes/计算机科学/考研/DS/绪论.md",
+    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统概述.md",
+    "Campus/Chinese-Notes/计算机科学/操作系统/多处理器编程.md",
+    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统上的程序.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240603104619.png",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/CS144-Lab.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240424105033.png",
     "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240424095359.png",
     "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240422125958.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240422125847.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240422125608.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240422123552.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240422123513.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240422111623.png",
-    "Campus/Chinese-Notes/计算机科学/考研/OS/Attachments/Pasted image 20240422104527.png",
     "Campus/Chinese-Notes/Maimai",
     "Campus/Chinese-Notes/计算机科学/操作系统/线程.md",
     "export/Untitled/plugin/chalkboard/style.css",
@@ -225,10 +231,6 @@
     "export/Untitled/plugin/chart/chart.min.js",
     "export/Untitled/plugin/chart/README.md",
     "export/Untitled/plugin/chart",
-    "export/Untitled/plugin/customcontrols/README.md",
-    "export/Untitled/plugin/menu/README.md",
-    "export/Untitled/plugin/menu/CONTRIBUTING.md",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
-    "Self-Introduction.md"
+    "export/Untitled/plugin/customcontrols/README.md"
   ]
 }
