@@ -1,12 +1,18 @@
 {
   "vaultName": "Course-Notes",
-  "lastExport": 1709800404341,
+  "lastExport": 1718890480925,
   "pluginVersion": "1.8.01",
-  "validBodyClasses": "publish css-settings-manager native-scrollbars theme-light show-inline-title",
+  "validBodyClasses": "publish css-settings-manager theme-dark show-inline-title show-ribbon",
   "useCustomHeadContent": false,
   "useCustomFavicon": false,
   "files": [
     "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/数据取证.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/内存管理.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/文件管理.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
+    "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/cable-modem.jpeg",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/IMG_2980B2168CAF-1.jpeg",
     "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments/IMG_B520FBA50591-1.jpeg",
@@ -45,6 +51,61 @@
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
     "README.md",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620065107.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620093504.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101600.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101805.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102200.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102402.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620155644.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160517.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160542.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620170353.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620103156.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620145732.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620205121.png",
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620211855.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604190834.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604191915.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605103936.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605122553.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605154846.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605162233.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408191455.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408200542.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408200824.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408202050.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408212837.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415102712.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415103251.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415103934.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415104056.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415104227.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415200330.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415201212.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415201935.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240417205834.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422103831.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422103844.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422104427.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422104527.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422111623.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422123513.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422123552.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125608.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125847.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125958.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240424095359.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240424105033.png",
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240603104619.png",
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png",
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202220808.png",
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png",
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png",
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png",
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png",
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404134242.png",
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404151417.png",
     "lib/scripts/graph-wasm.wasm",
     "lib/fonts/94f2f163d4b698242fef.otf",
     "lib/fonts/72505e6a122c6acd5471.woff2",
@@ -60,6 +121,28 @@
     "lib/fonts/05b618077343fbbd92b7.ttf",
     "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
     "lib/media/874d8b8e340f75575caa.svg",
+    "lib/fonts/mathjax_zero.woff",
+    "lib/fonts/mathjax_main-regular.woff",
+    "lib/fonts/mathjax_main-bold.woff",
+    "lib/fonts/mathjax_math-italic.woff",
+    "lib/fonts/mathjax_main-italic.woff",
+    "lib/fonts/mathjax_math-bolditalic.woff",
+    "lib/fonts/mathjax_size1-regular.woff",
+    "lib/fonts/mathjax_size2-regular.woff",
+    "lib/fonts/mathjax_size3-regular.woff",
+    "lib/fonts/mathjax_size4-regular.woff",
+    "lib/fonts/mathjax_ams-regular.woff",
+    "lib/fonts/mathjax_calligraphic-regular.woff",
+    "lib/fonts/mathjax_calligraphic-bold.woff",
+    "lib/fonts/mathjax_fraktur-regular.woff",
+    "lib/fonts/mathjax_fraktur-bold.woff",
+    "lib/fonts/mathjax_sansserif-regular.woff",
+    "lib/fonts/mathjax_sansserif-bold.woff",
+    "lib/fonts/mathjax_sansserif-italic.woff",
+    "lib/fonts/mathjax_script-regular.woff",
+    "lib/fonts/mathjax_typewriter-regular.woff",
+    "lib/fonts/mathjax_vector-regular.woff",
+    "lib/fonts/mathjax_vector-bold.woff",
     "lib/html/file-tree.html",
     "lib/scripts/webpage.js",
     "lib/scripts/graph-view.js",
@@ -72,12 +155,9 @@
     "lib/scripts/graph-data.js",
     "lib/styles/obsidian.css",
     "lib/styles/other-plugins.css",
-    "lib/styles/theme.css",
     "lib/styles/global-variable-styles.css",
     "lib/styles/supported-plugins.css",
     "lib/styles/main-styles.css",
-    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png",
-    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202220808.png",
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231101104608.png",
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231101104900.png",
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231031154330.png",
@@ -216,11 +296,7 @@
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115090203.png",
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115112824.png",
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115162141.png",
-    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115170222.png",
-    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png",
-    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png",
-    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png",
-    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png"
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115170222.png"
   ],
   "mainDependencies": [
     "lib/scripts/graph-wasm.wasm",
@@ -238,6 +314,28 @@
     "lib/fonts/05b618077343fbbd92b7.ttf",
     "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
     "lib/media/874d8b8e340f75575caa.svg",
+    "lib/fonts/mathjax_zero.woff",
+    "lib/fonts/mathjax_main-regular.woff",
+    "lib/fonts/mathjax_main-bold.woff",
+    "lib/fonts/mathjax_math-italic.woff",
+    "lib/fonts/mathjax_main-italic.woff",
+    "lib/fonts/mathjax_math-bolditalic.woff",
+    "lib/fonts/mathjax_size1-regular.woff",
+    "lib/fonts/mathjax_size2-regular.woff",
+    "lib/fonts/mathjax_size3-regular.woff",
+    "lib/fonts/mathjax_size4-regular.woff",
+    "lib/fonts/mathjax_ams-regular.woff",
+    "lib/fonts/mathjax_calligraphic-regular.woff",
+    "lib/fonts/mathjax_calligraphic-bold.woff",
+    "lib/fonts/mathjax_fraktur-regular.woff",
+    "lib/fonts/mathjax_fraktur-bold.woff",
+    "lib/fonts/mathjax_sansserif-regular.woff",
+    "lib/fonts/mathjax_sansserif-bold.woff",
+    "lib/fonts/mathjax_sansserif-italic.woff",
+    "lib/fonts/mathjax_script-regular.woff",
+    "lib/fonts/mathjax_typewriter-regular.woff",
+    "lib/fonts/mathjax_vector-regular.woff",
+    "lib/fonts/mathjax_vector-bold.woff",
     "lib/html/file-tree.html",
     "lib/scripts/webpage.js",
     "lib/scripts/graph-view.js",
@@ -250,7 +348,6 @@
     "lib/scripts/graph-data.js",
     "lib/styles/obsidian.css",
     "lib/styles/other-plugins.css",
-    "lib/styles/theme.css",
     "lib/styles/global-variable-styles.css",
     "lib/styles/supported-plugins.css",
     "lib/styles/main-styles.css"
@@ -437,8 +534,8 @@
       "dependencies": []
     },
     "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md": {
-      "modifiedTime": 1709798233375,
-      "sourceSize": 72413,
+      "modifiedTime": 1718890480925,
+      "sourceSize": 72409,
       "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/c++-crash-course.html",
       "dependencies": [
         "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png",
@@ -620,14 +717,16 @@
       ]
     },
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md": {
-      "modifiedTime": 1709798233375,
-      "sourceSize": 5949,
+      "modifiedTime": 1718890480925,
+      "sourceSize": 10357,
       "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/链路层和局域网.html",
       "dependencies": [
         "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png",
         "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png",
         "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png",
-        "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png"
+        "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png",
+        "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404134242.png",
+        "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404151417.png"
       ]
     },
     "README.md": {
@@ -637,13 +736,13 @@
       "dependencies": []
     },
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 26325,
       "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png",
       "dependencies": []
     },
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202220808.png": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 133405,
       "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202220808.png",
       "dependencies": []
@@ -1483,320 +1582,320 @@
       "dependencies": []
     },
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 68355,
       "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png",
       "dependencies": []
     },
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 507424,
       "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png",
       "dependencies": []
     },
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 423699,
       "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png",
       "dependencies": []
     },
     "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 194427,
       "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png",
       "dependencies": []
     },
     "lib/scripts/graph-wasm.wasm": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 23377,
       "exportedPath": "lib/scripts/graph-wasm.wasm",
       "dependencies": []
     },
     "lib/fonts/94f2f163d4b698242fef.otf": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 66800,
       "exportedPath": "lib/fonts/94f2f163d4b698242fef.otf",
       "dependencies": []
     },
     "lib/fonts/72505e6a122c6acd5471.woff2": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 104232,
       "exportedPath": "lib/fonts/72505e6a122c6acd5471.woff2",
       "dependencies": []
     },
     "lib/fonts/2d5198822ab091ce4305.woff2": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 104332,
       "exportedPath": "lib/fonts/2d5198822ab091ce4305.woff2",
       "dependencies": []
     },
     "lib/fonts/c8ba52b05a9ef10f4758.woff2": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 98868,
       "exportedPath": "lib/fonts/c8ba52b05a9ef10f4758.woff2",
       "dependencies": []
     },
     "lib/fonts/cb10ffd7684cd9836a05.woff2": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 106876,
       "exportedPath": "lib/fonts/cb10ffd7684cd9836a05.woff2",
       "dependencies": []
     },
     "lib/fonts/b5f0f109bc88052d4000.woff2": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 105804,
       "exportedPath": "lib/fonts/b5f0f109bc88052d4000.woff2",
       "dependencies": []
     },
     "lib/fonts/cbe0ae49c52c920fd563.woff2": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 106108,
       "exportedPath": "lib/fonts/cbe0ae49c52c920fd563.woff2",
       "dependencies": []
     },
     "lib/fonts/535a6cf662596b3bd6a6.woff2": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 111708,
       "exportedPath": "lib/fonts/535a6cf662596b3bd6a6.woff2",
       "dependencies": []
     },
     "lib/fonts/70cc7ff27245e82ad414.ttf": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 192740,
       "exportedPath": "lib/fonts/70cc7ff27245e82ad414.ttf",
       "dependencies": []
     },
     "lib/fonts/454577c22304619db035.ttf": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 161376,
       "exportedPath": "lib/fonts/454577c22304619db035.ttf",
       "dependencies": []
     },
     "lib/fonts/52ac8f3034507f1d9e53.ttf": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 191568,
       "exportedPath": "lib/fonts/52ac8f3034507f1d9e53.ttf",
       "dependencies": []
     },
     "lib/fonts/05b618077343fbbd92b7.ttf": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 155288,
       "exportedPath": "lib/fonts/05b618077343fbbd92b7.ttf",
       "dependencies": []
     },
     "lib/fonts/4bb6ac751d1c5478ff3a.woff2": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 7876,
       "exportedPath": "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
       "dependencies": []
     },
     "lib/media/874d8b8e340f75575caa.svg": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 317,
       "exportedPath": "lib/media/874d8b8e340f75575caa.svg",
       "dependencies": []
     },
     "lib/fonts/mathjax_zero.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 1368,
       "exportedPath": "lib/fonts/mathjax_zero.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_main-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 34160,
       "exportedPath": "lib/fonts/mathjax_main-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_main-bold.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 34464,
       "exportedPath": "lib/fonts/mathjax_main-bold.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_math-italic.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 19360,
       "exportedPath": "lib/fonts/mathjax_math-italic.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_main-italic.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 20832,
       "exportedPath": "lib/fonts/mathjax_main-italic.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_math-bolditalic.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 19776,
       "exportedPath": "lib/fonts/mathjax_math-bolditalic.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_size1-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 5792,
       "exportedPath": "lib/fonts/mathjax_size1-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_size2-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 5464,
       "exportedPath": "lib/fonts/mathjax_size2-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_size3-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 3244,
       "exportedPath": "lib/fonts/mathjax_size3-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_size4-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 5148,
       "exportedPath": "lib/fonts/mathjax_size4-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_ams-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 40808,
       "exportedPath": "lib/fonts/mathjax_ams-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_calligraphic-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 9600,
       "exportedPath": "lib/fonts/mathjax_calligraphic-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_calligraphic-bold.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 9908,
       "exportedPath": "lib/fonts/mathjax_calligraphic-bold.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_fraktur-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 21480,
       "exportedPath": "lib/fonts/mathjax_fraktur-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_fraktur-bold.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 22340,
       "exportedPath": "lib/fonts/mathjax_fraktur-bold.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_sansserif-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 12660,
       "exportedPath": "lib/fonts/mathjax_sansserif-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_sansserif-bold.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 15944,
       "exportedPath": "lib/fonts/mathjax_sansserif-bold.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_sansserif-italic.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 14628,
       "exportedPath": "lib/fonts/mathjax_sansserif-italic.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_script-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 11852,
       "exportedPath": "lib/fonts/mathjax_script-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_typewriter-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 17604,
       "exportedPath": "lib/fonts/mathjax_typewriter-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_vector-regular.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 1136,
       "exportedPath": "lib/fonts/mathjax_vector-regular.woff",
       "dependencies": []
     },
     "lib/fonts/mathjax_vector-bold.woff": {
-      "modifiedTime": 1709798233375,
+      "modifiedTime": 1718890480925,
       "sourceSize": 1116,
       "exportedPath": "lib/fonts/mathjax_vector-bold.woff",
       "dependencies": []
     },
     "lib/html/file-tree.html": {
-      "modifiedTime": 1709800404341,
-      "sourceSize": 20792,
+      "modifiedTime": 1718890480925,
+      "sourceSize": 24055,
       "exportedPath": "lib/html/file-tree.html",
       "dependencies": []
     },
     "lib/scripts/webpage.js": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 47290,
       "exportedPath": "lib/scripts/webpage.js",
       "dependencies": []
     },
     "lib/scripts/graph-view.js": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 15519,
       "exportedPath": "lib/scripts/graph-view.js",
       "dependencies": []
     },
     "lib/scripts/graph-wasm.js": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 14021,
       "exportedPath": "lib/scripts/graph-wasm.js",
       "dependencies": []
     },
     "lib/scripts/graph-render-worker.js": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 5179,
       "exportedPath": "lib/scripts/graph-render-worker.js",
       "dependencies": []
     },
     "lib/scripts/tinycolor.js": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 29832,
       "exportedPath": "lib/scripts/tinycolor.js",
       "dependencies": []
     },
     "lib/scripts/pixi.js": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 449509,
       "exportedPath": "lib/scripts/pixi.js",
       "dependencies": []
     },
     "lib/scripts/minisearch.js": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 29422,
       "exportedPath": "lib/scripts/minisearch.js",
       "dependencies": []
     },
     "lib/media/favicon.png": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 1105,
       "exportedPath": "lib/media/favicon.png",
       "dependencies": []
     },
     "lib/scripts/graph-data.js": {
-      "modifiedTime": 1709800404341,
-      "sourceSize": 854,
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1233,
       "exportedPath": "lib/scripts/graph-data.js",
       "dependencies": []
     },
     "lib/styles/obsidian.css": {
-      "modifiedTime": 1709800404341,
-      "sourceSize": 157356,
+      "modifiedTime": 1718890480925,
+      "sourceSize": 129920,
       "exportedPath": "lib/styles/obsidian.css",
       "dependencies": []
     },
     "lib/styles/other-plugins.css": {
-      "modifiedTime": 1709800404341,
-      "sourceSize": 9757,
+      "modifiedTime": 1718890480925,
+      "sourceSize": 9877,
       "exportedPath": "lib/styles/other-plugins.css",
       "dependencies": []
     },
@@ -1807,19 +1906,19 @@
       "dependencies": []
     },
     "lib/styles/global-variable-styles.css": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 236,
       "exportedPath": "lib/styles/global-variable-styles.css",
       "dependencies": []
     },
     "lib/styles/supported-plugins.css": {
-      "modifiedTime": 1709800404341,
-      "sourceSize": 4598,
+      "modifiedTime": 1718890480925,
+      "sourceSize": 4924,
       "exportedPath": "lib/styles/supported-plugins.css",
       "dependencies": []
     },
     "lib/styles/main-styles.css": {
-      "modifiedTime": 1709800404341,
+      "modifiedTime": 1718890480925,
       "sourceSize": 23130,
       "exportedPath": "lib/styles/main-styles.css",
       "dependencies": []
@@ -1828,6 +1927,387 @@
       "modifiedTime": 1709800404341,
       "sourceSize": 26922,
       "exportedPath": "campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html",
+      "dependencies": []
+    },
+    "Campus/Chinese-Notes/计算机科学/杂项/数据取证.md": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 30675,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/数据取证.html",
+      "dependencies": [
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620065107.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620093504.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101600.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101805.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102200.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102402.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620155644.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160517.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160542.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620170353.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620103156.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620145732.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620205121.png",
+        "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620211855.png"
+      ]
+    },
+    "Campus/Chinese-Notes/计算机科学/考研/OS/内存管理.md": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 10910,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/内存管理.html",
+      "dependencies": [
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604190834.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604191915.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605103936.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605122553.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605154846.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605162233.png"
+      ]
+    },
+    "Campus/Chinese-Notes/计算机科学/考研/OS/文件管理.md": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 2014,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/文件管理.html",
+      "dependencies": []
+    },
+    "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 6229,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/虚拟内存.html",
+      "dependencies": []
+    },
+    "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 8331,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/计算机系统概述.html",
+      "dependencies": [
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408191455.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408200542.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408200824.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408202050.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408212837.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415102712.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415103251.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415103934.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415104056.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415104227.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415200330.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415201212.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415201935.png"
+      ]
+    },
+    "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 25688,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/进程与线程.html",
+      "dependencies": [
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240417205834.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422103831.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422103844.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422104427.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422104527.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422111623.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422123513.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422123552.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125608.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125847.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125958.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240424095359.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240424105033.png",
+        "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240603104619.png"
+      ]
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620065107.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 869975,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620065107.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620093504.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 296934,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620093504.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101600.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 527160,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101600.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101805.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 519111,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101805.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102200.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 707367,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102200.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102402.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 730256,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102402.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620155644.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 733662,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620155644.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160517.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 161631,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160517.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160542.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 281844,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160542.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620170353.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 246021,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620170353.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620103156.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 65022,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620103156.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620145732.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 83103,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620145732.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620205121.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 308270,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620205121.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620211855.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 738864,
+      "exportedPath": "campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620211855.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604190834.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 474002,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604190834.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604191915.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 446748,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604191915.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605103936.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 811062,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605103936.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605122553.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 773137,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605122553.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605154846.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 925032,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605154846.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605162233.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 979107,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605162233.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408191455.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 61171,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408191455.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408200542.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 203877,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408200542.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408200824.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 194922,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408200824.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408202050.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 113209,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408202050.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408212837.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 370963,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240408212837.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415102712.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 702591,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415102712.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415103251.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 737469,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415103251.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415103934.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 579786,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415103934.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415104056.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1510504,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415104056.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415104227.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1124753,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415104227.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415200330.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 329936,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415200330.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415201212.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 652635,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415201212.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415201935.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 833182,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240415201935.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240417205834.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 652515,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240417205834.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422103831.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1073366,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422103831.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422103844.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1052010,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422103844.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422104427.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1237891,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422104427.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422104527.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1079349,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422104527.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422111623.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 503080,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422111623.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422123513.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1673789,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422123513.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422123552.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 1055018,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422123552.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125608.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 948983,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125608.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125847.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 430724,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125847.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125958.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 431051,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240422125958.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240424095359.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 636094,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240424095359.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240424105033.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 223569,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240424105033.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240603104619.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 876652,
+      "exportedPath": "campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240603104619.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404134242.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 229563,
+      "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404134242.png",
+      "dependencies": []
+    },
+    "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404151417.png": {
+      "modifiedTime": 1718890480925,
+      "sourceSize": 689562,
+      "exportedPath": "campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404151417.png",
       "dependencies": []
     }
   }

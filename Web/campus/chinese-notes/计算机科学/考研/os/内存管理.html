@@ -1,0 +1,272 @@
+<!DOCTYPE html> <html><head>
+		<title>内存管理</title>
+		<base href="../../../../../">
+		<meta id="root-path" root-path="../../../../../">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0">
+		<meta charset="UTF-8">
+		<meta name="description" content="Course-Notes - 内存管理">
+		<meta property="og:title" content="内存管理">
+		<meta property="og:description" content="Course-Notes - 内存管理">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="campus/chinese-notes/计算机科学/考研/os/内存管理.html">
+		<meta property="og:image" content="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604190834.png">
+		<meta property="og:site_name" content="Course-Notes">
+		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="lib/rss.xml"><script async="" id="webpage-script" src="lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script type="module" async="" id="graph-view-script" src="lib/scripts/graph-view.js"></script><script async="" id="graph-wasm-script" src="lib/scripts/graph-wasm.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-render-worker-script" src="lib/scripts/graph-render-worker.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="tinycolor-script" src="lib/scripts/tinycolor.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="pixi-script" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.4.0/pixi.min.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="minisearch-script" src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="lib/media/favicon.png"><script async="" id="graph-data-script" src="lib/scripts/graph-data.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-horizontal-spacing:0.6em;--tree-vertical-spacing:0.6em;--sidebar-margin:12px}.sidebar{height:100%;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));font-size:14px;z-index:10;position:relative;overflow:hidden;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}.sidebar-left{left:0}.sidebar-right{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}body.floating-sidebars .sidebar{position:absolute}.sidebar-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .sidebar-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}.sidebar-left .sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}.sidebar-right .sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar:has(.sidebar-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:2em;width:var(--sidebar-width);top:var(--sidebar-margin);padding-inline:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}.sidebar-left .sidebar-topbar{left:0}.sidebar-right .sidebar-topbar{right:0}.topbar-content{overflow:hidden;overflow:clip;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:0!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}.sidebar-left .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);right:var(--sidebar-margin)}.sidebar-right .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:100%;height:100%}.sidebar-section-header{margin:0 0 1em 0;text-transform:uppercase;letter-spacing:.06em;font-weight:600}body{transition:background-color var(--color-fade-speed) ease-in-out}.webpage-container{display:flex;flex-direction:row;height:100%;width:100%;align-items:stretch;justify-content:center}.document-container{opacity:1;flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0;transition:opacity .2s ease-in-out}.document-container>.markdown-preview-view{margin:var(--sidebar-margin);margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;background-color:var(--background-primary);transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}.document-container>.markdown-preview-view>.markdown-preview-sizer{padding-bottom:80vh!important;width:100%!important;max-width:var(--line-width)!important;flex-basis:var(--line-width)!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}.markdown-rendered img:not([width]),.view-content img:not([width]){max-width:100%;outline:0}.document-container>.view-content.embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}.document-container>.view-content.embed>*{max-width:100%;max-height:100%;object-fit:contain}:has(> :is(.math,table)){overflow-x:auto!important}.document-container>.view-content{overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){if("file:"!=location.protocol){let e=document.querySelectorAll("include");for(let t=0;t<e.length;t++){let o=e[t],l=o.getAttribute("src");try{const e=await fetch(l);if(!e.ok){console.log("Could not include file: "+l),o?.remove();continue}let t=await e.text(),n=document.createRange().createContextualFragment(t),i=Array.from(n.children);for(let e of i)e.classList.add("hide"),e.style.transition="opacity 0.5s ease-in-out",setTimeout((()=>{e.classList.remove("hide")}),10);o.before(n),o.remove(),console.log("Included file: "+l)}catch(e){o?.remove(),console.log("Could not include file: "+l,e);continue}}}else{if(document.querySelectorAll("include").length>0){var e=document.createElement("div");e.id="error",e.textContent="Web server exports must be hosted on an http / web server to be viewed correctly.",e.style.position="fixed",e.style.top="50%",e.style.left="50%",e.style.transform="translate(-50%, -50%)",e.style.fontSize="1.5em",e.style.fontWeight="bold",e.style.textAlign="center",document.body.appendChild(e),document.querySelector(".document-container")?.classList.remove("hide")}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script"))),l=0;!function e(){let n=o[l];l++,n&&"true"!=n.getAttribute("loaded")||l<o.length&&e(),l<o.length?n.addEventListener("load",e):t()}()}</script><link rel="stylesheet" href="lib/styles/obsidian.css"><link rel="preload" href="lib/styles/other-plugins.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/other-plugins.css"></noscript><link rel="preload" href="lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="lib/styles/supported-plugins.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/supported-plugins.css"></noscript><link rel="preload" href="lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/main-styles.css"></noscript></head><body class="publish css-settings-manager theme-dark show-inline-title show-ribbon"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div class="webpage-container workspace"><div class="sidebar-left sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><label class="theme-toggle-container" for="theme_toggle"><input class="theme-toggle-input" type="checkbox" id="theme_toggle"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content"><div class="search-input-container"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div class="search-input-clear-button" aria-label="Clear search"></div></div><include src="lib/html/file-tree.html"></include></div><script defer="">let ls = document.querySelector(".sidebar-left"); ls.classList.add("is-collapsed"); if (window.innerWidth > 768) ls.classList.remove("is-collapsed"); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div><div class="document-container markdown-reading-view hide"><div class="markdown-preview-view markdown-rendered allow-fold-headings allow-fold-lists is-readable-line-width"><style id="MJX-CHTML-styles">mjx-container[jax="CHTML"] { line-height: 0; }
+mjx-container [space="1"] { margin-left: 0.111em; }
+mjx-container [space="2"] { margin-left: 0.167em; }
+mjx-container [space="3"] { margin-left: 0.222em; }
+mjx-container [space="4"] { margin-left: 0.278em; }
+mjx-container [space="5"] { margin-left: 0.333em; }
+mjx-container [rspace="1"] { margin-right: 0.111em; }
+mjx-container [rspace="2"] { margin-right: 0.167em; }
+mjx-container [rspace="3"] { margin-right: 0.222em; }
+mjx-container [rspace="4"] { margin-right: 0.278em; }
+mjx-container [rspace="5"] { margin-right: 0.333em; }
+mjx-container [size="s"] { font-size: 70.7%; }
+mjx-container [size="ss"] { font-size: 50%; }
+mjx-container [size="Tn"] { font-size: 60%; }
+mjx-container [size="sm"] { font-size: 85%; }
+mjx-container [size="lg"] { font-size: 120%; }
+mjx-container [size="Lg"] { font-size: 144%; }
+mjx-container [size="LG"] { font-size: 173%; }
+mjx-container [size="hg"] { font-size: 207%; }
+mjx-container [size="HG"] { font-size: 249%; }
+mjx-container [width="full"] { width: 100%; }
+mjx-box { display: inline-block; }
+mjx-block { display: block; }
+mjx-itable { display: inline-table; }
+mjx-row { display: table-row; }
+mjx-row > * { display: table-cell; }
+mjx-mtext { display: inline-block; }
+mjx-mstyle { display: inline-block; }
+mjx-merror { display: inline-block; color: red; background-color: yellow; }
+mjx-mphantom { visibility: hidden; }
+mjx-assistive-mml { top: 0px; left: 0px; clip: rect(1px, 1px, 1px, 1px); user-select: none; position: absolute !important; padding: 1px 0px 0px !important; border: 0px !important; display: block !important; width: auto !important; overflow: hidden !important; }
+mjx-assistive-mml[display="block"] { width: 100% !important; }
+mjx-math { display: inline-block; text-align: left; line-height: 0; text-indent: 0px; font-style: normal; font-weight: normal; font-size: 100%; letter-spacing: normal; border-collapse: collapse; overflow-wrap: normal; word-spacing: normal; white-space: nowrap; direction: ltr; padding: 1px 0px; }
+mjx-container[jax="CHTML"][display="true"] { display: block; text-align: center; margin: 1em 0px; }
+mjx-container[jax="CHTML"][display="true"][width="full"] { display: flex; }
+mjx-container[jax="CHTML"][display="true"] mjx-math { padding: 0px; }
+mjx-container[jax="CHTML"][justify="left"] { text-align: left; }
+mjx-container[jax="CHTML"][justify="right"] { text-align: right; }
+mjx-msup { display: inline-block; text-align: left; }
+mjx-mn { display: inline-block; text-align: left; }
+mjx-c { display: inline-block; }
+mjx-utext { display: inline-block; padding: 0.75em 0px 0.2em; }
+mjx-mi { display: inline-block; text-align: left; }
+mjx-c::before { display: block; width: 0px; }
+.MJX-TEX { font-family: MJXZERO, MJXTEX; }
+.TEX-B { font-family: MJXZERO, MJXTEX-B; }
+.TEX-I { font-family: MJXZERO, MJXTEX-I; }
+.TEX-MI { font-family: MJXZERO, MJXTEX-MI; }
+.TEX-BI { font-family: MJXZERO, MJXTEX-BI; }
+.TEX-S1 { font-family: MJXZERO, MJXTEX-S1; }
+.TEX-S2 { font-family: MJXZERO, MJXTEX-S2; }
+.TEX-S3 { font-family: MJXZERO, MJXTEX-S3; }
+.TEX-S4 { font-family: MJXZERO, MJXTEX-S4; }
+.TEX-A { font-family: MJXZERO, MJXTEX-A; }
+.TEX-C { font-family: MJXZERO, MJXTEX-C; }
+.TEX-CB { font-family: MJXZERO, MJXTEX-CB; }
+.TEX-FR { font-family: MJXZERO, MJXTEX-FR; }
+.TEX-FRB { font-family: MJXZERO, MJXTEX-FRB; }
+.TEX-SS { font-family: MJXZERO, MJXTEX-SS; }
+.TEX-SSB { font-family: MJXZERO, MJXTEX-SSB; }
+.TEX-SSI { font-family: MJXZERO, MJXTEX-SSI; }
+.TEX-SC { font-family: MJXZERO, MJXTEX-SC; }
+.TEX-T { font-family: MJXZERO, MJXTEX-T; }
+.TEX-V { font-family: MJXZERO, MJXTEX-V; }
+.TEX-VB { font-family: MJXZERO, MJXTEX-VB; }
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c { font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A !important; }
+@font-face { font-family: MJXZERO; src: url("lib/fonts/mathjax_zero.woff") format("woff"); }
+@font-face { font-family: MJXTEX; src: url("lib/fonts/mathjax_main-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-B; src: url("lib/fonts/mathjax_main-bold.woff") format("woff"); }
+@font-face { font-family: MJXTEX-I; src: url("lib/fonts/mathjax_math-italic.woff") format("woff"); }
+@font-face { font-family: MJXTEX-MI; src: url("lib/fonts/mathjax_main-italic.woff") format("woff"); }
+@font-face { font-family: MJXTEX-BI; src: url("lib/fonts/mathjax_math-bolditalic.woff") format("woff"); }
+@font-face { font-family: MJXTEX-S1; src: url("lib/fonts/mathjax_size1-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-S2; src: url("lib/fonts/mathjax_size2-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-S3; src: url("lib/fonts/mathjax_size3-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-S4; src: url("lib/fonts/mathjax_size4-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-A; src: url("lib/fonts/mathjax_ams-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-C; src: url("lib/fonts/mathjax_calligraphic-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-CB; src: url("lib/fonts/mathjax_calligraphic-bold.woff") format("woff"); }
+@font-face { font-family: MJXTEX-FR; src: url("lib/fonts/mathjax_fraktur-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-FRB; src: url("lib/fonts/mathjax_fraktur-bold.woff") format("woff"); }
+@font-face { font-family: MJXTEX-SS; src: url("lib/fonts/mathjax_sansserif-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-SSB; src: url("lib/fonts/mathjax_sansserif-bold.woff") format("woff"); }
+@font-face { font-family: MJXTEX-SSI; src: url("lib/fonts/mathjax_sansserif-italic.woff") format("woff"); }
+@font-face { font-family: MJXTEX-SC; src: url("lib/fonts/mathjax_script-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-T; src: url("lib/fonts/mathjax_typewriter-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-V; src: url("lib/fonts/mathjax_vector-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-VB; src: url("lib/fonts/mathjax_vector-bold.woff") format("woff"); }
+mjx-c.mjx-c32::before { padding: 0.666em 0.5em 0px 0px; content: "2"; }
+mjx-c.mjx-c1D458.TEX-I::before { padding: 0.694em 0.521em 0.011em 0px; content: "k"; }
+</style><div class="markdown-preview-sizer markdown-preview-section"><h1 class="page-title heading inline-title" id="程序装入的方式"><p dir="auto">程序装入的方式</p></h1><div class="heading-wrapper"><div class="heading-children"><div class="heading-wrapper"><h2 data-heading="绝对装入" dir="auto" class="heading" id="绝对装入"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>绝对装入</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">编译程序生成绝对地址的目标代码，装入程序按照装入模块中的地址，将程序和数据装入内存</li>
+<li data-line="1" dir="auto">只适用于单道程序的环境</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="可重定位装入" dir="auto" class="heading" id="可重定位装入"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>可重定位装入</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">编译、链接后的装入模块的地址从 0 开始，根据内存的当前状况，将装入模块装入到内存的适当位置，装入时对地址进行重定位</li>
+<li data-line="1" dir="auto">在作业装入内存时，必须分配要求的全部空间</li>
+<li data-line="2" dir="auto">作业进入内存不可以移动</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="动态运行时装入" dir="auto" class="heading" id="动态运行时装入"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>动态运行时装入</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">装入内存后所有的地址依然是逻辑地址，把地址转换推迟到程序真正要执行时才进行</li>
+<li data-line="1" dir="auto">需要重定位寄存器的支持</li>
+<li data-line="2" dir="auto">可以把程序分配到不连续的存储区中</li>
+<li data-line="3" dir="auto">便于程序段的运行</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="链接的方式" dir="auto" class="heading" id="链接的方式">链接的方式</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">静态链接：程序运行之前，先将各目标模块及库函数链接成一个完整的可执行文件，之后不再拆开</li>
+<li data-line="1" dir="auto">装入时动态链接：将各目标模块装入内存时，边装入边链接的链接方式</li>
+<li data-line="2" dir="auto">运行时动态链接：在程序执行中需要目标模块才进行链接</li>
+</ol></div></div></div><div class="heading-wrapper"><h1 data-heading="内存管理的概念" dir="auto" class="heading" id="内存管理的概念">内存管理的概念</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">操作系统负责内存空间的分配与回收</li>
+<li data-line="1" dir="auto">操作系统需要提供某种技术从逻辑上对内存空间进行扩充</li>
+<li data-line="2" dir="auto">操作系统需要提供地址转换功能，负责程序的逻辑地址与物理地址的转换</li>
+<li data-line="3" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>操作系统要保证各个进程在各自存储空间内运行，互不干扰，提供内存保护
+<ol dir="auto">
+<li data-line="4" dir="auto">设置上下限寄存器</li>
+<li data-line="5" dir="auto">采用重定位寄存器和界地址寄存器</li>
+</ol>
+</li>
+</ol></div></div></div><div class="heading-wrapper"><h1 data-heading="进程的内存映像" dir="auto" class="heading" id="进程的内存映像">进程的内存映像</h1><div class="heading-children"><div><p dir="auto"><span alt="Pasted image 20240604190834.png" src="Pasted image 20240604190834.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240604190834.png" src="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604190834.png"></span></p></div><div><ol dir="auto">
+<li data-line="0" dir="auto">常量变量的值不能改变，会被存储在只读代码/数据区域中</li>
+<li data-line="1" dir="auto">读/写数据和只读代码/数据中在进程启动时就确定大小</li>
+</ol></div></div></div><div class="heading-wrapper"><h1 data-heading="覆盖与交换" dir="auto" class="heading" id="覆盖与交换">覆盖与交换</h1><div class="heading-children"><div class="heading-wrapper"><h2 data-heading="覆盖技术" dir="auto" class="heading" id="覆盖技术"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>覆盖技术</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">用来解决程序大小超过物理内存总和的问题</li>
+<li data-line="1" dir="auto">内存中分为固定区和覆盖区</li>
+<li data-line="2" dir="auto">程序的调用结构由程序员显式声明，对用户不透明<br>
+<span alt="Pasted image 20240604191915.png" src="Pasted image 20240604191915.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240604191915.png" src="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240604191915.png"></span></li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="交换技术" dir="auto" class="heading" id="交换技术"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>交换技术</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">内存空间紧张，系统将内存中某些进程暂时换出外存，把外存中某些已具备运行条件的进程换入内存</li>
+<li data-line="1" dir="auto">具有对换功能的操作系统中，通常把磁盘空间分为文件区和对换区两部分，文件区追求存储空间的利用率，采用离散分配方式。对换区主要追求换入换出速度，通常对对换区采用连续分配方式</li>
+<li data-line="2" dir="auto">交换发生在系统有许多进程运行并且内存吃紧时 </li>
+<li data-line="3" dir="auto">可优先换出阻塞进程，换出优先级低的进程，有些系统还会考虑进程在内存的驻留时间</li>
+<li data-line="4" dir="auto">PCB 不会被换出内存</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="连续分配管理方式" dir="auto" class="heading" id="连续分配管理方式">连续分配管理方式</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">内部碎片：分配给某进程的内存区域中，有些部分没有用上</li>
+<li data-line="1" dir="auto">外部碎片：内存中的某些空闲分区由于太小而难以利用</li>
+</ol></div><div class="heading-wrapper"><h2 data-heading="单一连续分配" dir="auto" class="heading" id="单一连续分配"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>单一连续分配</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">内存被分为系统区和用户区</li>
+<li data-line="1" dir="auto">内存中只能有一道用户程序，用户程序独占整个用户区空间</li>
+<li data-line="2" dir="auto">优点：实现简单，无外部碎片，不一定实现内存保护</li>
+<li data-line="3" dir="auto">缺点：只能用于单用户、单任务的操作系统中，有内部碎片，存储器利用率低</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="固定分区分配" dir="auto" class="heading" id="固定分区分配"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>固定分区分配</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">系统将整个用户空间划分为若干个固定大小的分区，在那个分区中只装入一道作业</li>
+<li data-line="1" dir="auto">可以划分为分区大小相等和不等两种</li>
+<li data-line="2" dir="auto">操作系统建立分区说明表来实现各个分区的分配与回收</li>
+<li data-line="3" dir="auto">优点：实现简单，无外部碎片</li>
+<li data-line="4" dir="auto">缺点：当用户程序太大时，需要采用覆盖技术满足要求，但又会降低性能，会产生内部碎片，内存利用率低</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="动态分区分配" dir="auto" class="heading" id="动态分区分配"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>动态分区分配</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">根据进程的大小动态地建立分区</li>
+<li data-line="1" dir="auto">操作系统使用空闲分区表或空闲分区链记录内存的使用情况</li>
+<li data-line="2" dir="auto">把新作业装入内存时，须按照一定的动态分区分配算法</li>
+<li data-line="3" dir="auto">各表项的顺序不一定按照地址递增顺序排列，具体的排列方式需要依据动态分区分配算法来确定</li>
+<li data-line="4" dir="auto">动态分区分配没有内部碎片，但是有外部碎片，可用“紧凑”技术来解决</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="动态分区分配算法" dir="auto" class="heading" id="动态分区分配算法">动态分区分配算法</h1><div class="heading-children"><div class="heading-wrapper"><h2 data-heading="首次适应算法" dir="auto" class="heading" id="首次适应算法"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>首次适应算法</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">每次从低地址开始查找，找到一个能满足大小的空闲分区</li>
+<li data-line="1" dir="auto">空闲分区以地址递增的次序排列，每次分配内存时顺序查找空闲分区链</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="最佳适应算法" dir="auto" class="heading" id="最佳适应算法"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>最佳适应算法</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">尽可能留下大片的空闲区，优先使用更小的空闲区</li>
+<li data-line="1" dir="auto">空闲分区按容量递增次序链接，每次分配内存时顺序查找空闲分区链</li>
+<li data-line="2" dir="auto">缺点：每次都选择最小的分区进行分配，会留下很多外部碎片</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="最坏适应算法" dir="auto" class="heading" id="最坏适应算法"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>最坏适应算法</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">每次分配时优先使用最大的连续空闲区</li>
+<li data-line="1" dir="auto">空闲分区按容量递减次序链接，每次分配内存时顺序查找空闲分区链</li>
+<li data-line="2" dir="auto">缺点：如果有大进程到达没有分区可用</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="邻近适应算法" dir="auto" class="heading" id="邻近适应算法"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>邻近适应算法</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">空闲分区以地址递增的顺序排列，每次分配内存时从上次查找结束的位置开始查找空闲分区链</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="分页存储管理" dir="auto" class="heading" id="分页存储管理">分页存储管理</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">系统将内存空间氛围一个个大小相等的分区 (比如 4 KB)，每个分区是一个页框 (页框=页帧=内存块=物理块=物理页面)</li>
+<li data-line="1" dir="auto">将进程的逻辑地址空间分为与页框大小相等的一个个部分，每个部分称为一个页，每个页面用页号编号</li>
+<li data-line="2" dir="auto">进程的页面与内存的页框有一一对应的关系</li>
+</ol></div><div class="heading-wrapper"><h2 data-heading="页表" dir="auto" class="heading" id="页表"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>页表</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">一个进程对应一张页表</li>
+<li data-line="1" dir="auto">进程的每个页面对应一个页表项</li>
+<li data-line="2" dir="auto">每个页表项由"页号"和"块号"组成</li>
+<li data-line="3" dir="auto">为了方便页表的查询，常常会让一个页表项占据更多的字节，使得每个页面恰好可以装得下整数个页表项</li>
+<li data-line="4" dir="auto">页表记录进程页面和实际存放的内存块见的映射关系</li>
+<li data-line="5" dir="auto">页表项连续存放，页号可以是隐含的，不占存储空间，只有块号占用存储空间</li>
+<li data-line="6" dir="auto">页表记录的是内存块号，不是内存块的起始地址</li>
+<li data-line="7" dir="auto">为了方便找到页表项，页表一般是放在连续的内存块中的</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="地址转换" dir="auto" class="heading" id="地址转换"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>地址转换</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">进程的各个页面是离散存放的，但是页面内部是连续存放的</li>
+<li data-line="1" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>要访问逻辑地址 A 
+<ol dir="auto">
+<li data-line="2" dir="auto">确定逻辑地址 A 对应的页号 P</li>
+<li data-line="3" dir="auto">找到 P 号页面在内存中的起始地址 (查页表)</li>
+<li data-line="4" dir="auto">确定逻辑地址 A 的页内偏移量 W</li>
+<li data-line="5" dir="auto">物理地址  = P 号页面在内存中的起始地址 + 页内偏移量 W</li>
+<li data-line="6" dir="auto">页号 = 逻辑地址 / 页面长度</li>
+<li data-line="7" dir="auto">页内偏移量 = 逻辑地址 % 页面长度</li>
+</ol>
+</li>
+<li data-line="8" dir="auto">如果每个页面大小为 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup></mjx-math></mjx-container></span> B，用二进制数表示逻辑地址，末尾 K 位即为页内偏移量，其余部分为页号</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="基本地址变换机构" dir="auto" class="heading" id="基本地址变换机构">基本地址变换机构</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">系统中设置一个页表寄存器，用于存放页表在内存中的起始地址 F 和页表长度 M </li>
+<li data-line="1" dir="auto">进程未执行时，F 和 M 存放在 PCB 中<br>
+<span alt="Pasted image 20240605103936.png" src="Pasted image 20240605103936.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240605103936.png" src="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605103936.png"></span></li>
+</ol></div><div class="heading-wrapper"><h2 data-heading="变换过程" dir="auto" class="heading" id="变换过程"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>变换过程</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">页面大小为 L ，逻辑地址 A 到物理地址 E 的变换过程如下</li>
+<li data-line="1" dir="auto">计算页号和页内偏移量</li>
+<li data-line="2" dir="auto">比较页号和页表长度 M，P &gt;= M 则产生越界中断 (页号从 0 开始，页表长度至少是 1)</li>
+<li data-line="3" dir="auto">页号 P 对应的页表项地址 = 页表起始地址 F + 页号 P * 页表项长度 (注意与页表长度区分)，取出该页表项内容 b，即内存块号</li>
+<li data-line="4" dir="auto">E = b * L + W</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="具有快表的地址变换机构" dir="auto" class="heading" id="具有快表的地址变换机构">具有快表的地址变换机构</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">快表，又称为联想寄存器 (TLB, translation lookaside buffer)，是一种访问速度比内存快很多的高速缓存，用来存放最近访问的页表项的副本，可以加速地址变换的速度，内存中的页表常称为慢表</li>
+<li data-line="1" dir="auto">进程切换时进程会清空快表的内容</li>
+<li data-line="2" dir="auto">最近使用过的页表项会放入快表，快表中存放的时页表的一部分副本</li>
+<li data-line="3" dir="auto">若快表命中，访问某个逻辑地址只需要一次访存即可</li>
+<li data-line="4" dir="auto">支持快表与慢表同时查找的系统，未命中时不需要加入查询快表的时间</li>
+<li data-line="5" dir="auto">TLB 和普通 Cache 的区别：TLB 中只有页表项的副本，普通 Cache 中可能有其他各种数据的副本<br>
+<span alt="Pasted image 20240605122553.png" src="Pasted image 20240605122553.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240605122553.png" src="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605122553.png"></span></li>
+</ol></div><div class="heading-wrapper"><h2 data-heading="局部性原理" dir="auto" class="heading" id="局部性原理"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>局部性原理</h2><div class="heading-children"><div><pre dir="auto" class="language-c" tabindex="0"><code class="is-loaded language-c"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+	i<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code><button class="copy-code-button">Copy</button></pre></div><div><ol dir="auto">
+<li data-line="0" dir="auto">时间局部性：如果执行了程序中的某条指令，那么不久后这条指令很可能再次执行；如果某个数据被访问过，不久之后该数据很可能再次被访问</li>
+<li data-line="1" dir="auto">空间局部性：程序访问了某个存储单元后，不久之后其附近的存储单元也很有可能被访问</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="两级页表" dir="auto" class="heading" id="两级页表">两级页表</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">若采用多级页表机制，则各级页表的大小不能超过一个页面</li>
+<li data-line="1" dir="auto">两级页表的访存次数分析，N 级页表访问一个逻辑地址需要 N + 1 次访存 </li>
+</ol></div><div class="heading-wrapper"><h2 data-heading="单级页表存在的问题" dir="auto" class="heading" id="单级页表存在的问题"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>单级页表存在的问题</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">单级页表大占用多个连续的页框</li>
+<li data-line="1" dir="auto">没必要让整个页表常驻内存，进程在一段时间内只需要访问某几个特定的页面</li>
+<li data-line="2" dir="auto">可以在需要访问页面时才把页面掉入内存，可以在页表项中增加一个标志位，用于表示该页面是否已经掉入内存，若想访问的页面不在内存中，则产生缺页中断，操作系统将目标页面从外存调入内存</li>
+<li data-line="3" dir="auto">因此需要为离散分配的页表再建立一张页表，称为页目录表 (外层页表，顶层页表)</li>
+</ol></div></div></div><div class="heading-wrapper"><h2 data-heading="地址变换" dir="auto" class="heading" id="地址变换"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>地址变换</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">按照地址结构将逻辑地址拆分成三部分</li>
+<li data-line="1" dir="auto">从 PCB 中读出页目录表始址，根据一级页号查页目录表，找到下一级页表在内存中的存放位置</li>
+<li data-line="2" dir="auto">根据二级页号查表，找到最终想访问的内存块号</li>
+<li data-line="3" dir="auto">结合页内偏移量得到物理地址</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="基本分段存储管理" dir="auto" class="heading" id="基本分段存储管理">基本分段存储管理</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">进程的地址空间，按照程序自身的逻辑关系分为若干个段，每个段都有一个段名，每段从 0 开始编址</li>
+<li data-line="1" dir="auto">内存分配以段为单位分配，每个段在内存中占据连续地址空间，但各段之间可以不相邻</li>
+<li data-line="2" dir="auto">用户编程更方便，程序可读性高</li>
+<li data-line="3" dir="auto">逻辑地址结构由段号 (段名) 和段内地址 (段内偏移量) 组成</li>
+<li data-line="4" dir="auto">操作系统需要从物理内存中找到各个逻辑段的存放位置，需要为每个进程建立一张段映射表，简称段表</li>
+<li data-line="5" dir="auto">段号可以是隐含的，不占存储空间</li>
+<li data-line="6" dir="auto">需要对段内地址进行越界检查<br>
+<span alt="Pasted image 20240605154846.png" src="Pasted image 20240605154846.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240605154846.png" src="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605154846.png"></span></li>
+</ol></div><div class="heading-wrapper"><h2 data-heading="分段分页管理对比" dir="auto" class="heading" id="分段分页管理对比"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>分段分页管理对比</h2><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">页是信息的物理单位，主要为了实现离散分配，提高内存利用率，分页仅仅是系统管理上的需要，完全是系统行为，对用户是不可见的</li>
+<li data-line="1" dir="auto">段是信息的逻辑单位，分段对用户是可见的</li>
+<li data-line="2" dir="auto">分页的用户进程的地址空间是一维的</li>
+<li data-line="3" dir="auto">分段的用户进程的地址空间是二维的</li>
+<li data-line="4" dir="auto">分段比分页更容易实现信息的共享和保护</li>
+<li data-line="5" dir="auto">在分段系统中也可引入快表机构，减少一次访存加快地址变换速度</li>
+</ol></div></div></div></div></div><div class="heading-wrapper"><h1 data-heading="段页式管理方式" dir="auto" class="heading" id="段页式管理方式">段页式管理方式</h1><div class="heading-children"><div><ol dir="auto">
+<li data-line="0" dir="auto">将进程按逻辑模块分段，再将各段分页</li>
+<li data-line="1" dir="auto">再将内存空间分为大小相同的内存块/页框/页帧/物理块</li>
+<li data-line="2" dir="auto">进程将各页面分别装入各内存块中</li>
+<li data-line="3" dir="auto">段页式系统的逻辑地址由段号、页号、页内偏移量组成</li>
+<li data-line="4" dir="auto">段页式管理的地址结构是一维的</li>
+<li data-line="5" dir="auto">需要检查页号是否越界<br>
+<span alt="Pasted image 20240605162233.png" src="Pasted image 20240605162233.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240605162233.png" src="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240605162233.png"></span></li>
+</ol></div><div class="mod-footer"></div></div></div></div></div></div><div class="sidebar-right sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content"><div class="graph-view-wrapper"><div class="sidebar-section-header">Interactive Graph</div><div class="graph-view-placeholder">
+		<div class="graph-view-container">
+			<div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+			<canvas id="graph-canvas" class="hide" width="512px" height="512px"></canvas>
+		</div>
+		</div></div><div class="tree-container mod-root nav-folder tree-item outline-tree" data-depth="0"><div class="tree-header"><span class="sidebar-section-header">Table Of Contents</span><button class="clickable-icon collapse-tree-button" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-scroll-area tree-item-children nav-folder-children"><div class="tree-item mod-tree-folder nav-folder mod-collapsible is-collapsed" style="display: none;"></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#程序装入的方式"><div class="tree-item-contents heading-link" heading-name="程序装入的方式"><span class="tree-item-title">程序装入的方式</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#绝对装入"><div class="tree-item-contents heading-link" heading-name="绝对装入"><span class="tree-item-title">绝对装入</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#可重定位装入"><div class="tree-item-contents heading-link" heading-name="可重定位装入"><span class="tree-item-title">可重定位装入</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#动态运行时装入"><div class="tree-item-contents heading-link" heading-name="动态运行时装入"><span class="tree-item-title">动态运行时装入</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#链接的方式"><div class="tree-item-contents heading-link" heading-name="链接的方式"><span class="tree-item-title">链接的方式</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#内存管理的概念"><div class="tree-item-contents heading-link" heading-name="内存管理的概念"><span class="tree-item-title">内存管理的概念</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#进程的内存映像"><div class="tree-item-contents heading-link" heading-name="进程的内存映像"><span class="tree-item-title">进程的内存映像</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#覆盖与交换"><div class="tree-item-contents heading-link" heading-name="覆盖与交换"><span class="tree-item-title">覆盖与交换</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#覆盖技术"><div class="tree-item-contents heading-link" heading-name="覆盖技术"><span class="tree-item-title">覆盖技术</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#交换技术"><div class="tree-item-contents heading-link" heading-name="交换技术"><span class="tree-item-title">交换技术</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#连续分配管理方式"><div class="tree-item-contents heading-link" heading-name="连续分配管理方式"><span class="tree-item-title">连续分配管理方式</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#单一连续分配"><div class="tree-item-contents heading-link" heading-name="单一连续分配"><span class="tree-item-title">单一连续分配</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#固定分区分配"><div class="tree-item-contents heading-link" heading-name="固定分区分配"><span class="tree-item-title">固定分区分配</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#动态分区分配"><div class="tree-item-contents heading-link" heading-name="动态分区分配"><span class="tree-item-title">动态分区分配</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#动态分区分配算法"><div class="tree-item-contents heading-link" heading-name="动态分区分配算法"><span class="tree-item-title">动态分区分配算法</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#首次适应算法"><div class="tree-item-contents heading-link" heading-name="首次适应算法"><span class="tree-item-title">首次适应算法</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#最佳适应算法"><div class="tree-item-contents heading-link" heading-name="最佳适应算法"><span class="tree-item-title">最佳适应算法</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#最坏适应算法"><div class="tree-item-contents heading-link" heading-name="最坏适应算法"><span class="tree-item-title">最坏适应算法</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#邻近适应算法"><div class="tree-item-contents heading-link" heading-name="邻近适应算法"><span class="tree-item-title">邻近适应算法</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#分页存储管理"><div class="tree-item-contents heading-link" heading-name="分页存储管理"><span class="tree-item-title">分页存储管理</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#页表"><div class="tree-item-contents heading-link" heading-name="页表"><span class="tree-item-title">页表</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#地址转换"><div class="tree-item-contents heading-link" heading-name="地址转换"><span class="tree-item-title">地址转换</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#基本地址变换机构"><div class="tree-item-contents heading-link" heading-name="基本地址变换机构"><span class="tree-item-title">基本地址变换机构</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#变换过程"><div class="tree-item-contents heading-link" heading-name="变换过程"><span class="tree-item-title">变换过程</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#具有快表的地址变换机构"><div class="tree-item-contents heading-link" heading-name="具有快表的地址变换机构"><span class="tree-item-title">具有快表的地址变换机构</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#局部性原理"><div class="tree-item-contents heading-link" heading-name="局部性原理"><span class="tree-item-title">局部性原理</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#两级页表"><div class="tree-item-contents heading-link" heading-name="两级页表"><span class="tree-item-title">两级页表</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#单级页表存在的问题"><div class="tree-item-contents heading-link" heading-name="单级页表存在的问题"><span class="tree-item-title">单级页表存在的问题</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#地址变换"><div class="tree-item-contents heading-link" heading-name="地址变换"><span class="tree-item-title">地址变换</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#基本分段存储管理"><div class="tree-item-contents heading-link" heading-name="基本分段存储管理"><span class="tree-item-title">基本分段存储管理</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#分段分页管理对比"><div class="tree-item-contents heading-link" heading-name="分段分页管理对比"><span class="tree-item-title">分段分页管理对比</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/考研/os/内存管理.html#段页式管理方式"><div class="tree-item-contents heading-link" heading-name="段页式管理方式"><span class="tree-item-title">段页式管理方式</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div></div><script defer="">let rs = document.querySelector(".sidebar-right"); rs.classList.add("is-collapsed"); if (window.innerWidth > 768) rs.classList.remove("is-collapsed"); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></body></html>

@@ -7,20 +7,16 @@
       "name": "Markdown (Hugo)"
     },
     {
-      "name": "Html",
-      "arguments": "-f markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/math_block.lua\" --embed-resources --standalone --metadata title=\"${currentFileName}\" -s -o \"${outputPath}\" -t html"
+      "name": "Html"
     },
     {
       "name": "TextBundle"
     },
     {
-      "name": "Typst",
-      "arguments": "-f markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/markdown.lua\" -s -o \"${outputPath}\" -t typst"
+      "name": "Typst"
     },
     {
-      "name": "PDF",
-      "arguments": "-f markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" --lua-filter=\"${luaDir}/pdf.lua\" ${ options.textemplate ? `--resource-path=\"${pluginDir}/textemplate\" --template=\"${options.textemplate}\"` : ` ` } -s -o \"${outputPath}\" -t pdf",
-      "customArguments": "--pdf-engine=xelatex"
+      "name": "PDF"
     },
     {
       "name": "Word (.docx)"
@@ -35,8 +31,7 @@
       "name": "Epub"
     },
     {
-      "name": "Latex",
-      "arguments": "-f markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline --resource-path=\"${currentDir}\" --resource-path=\"${attachmentFolderPath}\" ${ options.textemplate ? `--resource-path=\"${pluginDir}/textemplate\" --template=\"${options.textemplate}\"` : ` ` } --extract-media=\"${outputDir}\" -s -o \"${outputPath}\" -t latex"
+      "name": "Latex"
     },
     {
       "name": "Media Wiki"
@@ -59,8 +54,8 @@
   "env": {},
   "showExportProgressBar": true,
   "lastExportDirectory": {
-    "darwin": "/Users/chriswhite/Desktop/export"
+    "darwin": "/Users/chriswhite/Documents"
   },
   "lastExportType": "Typst",
-  "lastEditName": "Typst"
+  "lastEditName": "PDF"
 }
