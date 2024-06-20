@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Course-Notes]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>Course-Notes</title><link/></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Thu, 20 Jun 2024 13:34:48 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Thu, 20 Jun 2024 13:34:40 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[存储介质底层分析]]></title><description><![CDATA[ 
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Course-Notes]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>Course-Notes</title><link/></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Thu, 20 Jun 2024 13:42:50 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Thu, 20 Jun 2024 13:42:34 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[存储介质底层分析]]></title><description><![CDATA[ 
  <br>
 内容摘自《数据恢复技术深度解密》与各种网络资料
 <br><br><br>
@@ -4131,185 +4131,7 @@ int main()
 
 	std::cin.get();
 }
-Copy]]></description><link>campus/chinese-notes/计算机科学/计算机网络/c++-crash-course.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md</guid><pubDate>Wed, 27 Mar 2024 00:28:44 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[链路层概述]]></title><description><![CDATA[ 
- <br>
-<br>广播信道：用于连接有线局域网、卫星网和<a data-tooltip-position="top" aria-label="因特网 > ^57ab0b" data-href="因特网#^57ab0b" href="/campus/chinese-notes/计算机科学/计算机网络/因特网.html#^57ab0b" class="internal-link" target="_self" rel="noopener">混合光纤同轴电缆</a> (Hybird Fiber Coaxial cable, HFC) 接入网中的多轴，需要媒体访问协议来协调帧传输
-<br>点对点通信链路
-<br><br>
-<br>本章为方便讨论，将运行链路层协议的任何设备都称为节点 (node)，把沿着通信路径连接相邻节点的通信信道称为链路 (link)
-<br>通过特定链路时，传输节点将数据报封装在链路层帧中，并将该帧传输到链路中
-<br><br>
-<br>成帧 (framing)：在每个网络层数据报经链路传送前，链路层协议将网络层数据报用链路层帧封装起来，帧的结构由链路层协议规定
-<br>链路接入：媒体访问控制协议 (Medium Access Control, MAC) 规定了帧在链路上传输的规则，对于点对点链路，无论何时链路空闲都能发送帧，多个节点共享广播链路时，MAC 协议用于协调多个节点的帧传输
-<br>可靠交付：保证无差错地经链路层移动每个网络层数据报，链路层的可靠交付服务通常是通过确认和重传取得的，目的是在本地纠正一个差错 (链路两端)，而不是用过运输层或应用层协议进行端到端数据重传
-<br>差错检测和纠正：许多链路层协议提供一种让发送节点在帧中包括差错检测比特，让接收节点进行差错检查的机制，以此来完成差错检测
-<br><br>
-<br>链路层的主体部分在网络适配器中实现 (network adapter)，网络适配器又称作网络接口卡 (Network Interface Card, NIC)，位于网络适配器核心的是链路层控制器
-<br>发送端协议栈取得了协议栈较高层生成并存储在主机内存中的数据报，在链路层帧中封装数据报，然后遵循链路接入协议将该帧传进通信链路中 <img alt="Pasted image 20231130170308.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png">
-<br><br>
-<br>比特级差错检测和纠正 (bit-level error detection and correction)：通常是两种服务 (检测 / 纠正)，从一个节点发送到另一个物理上连接的邻近节点的链路层帧中的比特损伤进行检测和纠正
-<br>发送节点使用差错检测和纠正比特 (Error-Detection and-Correction, EDC) 增强数据 D ，要保护的数据包括网络层数据报和链路帧首部 <img alt="Pasted image 20231130173734.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png">
-<br>即使采用差错检测比特，也可能存在未检出比特差错 (undetected bit error)
-<br>检测差错的三种技术包括奇偶校验、检验和方法和循环冗余检测
-<br><br>
-<br>偶 / 奇校验方案，发送方包含一个附加的比特，使  比特中  的总数是偶数 / 奇数
-<br>二维奇偶校验方案 (two-dimension parity)：可检测和纠正单个比特差错，可检测但不能纠正两个比特差错，行奇偶比特和列奇偶比特加上一个附加比特构成了链路层帧的差错检测比特 <img alt="Pasted image 20231130180250.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png" style="width: 500px; max-width: 100%;">
-<br>向前纠错 (Forward Error Correction, FEC)：接收方检测和纠正差错的能力，允许在接收方立刻纠正差错，避免了不得不等待的往返时延
-<br><br>
-<br>d 比特数据被作为 k 比特整数的序列处理
-<br><a data-tooltip-position="top" aria-label="运输层 > ^403ed7" data-href="运输层#^403ed7" href="/campus/chinese-notes/计算机科学/计算机网络/运输层.html#^403ed7" class="internal-link" target="_self" rel="noopener">因特网检验和</a> (Internet checksum) 将数据字节作为 16 比特的整数对待并求和，和的反码形成了携带在报文段首部的因特网检验和
-<br>TCP 和 UDP 中对所有字段都计算因特网检验和，XTP 对首部计算一个检验和对整个分组计算另一个检验和
-<br>TCP 和 UDP 的检验和只用了 16 比特，与链路层 CRC 相比提供相对弱的差错保护，因为运输层检验和通常由操作系统中的软件实现，链路层的差错检验通常在适配器中用专用的硬件实现，能够执行更复杂的 CRC 操作
-<br><br>
-<br>循环冗余检测 (Cyclic Redundancy Check, CRC) 编码：也称多项式编码 (polynomial code) ，将要发送的比特串看作系数是 0 和 1 的一个多项式，对比特串的操作被解释为多项式算术
-<br>生成多项式 (generator)  ：发送方和接收方协商的  比特模式
-<br>对于一个给定的数据段  ，发送方要选择  个附加比特  将它附加到  上，使得得到的  比特模式用模 2 算数 [@ModularArithmetic2023] 恰好能被  整除 <img alt="Pasted image 20231201150249.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png">
-<br> 的计算
-
-<br>需要满足  
-<br>对等式两边异或  得到  
-<br>该等式说明 
-
-
-<br>国际标准定义的 CRC-32 标准被多种链路级 IEEE 协议采用，使用的一个生成多项式是
-
-
-<br><br>
-<br>点对点链路 (point-to-point link)：由链路一端的单个发送方和链路的另一端的单个接收方组成，许多链路层协议都是为点对点链路设计的，如点对点协议 (point-to-point protocol, PPP) 和高级数据链路控制 (high-level data link control, HDLC)
-<br>广播链路 (broadcast link)：能够让多个发送和接受节点都连接到相同的、单一的、共享的广播信道上，当任何节点传输一个帧时，信道广播该帧，每个其他节点都收到一个副本
-<br>多路访问问题 (multiple access problem)：协调多个发送和接受节点对一个共享广播信道的访问
-<br>碰撞 (collide)：多个节点可能会同时传输帧，此时所有节点同时接收帧，传输的帧在接收方处碰撞，涉及碰撞的所有帧都丢失了
-<br>多路访问协议的类型
-
-<br>信道划分协议 (channel partitioning protocol)
-<br>随机接入协议 (random access protocol)
-<br>轮流协议 (taking-turns protocol)
-
-
-<br>理想特性
-
-<br>当只有一个节点活跃时，该活跃节点有  bps 的吞吐量
-<br>当有 M 个节点活跃时，每个活跃节点的吞吐量接近  bps
-
-
-<br><br>
-<br>时分多路复用 (TDM)
-<br>频分多路复用 (FDM)
-<br>码分多址 (Code Division Multiple Access, CDMA)
-<br><br><br><br>
-<br>所有帧由  比特组成
-<br>时间被分为长度为  秒的时隙
-<br>节点只在时隙起点开始传输帧
-<br>节点是同步的，每个节点知道时隙何时开始
-<br>如果在一个时隙中有两个或者多个帧碰撞，则所有节点在该时隙结之前检测到该碰撞事件
-<br><br>
-<br>当节点有一个新帧要发送时，它等到下一个时隙开始并在该时隙传输整个帧
-<br>如果没有碰撞，该节点成功地传输它的帧，从而不需要考虑重传该帧
-<br>如果有碰撞，该节点在时隙结束之前检测到这次碰撞，该节点以概率  在后续每个时隙中重传它的帧，直到该帧被无碰撞地传输出去
-<br><br>
-<br>时隙多路访问协议的效率(efficiency)：当有大量的活跃节点且每个节点总有大量的帧要发送时，长期运行中成功时隙的概率
-<br>假设每个节点试图在每个时隙以概率 p 传输一帧
-<br>一个给定时隙是成功时隙的概率是节点之一传输而余下的 <br>
-个节点不传输的概率，因此给定节点成功传输的概率为 ，因为有  个节点，成功传输的概率为
-<br>最大效率为  (待补充)
-<br><br>
-<br>纯 ALOHA 中当一帧首次到达时，节点立刻将该帧完整传输进广播信道，如果传输的一个帧和多个传输经历了碰撞，这个节点将立刻以概率  传输该帧，否则，该节点等待一个帧传输时间
-<br><br><img alt="Pasted image 20240404134242.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404134242.png"><br>
-<br>待补充
-<br><br><br>
-<br>载波侦听 (carrier sensing)：一个节点在传输前先听信道，如果来自另一个节点的帧正向信道上发送，节点则等待直到检测到一小段时间没有传输，然后开始传输
-<br>碰撞检测 (collision detection)：当一个传输节点在传输时一直在侦听此信道，如果它检测到另一个节点正在传输干扰帧，它就停止传输，在重复"侦听 - 当空闲时传输"循环之间等待一段随机时间
-<br>这两个规则包含在载波侦听多路访问 (Carrier Sense Multiple Access, CSMA) 和具有碰撞检测的 CSMA (CSMA with Collision Detection, CSMA/CD) 协议族中
-<br><br><img alt="Pasted image 20240404151417.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404151417.png"><br>
-<br>比特沿着广播媒体传播实际需要时间，在经过一个短暂的时间后，B 发送的比特到达 D ，开始干扰 D 的传输
-<br><br>
-<br>两个节点在检测到碰撞后短时间内都放弃了比特的传输
-<br>图图图图图图图
-<br>适配器在经历碰撞后需要等待一个随机时间量，二进制指数后退算法 (binary exponential backoff) 解决了确定时间量的问题
-<br><br>
-<br>一个帧经历了  次碰撞，节点随机从  中选择一个  值，以太网节点等待的实际时间量是  (发送  比特进入以太网所需时间量的  倍)， 能够取的最大值在 10 以内
-<br>从中选择  的集合长度随着碰撞次数呈指数增长，所以该算法被叫做指数后退
-<br><br>
-<br>CSMA/CD 效率 (efficiency of CSMA/CD)：当有大量的活跃节点，且每个节点有大量的帧要发送时，帧在信道中无碰撞地传输的那部分时间在长期运行时间中所占的份额
-<br><br><br>
-<br>节点之一被指定为主节点，主节点以循环的方式轮询 (poll) 每个节点
-<br>轮询协议引入了轮询时延，即通知一个节点可以传输的时间
-<br>主节点有故障，整个信道都变得不可操作
-<br>每次活跃节点发送了了最多数量的帧时，主节点必须依次轮询每一个非活跃节点
-<br><br>
-<br>不存在主节点，一个成为令牌 (token) 的特殊帧在节点之间以某种固定的次序进行交换
-<br>一个节点收到令牌时，仅当它有一些帧要发送时，它才持有该令牌，否则立刻向下一个节点转发令牌
-<br>当节点有帧要传输，节点发送最大数目的帧数，然后把令牌转发给下一个节点
-<br>节点故障可能会使整个信道崩溃
-]]></description><link>campus/chinese-notes/计算机科学/计算机网络/链路层和局域网.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md</guid><pubDate>Fri, 05 Apr 2024 03:35:19 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Vim Cheatsheet]]></title><description><![CDATA[ 
- <br>
-初识Vim娘，很可能觉得很沮丧，因为用尽浑身解数也不能让她笑一笑，难道注定与她无缘？No！任何想要接近她的人都要学习一张密密麻麻、五颜六色的秘笈……然后为了能够和她更好的性……嗯，幸福生活，可能还需要自己创造秘笈。
-<br>
-由ChrisWhite翻译自<a data-tooltip-position="top" aria-label="https://quickref.me/vim" rel="noopener" class="external-link" href="https://quickref.me/vim" target="_blank">Vim&nbsp;cheatsheet</a>
-<br><br>▼/▶ Cursor   ▽/▷ Target
-Copy<br><br>┌───────────── |      
-├───────────── 0      $ ──────────────┐ 
-│  ┌────────── ^      fe ────────┐    │
-│  │  ┌─────── Fo     te ───────┐│    │
-│  │  │┌────── To     30| ───┐  ││    │
-│  │  ││ ┌──── ge     w ───┐ │  ││    │
-│  │  ││ │ ┌── b      e ─┐ │ │  ││    │
-│  │  ││ │ │  ┌h      l┐ │ │ │  ││    │
-▽  ▽  ▽▽ ▽ ▽  ▽▼      ▼▽ ▽ ▽ ▽  ▽▽    ▽
-   echo "A cheatsheet from quickref.me"
-Copy<br><br>                 - SCREEN 1 START
-   ┌─┬─────────▷ #!/usr/bin/python
-   │ │     ┌───▷     
-   │ │     │     print("Hello")
-   │ │     { } ▶ print("Vim")
-   │ │       │   print("!")
-   │ │       └─▷    
-   │ │ ┌───┬───▷ print("Welcome")
-G gg H M L k j ▶ print("to")
-│        │   └─▷ print("quickref.me")
-│        │       print("/vim")
-│        │     
-│        └─────▷ 
-│                - SCREEN 1 END
-└──────────────▷ print("SCREEN 2")
-Copy<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>不仅是 i ，你可以设置宏为任何字母<br><br><br><br>将操作符和动作符结合来使用<br><br><br><br><br><br>[count] &lt;operator&gt; &lt;motion&gt;
-&lt;operator&gt; [count] &lt;motion&gt;
-Copy<br><br><br><br><br><br>操作属性为inner或者around的文本块<br><br><br>详见 :help text-objects<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>:[range]s/{pattern}/{str}/[flags]
-Copy<br><br><br><br>:%s/{pattern}/{str}/[flags]
-Copy<br><br><br><br><br><br>:[range]g/{pattern}/[command]
-Copy<br><br><br><br>:[range]v/{pattern}/[command]
-Copy<br><br><br><br><br><br><br><br>:s/a\|b/xxx\0xxx/g		         # Modifies "a b"      to "xxxaxxx xxxbxxx"
-:s/test/\U&amp; file/                # Modifies "test"     to "TEST FILE"
-:s/\(test\)/\U\1\e file/         # Modifies "test"     to "TEST file"
-:s/\v([abc])([efg])/\2\1/g	     # Modifies "af fa bg" to "fa fa gb"
-:s/\v\w+/\u\0/g		             # Modifies "bla bla"  to "Bla Bla"
-:s/\v([ab])|([cd])/\1x/g         # Modifies "a b c d"  to "ax bx x x"
-:%s/.*/\L&amp;/                      # Modifies "HTML"     to "html"
-:s/\v&lt;(.)(\w*)/\u\1\L\2/g        # Make every first letter of a word uppercase
-:%s/^\(.*\)\n\1/\1/              # Remove duplicate lines
-:%s/&lt;\/\=\(\w\+\)\&gt;/\U&amp;/g        # Convert HTML-Tags to uppercase
-:g/^pattern/s/$/mytext           # Find and append text to the end
-:g/pattern/norm! @i              # Run a macro on matching lines
-/^\(.*\)\(\r\?\n\1\)\+$          # View the duplicates lines
-/\v^(.*)(\r?\n\1)+$              # View the duplicates lines (very magic)
-:v/./,/./-j                      # Compress blank lines into a blank line
-:g/&lt;p1&gt;/,/&lt;p2&gt;/d                 # Delete inclusively from &lt;p1&gt; to &lt;p2&gt;
-Copy<br><br><br>
-$ vimdiff file1 file2 [file3]
-$ vim -d file1 file2 [file3]
-Copy<br><br>:[range]diffget [bufspec]
-:[range]diffput [bufspec]
-Copy<br><br><br>See: <a class="internal-link" data-href="#ranges" href="/#ranges" target="_self" rel="noopener">Ranges</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>详见 :help formatting<br><br><br><br><br>在插入模式下进行以上操作<br><br><br><br><br><br>移除重复行<br>:sort | %!uniq -u
-Copy<br>在文件中给行编号<br>:%!cat -n
-Copy<br>拷贝整个文档到剪贴板<br>:%w !pbcopy            # Mac OS X
-:%w !xclip -i -sel c   # GNU/Linux
-:%w !xsel -i -b        # GNU/Linux
-Copy<br><br>
-<br><a data-tooltip-position="top" aria-label="https://devhints.io/vim" rel="noopener" class="external-link" href="https://devhints.io/vim" target="_blank">Devhints</a> (devhints.io)
-<br><a data-tooltip-position="top" aria-label="https://vim.rtorr.com/" rel="noopener" class="external-link" href="https://vim.rtorr.com/" target="_blank">Vim cheatsheet</a> (vim.rotrr.com)
-<br><a data-tooltip-position="top" aria-label="http://vimdoc.sourceforge.net/htmldoc/" rel="noopener" class="external-link" href="http://vimdoc.sourceforge.net/htmldoc/" target="_blank">Vim documentation</a> (vimdoc.sourceforge.net)
-<br><a data-tooltip-position="top" aria-label="http://openvim.com/" rel="noopener" class="external-link" href="http://openvim.com/" target="_blank">Interactive Vim tutorial</a> (openvim.com)
-]]></description><link>campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md</guid><pubDate>Fri, 22 Dec 2023 11:04:19 GMT</pubDate></item><item><title><![CDATA[什么是因特网]]></title><description><![CDATA[ 
+Copy]]></description><link>campus/chinese-notes/计算机科学/计算机网络/c++-crash-course.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md</guid><pubDate>Wed, 27 Mar 2024 00:28:44 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202214923.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[什么是因特网]]></title><description><![CDATA[ 
  <br><br>
 <br>根据构成因特网的基本硬件和软件组件描述
 <br>根据为分布式应用提供服务的互联网基础设施描述
@@ -5470,7 +5292,7 @@ Copy<br>
 <br><br>
 <br>实践中是让每个节点向网络中的所有其他节点广播链路状态分组来实现 (链路状态广播 link state broadcast 算法)
 <br>所有节点都拥有网络的完整视图
-<br>Dijkstra 算法 [@TuWenXiangJieDijkstraZuiDuanLuJingSuanFa2021][@DijkstraAlgorithm2023]：计算从某节点到达网络中所有其他节点的最低开销路径 <img style="max-width:800px; " class="excalidraw-svg excalidraw-embedded-img excalidraw-canvas-immersive" src="blob://313944e7-bc71-4966-a242-fb5ff3e7758b" filesource="Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md" w="800" draggable="false" oncanvas="false">
+<br>Dijkstra 算法 [@TuWenXiangJieDijkstraZuiDuanLuJingSuanFa2021][@DijkstraAlgorithm2023]：计算从某节点到达网络中所有其他节点的最低开销路径 <img style="max-width:800px; " class="excalidraw-svg excalidraw-embedded-img excalidraw-canvas-immersive" src="blob://f74b7849-eaac-42c5-9f6c-cafa0bc78faf" filesource="Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md" w="800" draggable="false" oncanvas="false">
 
 <br>经过算法的  次迭代后，可知道  个目的节点的最低开销路径
 
@@ -6684,5 +6506,115 @@ Copy<br><br>
 <br>RFC 3168 [@floydAdditionExplicitCongestion2001] 推荐仅当拥塞持续不断存在时才设置 ECN 比特
 <br>对于具有 ECE 拥塞指示的 ACK ，TCP 发送方将拥塞窗口减半作为回应，并在下个发送方到接收方的报文段中对 <a data-tooltip-position="top" aria-label="运输层 > ^2d9580" data-href="运输层#^2d9580" href="/campus/chinese-notes/计算机科学/计算机网络/运输层.html#^2d9580" class="internal-link" target="_self" rel="noopener">CWR</a> (拥塞窗口缩减) 置位
 <br>其他能利用网络层发送 ECN 信号的协议有数据报拥塞控制协议 (Datagram Congestion Control Protocol, DCCP)，DCTCP (数据中心 TCP) 
-]]></description><link>campus/chinese-notes/计算机科学/计算机网络/运输层.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231107111221.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231107111221.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[🌟 Course-Notes]]></title><description><![CDATA[ 
+]]></description><link>campus/chinese-notes/计算机科学/计算机网络/运输层.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231107111221.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231107111221.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[链路层概述]]></title><description><![CDATA[ 
+ <br>
+<br>广播信道：用于连接有线局域网、卫星网和<a data-tooltip-position="top" aria-label="因特网 > ^57ab0b" data-href="因特网#^57ab0b" href="/campus/chinese-notes/计算机科学/计算机网络/因特网.html#^57ab0b" class="internal-link" target="_self" rel="noopener">混合光纤同轴电缆</a> (Hybird Fiber Coaxial cable, HFC) 接入网中的多轴，需要媒体访问协议来协调帧传输
+<br>点对点通信链路
+<br><br>
+<br>本章为方便讨论，将运行链路层协议的任何设备都称为节点 (node)，把沿着通信路径连接相邻节点的通信信道称为链路 (link)
+<br>通过特定链路时，传输节点将数据报封装在链路层帧中，并将该帧传输到链路中
+<br><br>
+<br>成帧 (framing)：在每个网络层数据报经链路传送前，链路层协议将网络层数据报用链路层帧封装起来，帧的结构由链路层协议规定
+<br>链路接入：媒体访问控制协议 (Medium Access Control, MAC) 规定了帧在链路上传输的规则，对于点对点链路，无论何时链路空闲都能发送帧，多个节点共享广播链路时，MAC 协议用于协调多个节点的帧传输
+<br>可靠交付：保证无差错地经链路层移动每个网络层数据报，链路层的可靠交付服务通常是通过确认和重传取得的，目的是在本地纠正一个差错 (链路两端)，而不是用过运输层或应用层协议进行端到端数据重传
+<br>差错检测和纠正：许多链路层协议提供一种让发送节点在帧中包括差错检测比特，让接收节点进行差错检查的机制，以此来完成差错检测
+<br><br>
+<br>链路层的主体部分在网络适配器中实现 (network adapter)，网络适配器又称作网络接口卡 (Network Interface Card, NIC)，位于网络适配器核心的是链路层控制器
+<br>发送端协议栈取得了协议栈较高层生成并存储在主机内存中的数据报，在链路层帧中封装数据报，然后遵循链路接入协议将该帧传进通信链路中 <img alt="Pasted image 20231130170308.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png">
+<br><br>
+<br>比特级差错检测和纠正 (bit-level error detection and correction)：通常是两种服务 (检测 / 纠正)，从一个节点发送到另一个物理上连接的邻近节点的链路层帧中的比特损伤进行检测和纠正
+<br>发送节点使用差错检测和纠正比特 (Error-Detection and-Correction, EDC) 增强数据 D ，要保护的数据包括网络层数据报和链路帧首部 <img alt="Pasted image 20231130173734.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png">
+<br>即使采用差错检测比特，也可能存在未检出比特差错 (undetected bit error)
+<br>检测差错的三种技术包括奇偶校验、检验和方法和循环冗余检测
+<br><br>
+<br>偶 / 奇校验方案，发送方包含一个附加的比特，使  比特中  的总数是偶数 / 奇数
+<br>二维奇偶校验方案 (two-dimension parity)：可检测和纠正单个比特差错，可检测但不能纠正两个比特差错，行奇偶比特和列奇偶比特加上一个附加比特构成了链路层帧的差错检测比特 <img alt="Pasted image 20231130180250.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png" style="width: 500px; max-width: 100%;">
+<br>向前纠错 (Forward Error Correction, FEC)：接收方检测和纠正差错的能力，允许在接收方立刻纠正差错，避免了不得不等待的往返时延
+<br><br>
+<br>d 比特数据被作为 k 比特整数的序列处理
+<br><a data-tooltip-position="top" aria-label="运输层 > ^403ed7" data-href="运输层#^403ed7" href="/campus/chinese-notes/计算机科学/计算机网络/运输层.html#^403ed7" class="internal-link" target="_self" rel="noopener">因特网检验和</a> (Internet checksum) 将数据字节作为 16 比特的整数对待并求和，和的反码形成了携带在报文段首部的因特网检验和
+<br>TCP 和 UDP 中对所有字段都计算因特网检验和，XTP 对首部计算一个检验和对整个分组计算另一个检验和
+<br>TCP 和 UDP 的检验和只用了 16 比特，与链路层 CRC 相比提供相对弱的差错保护，因为运输层检验和通常由操作系统中的软件实现，链路层的差错检验通常在适配器中用专用的硬件实现，能够执行更复杂的 CRC 操作
+<br><br>
+<br>循环冗余检测 (Cyclic Redundancy Check, CRC) 编码：也称多项式编码 (polynomial code) ，将要发送的比特串看作系数是 0 和 1 的一个多项式，对比特串的操作被解释为多项式算术
+<br>生成多项式 (generator)  ：发送方和接收方协商的  比特模式
+<br>对于一个给定的数据段  ，发送方要选择  个附加比特  将它附加到  上，使得得到的  比特模式用模 2 算数 [@ModularArithmetic2023] 恰好能被  整除 <img alt="Pasted image 20231201150249.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png">
+<br> 的计算
+
+<br>需要满足  
+<br>对等式两边异或  得到  
+<br>该等式说明 
+
+
+<br>国际标准定义的 CRC-32 标准被多种链路级 IEEE 协议采用，使用的一个生成多项式是
+
+
+<br><br>
+<br>点对点链路 (point-to-point link)：由链路一端的单个发送方和链路的另一端的单个接收方组成，许多链路层协议都是为点对点链路设计的，如点对点协议 (point-to-point protocol, PPP) 和高级数据链路控制 (high-level data link control, HDLC)
+<br>广播链路 (broadcast link)：能够让多个发送和接受节点都连接到相同的、单一的、共享的广播信道上，当任何节点传输一个帧时，信道广播该帧，每个其他节点都收到一个副本
+<br>多路访问问题 (multiple access problem)：协调多个发送和接受节点对一个共享广播信道的访问
+<br>碰撞 (collide)：多个节点可能会同时传输帧，此时所有节点同时接收帧，传输的帧在接收方处碰撞，涉及碰撞的所有帧都丢失了
+<br>多路访问协议的类型
+
+<br>信道划分协议 (channel partitioning protocol)
+<br>随机接入协议 (random access protocol)
+<br>轮流协议 (taking-turns protocol)
+
+
+<br>理想特性
+
+<br>当只有一个节点活跃时，该活跃节点有  bps 的吞吐量
+<br>当有 M 个节点活跃时，每个活跃节点的吞吐量接近  bps
+
+
+<br><br>
+<br>时分多路复用 (TDM)
+<br>频分多路复用 (FDM)
+<br>码分多址 (Code Division Multiple Access, CDMA)
+<br><br><br><br>
+<br>所有帧由  比特组成
+<br>时间被分为长度为  秒的时隙
+<br>节点只在时隙起点开始传输帧
+<br>节点是同步的，每个节点知道时隙何时开始
+<br>如果在一个时隙中有两个或者多个帧碰撞，则所有节点在该时隙结之前检测到该碰撞事件
+<br><br>
+<br>当节点有一个新帧要发送时，它等到下一个时隙开始并在该时隙传输整个帧
+<br>如果没有碰撞，该节点成功地传输它的帧，从而不需要考虑重传该帧
+<br>如果有碰撞，该节点在时隙结束之前检测到这次碰撞，该节点以概率  在后续每个时隙中重传它的帧，直到该帧被无碰撞地传输出去
+<br><br>
+<br>时隙多路访问协议的效率(efficiency)：当有大量的活跃节点且每个节点总有大量的帧要发送时，长期运行中成功时隙的概率
+<br>假设每个节点试图在每个时隙以概率 p 传输一帧
+<br>一个给定时隙是成功时隙的概率是节点之一传输而余下的 <br>
+个节点不传输的概率，因此给定节点成功传输的概率为 ，因为有  个节点，成功传输的概率为
+<br>最大效率为  (待补充)
+<br><br>
+<br>纯 ALOHA 中当一帧首次到达时，节点立刻将该帧完整传输进广播信道，如果传输的一个帧和多个传输经历了碰撞，这个节点将立刻以概率  传输该帧，否则，该节点等待一个帧传输时间
+<br><br><img alt="Pasted image 20240404134242.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404134242.png"><br>
+<br>待补充
+<br><br><br>
+<br>载波侦听 (carrier sensing)：一个节点在传输前先听信道，如果来自另一个节点的帧正向信道上发送，节点则等待直到检测到一小段时间没有传输，然后开始传输
+<br>碰撞检测 (collision detection)：当一个传输节点在传输时一直在侦听此信道，如果它检测到另一个节点正在传输干扰帧，它就停止传输，在重复"侦听 - 当空闲时传输"循环之间等待一段随机时间
+<br>这两个规则包含在载波侦听多路访问 (Carrier Sense Multiple Access, CSMA) 和具有碰撞检测的 CSMA (CSMA with Collision Detection, CSMA/CD) 协议族中
+<br><br><img alt="Pasted image 20240404151417.png" src="/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404151417.png"><br>
+<br>比特沿着广播媒体传播实际需要时间，在经过一个短暂的时间后，B 发送的比特到达 D ，开始干扰 D 的传输
+<br><br>
+<br>两个节点在检测到碰撞后短时间内都放弃了比特的传输
+<br>图图图图图图图
+<br>适配器在经历碰撞后需要等待一个随机时间量，二进制指数后退算法 (binary exponential backoff) 解决了确定时间量的问题
+<br><br>
+<br>一个帧经历了  次碰撞，节点随机从  中选择一个  值，以太网节点等待的实际时间量是  (发送  比特进入以太网所需时间量的  倍)， 能够取的最大值在 10 以内
+<br>从中选择  的集合长度随着碰撞次数呈指数增长，所以该算法被叫做指数后退
+<br><br>
+<br>CSMA/CD 效率 (efficiency of CSMA/CD)：当有大量的活跃节点，且每个节点有大量的帧要发送时，帧在信道中无碰撞地传输的那部分时间在长期运行时间中所占的份额
+<br><br><br>
+<br>节点之一被指定为主节点，主节点以循环的方式轮询 (poll) 每个节点
+<br>轮询协议引入了轮询时延，即通知一个节点可以传输的时间
+<br>主节点有故障，整个信道都变得不可操作
+<br>每次活跃节点发送了了最多数量的帧时，主节点必须依次轮询每一个非活跃节点
+<br><br>
+<br>不存在主节点，一个成为令牌 (token) 的特殊帧在节点之间以某种固定的次序进行交换
+<br>一个节点收到令牌时，仅当它有一些帧要发送时，它才持有该令牌，否则立刻向下一个节点转发令牌
+<br>当节点有帧要传输，节点发送最大数目的帧数，然后把令牌转发给下一个节点
+<br>节点故障可能会使整个信道崩溃
+]]></description><link>campus/chinese-notes/计算机科学/计算机网络/链路层和局域网.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md</guid><pubDate>Fri, 05 Apr 2024 03:35:19 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[🌟 Course-Notes]]></title><description><![CDATA[ 
  <br><br>Course-Note is a repository that contains White’s study materials and notes, used to document the process of acquiring knowledge.<br><img style="border-radius: 15px;" src="https://image.wh1te.dev/IMG_6931.png" referrerpolicy="no-referrer">]]></description><link>readme.html</link><guid isPermaLink="false">README.md</guid><pubDate>Fri, 22 Dec 2023 11:04:20 GMT</pubDate><enclosure url="https://image.wh1te.dev/IMG_6931.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="https://image.wh1te.dev/IMG_6931.png"&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
