@@ -1,221 +1,72 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Course-Notes]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>Course-Notes</title><link/></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Thu, 20 Jun 2024 13:42:50 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Thu, 20 Jun 2024 13:42:34 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[存储介质底层分析]]></title><description><![CDATA[ 
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Course-Notes]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib/media/favicon.png</url><title>Course-Notes</title><link/></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Fri, 21 Jun 2024 11:35:08 GMT</lastBuildDate><atom:link href="lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Fri, 21 Jun 2024 11:34:45 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[Vim Cheatsheet]]></title><description><![CDATA[ 
  <br>
-内容摘自《数据恢复技术深度解密》与各种网络资料
-<br><br><br>
-<br>表面印刷层
-<br>保护层
-<br>反射层：喷镀的金属膜，读取数据时用来反射激光
-<br>有机染料层：由不同的有机染料构成数据记录层，刻录时激光在该层进行烧蚀
-<br>盘基：透明的聚碳酸脂材料
-<br><br>
-<br>定义：机械硬盘(硬盘驱动器, HDD) 是一种机电存储设备，使用磁性存储和检索数据，其中包含一个或多个涂有磁性材料的快速旋转的刚性，盘片与磁头配对，磁头通常设置在移动的制动臂上，用于读取和写入盘片表面的数据，数据以随机访问的方式访问。
-<br><br>一块希捷 3.5 英寸硬盘的外壳如图 2-1 所示。该硬盘的盘标信息如图 2-2 所示。盘标信息的含义如下<br>
-<img alt="Pasted image 20240620065107.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620065107.png"><br>
-<br>Seagate：硬盘的品牌，即“希捷” 
-<br>S/N: 9 QM 3 SMCW：硬盘的序列号。
-<br>ST 3500320 AS：硬盘的型号。 
-<br>P/N: 9 BX 154-303：硬盘的部件号。
-<br>Firmware: 8 D 15：硬盘的固件版本号。
-<br>Barracuda 7200.11：硬盘的属系，即“酷鱼 11 代”。
-<br>500 Gbytes：硬盘的容量。
-<br>Products of Thailand：硬盘的产地。
-<br><br>
-<br>硬盘厂家会在每张盘片的每个面上都划分出一个一个的磁道（Track，简写为 T），每个磁道还要划分为若干个扇区（Sector，简写为 S），硬盘就是以扇区为单位来存放数据的
-<br>硬盘中一般会有多个盘片，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头（Head，简写为 H），每个盘面上都同样被划分成相同的磁道和扇区结构并且进行编号。所有盘面上的同一编号的磁道构成一个圆柱形结构，称为柱面（Cylinder，简称为 C），所以硬盘中某一个具体扇区的地址就由该扇区所在的盘面号（由磁头号 H 替代）、柱面号 C 及扇区号 S 三个参数组成
-<br>选取磁头只需通过电子切换即可，而选取柱面则必须通过机械切换
-<br><br>
-<br>在计算机系统 BIOS 中断 13 H 的入口参数中，磁头寄存器占 8 位，其值为 0 H～FEH，所以磁头号为 0～254。柱面地址是 10 位，所以柱面号为 0～1023，其低 8 位单独占用一个寄存器，高两位与扇区地址共用一个寄存器，占用共用寄存器中的高两位。扇区地址占用共用寄存器中的低 6 位，其值为 1 H～3 FH，所以扇区编号为 1～63
-<br>按照这种地址管理模式，逻辑 C/H/S 的最大取值为 1023/254/63，因为逻辑 C/H/S 的初始值分别为 0/0/1，所以逻辑 C/H/S 能够管理的逻辑柱面、磁头、扇区的个数分别为 1024、255、63，这样就可以算出逻辑 C/H/S 能够管理的扇区总数：1024×255×63=16 450 560，把这个数值换算为 GB 的结果约等于 8 GB，这也是逻辑 C/H/S 能够管理的最大空间
-<br><br>
-<br>在 LBA 方式下，系统把所有的物理扇区都按照某种规则看作一线性编号的扇区，即从 0 到某个最大值方式排列，并连成一条线，把 LBA 作为一个整体来对待，而不再是具体的实际的 C/H/S 值，这样只用一个序数就确定了一个唯一的物理扇区
-<br><br>
-<br>固态硬盘由控制单元和存储单元组成，一般使用 Flash 闪存芯片作为存储单元，不再使用传统的机械存储方法，使用模拟的方式虚拟出传统硬盘的扇区
-<br>固态硬盘盘体内的主体就是一块 PCB，而这块 PCB 上最基本的配件主要有控制芯片、缓存芯片（部分低端固态硬盘无缓存芯片）和用于存储数据的闪存芯片三部分
-<br>SSD 中的主要内存部件传统上是 DRAM 易失性闪存，但自 2009 年来以 NAND 非易失性闪存更为常见
-<br>在闪存的种类中单层单元(single-level cell, SLC) 每个存储单元只能存储一位信息，多层单元 (MLC) 每个存储单元能够存储多个位信息<br>
-<img alt="Pasted image 20240620093504.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620093504.png">
-<br><br>
-<br>RAID（Redundant Array of Inexpensive Disks）直译为“廉价冗余磁盘阵列”，最初是为了组合多块小容量的廉价磁盘来代替大容量的昂贵磁盘，同时希望在磁盘失效时不会对数据造成影响而开发出的一种磁盘存储技术”
-<br>后来随着硬盘研发技术的不断提升，硬盘的容量越来越大，成本却在不断下降，所以 RAID 中 Inexpensive（廉价）一词已经失去意义，于是将这个词用 Independent（独立）来替代，RAID 就成了“独立冗余磁盘阵列
-<br>RAID 通过将多个磁盘按照一定的形式和方案组织起来，以这样的形式能够获取比单个硬盘更高的速度、更好的稳定性、更大的存储能力的存储解决方案
-<br>RAID 技术能够提供更大的存储空间、提供更快的传输速度并且提供更高的安全性
-<br><br>
-<br>RAID-0 是无冗余、无校验的磁盘阵列，实现 RAID-0 至少需要两块以上硬盘。它将两块以上的硬盘合并成一块，数据同时分散在每块硬盘中，因为带宽加倍，所以读/写速度加倍。RAID-0 的理论速度是单块硬盘的 N 倍
-<br>RAID-0 只是单纯地提高读/写性能，并没有为数据的可靠性提供保证，而且其中的任何一个物理盘失效都将影响到所有数据，因此，RAID-0 不能应用于数据安全性要求高的场合<br>
-<img alt="Pasted image 20240620101600.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101600.png">
-<br><br>
-<br>RAID-1 通过磁盘数据镜像实现数据的冗余，在两块磁盘上产生互为备份的数据，当其中一块成员盘出现故障时，系统还可以从另外一块成员盘中读取数据，因此 RAID-1 可以提供更好的冗余性<br>
-<img alt="Pasted image 20240620101805.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620101805.png">
-<br><br>RAID-3 的数据存取方式和 RAID-2 一样，把数据以位或字节为单位来分割并且存储到各个硬盘上，在安全方面以奇偶校验取代海明码做错误校正及检测，所以只需要一个额外的校检磁盘。奇偶校验值的计算是以各个硬盘的相对应位作异或的逻辑运算，然后将结果写入奇偶校验硬盘<br>
-<img alt="Pasted image 20240620102200.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102200.png"><br><br>RAID-5 跟 RAID-4 一样，数据以条带为单位分布到各个硬盘上，RAID-5 和 RAID-4 的最大区别在于 RAID-5 不是把所有的校验块集中保存在一个专门的校验盘中，而是分散到所有的数据盘中<br>
-<img alt="Pasted image 20240620102402.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620102402.png"><br><br><br><br>
-<br>BIOS 自检通过后将 MBR 扇区读入内存，将执行权交给内存中 MBR 扇区的引导程序，引导程序将自己拷贝到相对安全的地址
-<br>系统判断 MBR 扇区的最后两个字节是否为"55 AA"，若是引导程序到分区表中查找是否有活动分区，若有责将引导扇区读入内存，若该引导扇区合法，则将程序执行流跳转到引导扇区从而引导操作系统启动
-<br><br>
-<br>引导程序 (0-1B7H)：占用其中前 440 个字节
-<br>Windows 磁盘签名(1B8H-1BBH)：Windows 系统对硬盘初始化时写入的一个磁盘标签，如果硬盘的签名丢失，系统会认为该硬盘没有初始化
-<br>分区表(Disk Partition Table)(1BEH-1FDH)：用于管理硬盘分区，占用 64 个字节
-<br>结束标志(1FEH-1FFH)："55 AA"，如果破坏标志，硬盘会变成未初始化状态
-<br><br>
-<br>MBR 磁盘的分区形式有主分区、扩展分区和非 DOS 分区
-<br>非 DOS 分区用于将硬盘中的一块区域单独划分出来供另一个操作系统使用
-<br>在分区表的 64 字节中，以 16 个字节为一个分区表项来描述一个分区的结构
-<br>一块硬盘最多可以有 4 个主磁盘分区，被激活的主磁盘分区称为主分区，主分区在一块硬盘中只能有一个
-<br><br><br><img alt="Pasted image 20240620155644.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620155644.png"><br><br>
-<br>拓展分区是一个指向下一个用来定义分区参数的指针
-<br>扩展分区的每个逻辑驱动器的分区信息存储在一个类似于 MBR 的拓展引导记录中 (Extended Boot Record, EBR) 中，拓展引导记录包括分区表和结束标志"55 AA"，没有引导代码部分
-<br>扩展分区的第一个分区项描述第一个逻辑驱动器，第二项指向下一个逻辑驱动器的 EBR
-<br>拓展分区中的第一个分区表项中隐藏扇区数指的是相对于 EBR 的偏移<br>
-<img alt="Pasted image 20240620160517.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160517.png" style="width: 200px; max-width: 100%;"><img alt="Pasted image 20240620160542.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620160542.png" style="width: 500px; max-width: 100%;">
-<br><br>
-<br>GPT(GUID Partition Table)：全局唯一表示磁盘分区表
-<br>GUID(Globally Unique Identifier)：全局唯一标识符
-<br>GPT 和 MBR 结构可以在支持 GPT 的系统上混合使用，但支持 EFI 的系统要求启动分区必须位于 GPT 磁盘上
-<br>在系统支持的情况上可以将 MBR 磁盘转换为 GPT 磁盘，但只有在磁盘为空的情况下从能将 GPT 磁盘转换为 MBR 磁盘
-<br>GPT 磁盘上可以创建 6 种分区，分别是 EFI 系统分区 (ESP)、微软保留分区 (MSR)、LDM 元数据分区、LDM 数据分区、OEM 分区、主分区
-
-<br>ESP：包含启动操作系统所需的文件，如驱动程序
-<br>MSR：在 GPT 磁盘上保留空间以供以后的操作系统软件使用
-<br>LDM：将基本 GPT 磁盘转换为动态 GPT 磁盘时，系统会创建 LDM 元数据分区和 LDM 数据分区，LDM 元数据分区为 1 MB，用于存储 LDM 数据库，LDM 数据分区包含了转换后磁盘上未分配的磁盘空间和动态卷
-<br>OEM：系统制造商创建的分区
-<br>主分区：GPT 磁盘的基本数据分区，用于存放用户的数据
-
-
-<br><br>
-<br>EFI(Extensible Firmware Interface)：可拓展固件接口
-<br>Intel 在 64 位的安腾 (Itanium) 处理器上推出了 EFI 技术
-<br>EFI 在开机时检查硬件的完好性，同时加载硬件在 EFI 中的驱动程序，不用操作系统负责驱动的加载工作
-<br>如果主板使用 BIOS，操作系统必须面对所有的硬件，每次重装系统或者系统升级时，都必须手动安装新的驱动
-<br>EFI 架构使用的驱动基于 EFIByte Code，需要 EFI 层进行翻译，EFI 将硬件层保护了起来，操作系统看到的只是 EFI 留给 EFIByte Code 的程序接口，一份驱动程序可以支持所有操作系统平台
-<br>EFI 以小型磁盘分区的形式存放在硬盘上，包括以下几个部分
-
-<br>Pre-EFI 初始化模块
-<br>EFI 驱动执行环境
-<br>EFI 驱动程序
-<br>兼容性支持模块 (CSM)
-<br>EFI 高层应用
-<br>GUID 磁盘分区
-
-
-<br>EFI 初始化模块和驱动执行环境通常被集成在一个只读存储器中，Pre-EFI 初始化程序在系统开机时最先得到执行，负责最初的 CPU、北桥、南桥、内存和硬盘的初始化工作，随后 EFI 驱动程序被载入运行
-<br>在 EFI 中引入了 GUID 磁盘分区系统，分区类型由 GUID 来表示。
-<br>EFI 系统分区可以被 EFI 系统存取，用于存放部分驱动和应用程序
-<br>CSM 为不具备 EFI 引导能力的操作系统提供类似于传统 BIOS 的系统服务
-<br><br><img alt="Pasted image 20240620170353.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620170353.png"><br>
-<br>保护 MBR ：位于 0 号扇区，没有引导程序，分区表中只有一个表象，描述一个类型为 0xEE 的分区，分区起始地址是 1 号扇区，大小为"FF FF FF FF"，让计算机认为这个磁盘是合法额度，并且已经被使用
-<br>GPT 头：定义分区表的起始位置、分区表的结束位置、每个分区表表项的大小、分区表项的个数及分区表的校验和等信息
-<br>分区表：GPT 磁盘的 2-33 号扇区，能容纳 128 个分区表项，每个分区表项大小为 128 字节，分区表项记录分区的起始和结束地址、分区类型的 GUID、分区名字、分区属性和分区 GUID 
-<br>分区区域：通常起始于磁盘的 34 号扇区，包含多个具体分区
-<br>GPT 头备份：GPT 头所在扇区号和 GPT 头备份所在扇区号交换并且字节总数和 CRC 校验和均为头备份
-<br>分区表备份：对分区表 32 个扇区的完整备份
-<br><br><br><br><br><br><br>
-<br>FAT 32 文件系统是从微软 Windows 95 系统的 OSR 2 版本开始使用的，它能够支持大于 32 MB 小于 32 GB 的分区。虽然第三方的格式化程序可以把超过 32 GB 的分区格式化为 FAT 32，但微软自身的系统不允许将大于 32 GB 的分区格式化为 FAT 32 文件系统
-<br>FAT 32 文件系统由 DBR 及其保留扇区、FAT 1、FAT 2、DATA 区四个部分组成<br>
-<img alt="Pasted image 20240620103156.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620103156.png">
-<br>DBR 及其保留扇区：DBR 的全称为 DOSBoot Record，含义是 DOS 引导记录，也称为操作系统引导记录，在 DBR 之后往往有一些保留扇区
-<br>FAT1：FAT 的全称是 File Allocation Table，含义是文件分配表，FAT32 一般有两份 FAT，FAT1 是第一份，也是主 FAT。
-<br>FAT2：FAT2 是 FAT32 的第二份文件分配表，也是 FAT1 的备份。
-<br>DATA：数据区，是 FAT32 文件系统的主要区域，其中包含目录区域。
-<br><br>
-<br>跳转指令：本身占 2 字节，它将程序执行流程跳转到引导程序处
-<br>OEM 代号：这部分占 8 字节，其内容由创建该文件系统的 OEM 产商提供
-<br>BPB：从第 12 个字节开始，占用 79 字节，记录了有关该文件系统的重要信息，前 53 个字节是 BPB，后面 26 个字节是扩展 BPB。各参数解释如下表：
-<br><br><br>
-<br>FAT32 文件一般有两份 FAT，它们由格式化程序在对分区进行格式化时创建，FAT1 是主，FAT2 是备份
-<br>FAT1 跟在 DBR 之后，其具体地址由 DBR 的 BPB 参数中指定，FAT2 跟在 FAT1 后面
-<br>FAT 表由 FAT 表项组成，每个 FAT 项占用 4 字节
-<br>每个 FAT 项有个固定的编号，从 0 开始
-<br>FAT 表的前两个项为文件系统保留使用，0 号为介质类型，1 号为文件系统错误标志
-<br>分区的数据区中每个簇都会映射到 FAT 表中的唯一一个 FAT 项，用户的数据从 2 号 FAT 开始记录
-<br>如果某个文件占用很多个簇，则第一个 FAT 项记录下一个 FAT 项的编号，如果这个文件结束了，则用 0F FF FF FF 表示
-<br>分区格式化后，用户文件以簇为单位存放在数据区中，一个文件至少占用一个簇
-<br>FAT 的主要作用是标明分区存储的介质以及簇的使用情况
-<br>定位 FAT 绝对位置的方法如下：<br>
-<br>首先从 MBR 的分区表中得知分区的起始扇区，偏移到此扇区
-<br>从 DBR 的 BPB 中得知 DBR 的保留扇区数，FAT 表的个数，FAT 表的大小
-<br>因此 FAT1 扇区号 = 分区起始扇区 + DBR 保留扇区，FAT2 扇区号 = 分区起始扇区 + DBR 保留扇区 + 每 FAT 扇区数
-<br>除了 0 号 FAT 项和 1 号 FAT 项以外，如果一个 FAT 项为非零值，那么可能有三种情况： <br>
-<br>该 FAT 项映射的簇是一个不可用的坏簇，那么该 FAT 项中的值为坏簇标志（对于 FAT 32 来说为“0F FF FF F7”）
-<br>该 FAT 项映射的簇是某个文件的最后一个簇，那么该 FAT 项中的值为结束标志（对于 FAT 32 来说为“0F FF FF FF”）
-<br>该 FAT 项映射的簇被某个文件占用，但并不是文件的最后一个簇，那么该 FAT 项中的值是文件下一个簇的簇号。 
-<br>分析 FAT32 文件系统的数据区<br>
-<br>定位方法：
-
-<br>通过 MBR 中分区表信息得知分区的起始位置
-<br>通过分区中 DBR 得知 DBR 的保留扇区数以及 FAT 表的大小，FAT 表的个数
-<br>数据区 = 分区起始扇区 + DBR 保留扇区 + FAT 表数量 * 每 FAT 扇区数
-
-
-<br>数据区的内容主要由三部分组成：根目录，子目录和文件内容
-<br>数据区中以“簇”为单位进行存储，2 号簇被分配给根目录使用
-<br>FAT32 文件系统中，分区根目录下的文件和目录都放在根目录区中，子目录中的文件和目录都放在子目录区中，并且每 32 个字节为一个目录项（FDT），每个目录项记录着一个目录和文件或多个目录项记录一个文件和目录
-<br>FAT32 文件系统中，目录项可以分为四类：
-
-<br>卷标目录项
-<br>./..
-<br>短文件名目录项
-<br>长文件名目录项
-
-
-<br>FDT 第一个字节表明了该文件的状态，有下面四种取值方式：
-
-<br>00h 目录项的空目录
-<br>E5H 表示该目录项曾经使用过，但文件已经被删除
-<br>2EH 表示子目录下的两个特殊文件 . 或 ..
-<br>其他任何字符 表示一个文件名或目录名的第一个字符的ASCII码值
-
-
-<br>FDT 第 0xB 个字节可以判别式长文件目录项还是短文件目录项
-<br>FAT32 文件目录项第 32 个字节表示一些文件的属性信息，包括文件名，扩展名，权限等
-<br><br><br><br><br><br>
-<br>两者的文件属性为子目录"00010000"
-<br>"."目录项所描述的"起始簇号"是子目录本身所在的簇号
-<br>".."目录项所描述的"起始簇号"是上一级目录的起始簇号，如果上一级目录是根目录，则该值被置为"0"
-<br>两者文件大小都为"0"
-<br><br>
-<br>在根目录区表示分区的名字
-<br><img alt="Pasted image 20240620145732.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620145732.png">
-<br>FAT 格式的分区，卷标长度最多允许达到 11 字节，支持最多 5 个中文字符
-<br>不记录起始簇号和大小
-<br>不记录创建时间和最后访问时间，只记录修改时间
-<br><br>
-<br>文件目录项的第一个字节被改成"E5"
-<br>目录项中文件起始簇号的高位 2 个字节清零，若文件在数据区存放的位置比较靠后，文件起始簇号会很大，文件记录项中高位 2 个字节会有值，会造成文件起始簇号丢失
-
-<br>若将文件先放入回收站，再清空回收站，不会清除起始簇号高位的两个字节
-<br>彻底删除时会
-
-
-<br>文件 FAT 表的相应簇链全部清零
-<br>文件的内容不会被清零，但占用的簇号会被释放，容易被其他文件进一步占用，若数据被覆盖了则文件无法恢复
-<br>彻底删除文件夹时，被删除文件夹目录项中起始簇号的高位两字节会被清空，文件夹中文件的目录项不会发生变化
-<br><br>
-<br>FAT 表中除了 0 号 FAT 项、1 号 FAT 项和 2 号 FAT 项以外会被清空
-<br>根目录区会被完全清零
-<br>子目录中的目录项仍然存在
-<br><br>
-<br>NTFS 文件系统具有安全性、可恢复性、文件压缩、磁盘配额和基于 B+树的文件管理等特点
-<br>NTFS 分区又被称为 NTFS 卷，卷上簇的大小又称为卷因子
-<br>当一个分区由 FAT 卷转变成一个 NTFS 卷时，卷因子的大小总是占用一个扇区
-<br>NTFS 使用逻辑簇号 (Logical Cluster Number, LCN) 和虚拟簇号 (Virtual Cluster Number, VCN) 对卷进行管理
-
-<br>LCN： 对卷的第一个簇到最后一个簇编号
-<br>VCN：将特定文件的簇从头到尾编号
-
-
-<br><br>
-<br>DBR扇区
-<br>NTLDR 扇区
-<br>元数据文件 (DBR 扇区和 NTLDR 扇区共同组成 $Boot 源文件)<br>
-<img alt="Pasted image 20240620205121.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620205121.png">
-<br><br>
-<br>跳转指令：跳转指令的目标地址以指令的下一字节为基准，占 2 字节
-<br>空指令：90H，占 1 字节
-<br>OEM 代号：占 8 字节
-<br>BIOS 参数块 (BIOS Parameter Block, BPB) (0BH-53H)
-<br>引导程序 (54H-1FDH)：占 426 个字节
-<br>结束标志："55 AA"
-<br><br><img alt="Pasted image 20240620211855.png" src="/campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620211855.png">]]></description><link>campus/chinese-notes/计算机科学/杂项/数据取证.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/杂项/数据取证.md</guid><pubDate>Thu, 20 Jun 2024 13:33:38 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620065107.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/杂项/attachments/pasted-image-20240620065107.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[程序装入的方式]]></title><description><![CDATA[ 
+初识Vim娘，很可能觉得很沮丧，因为用尽浑身解数也不能让她笑一笑，难道注定与她无缘？No！任何想要接近她的人都要学习一张密密麻麻、五颜六色的秘笈……然后为了能够和她更好的性……嗯，幸福生活，可能还需要自己创造秘笈。
+<br>
+由ChrisWhite翻译自<a data-tooltip-position="top" aria-label="https://quickref.me/vim" rel="noopener" class="external-link" href="https://quickref.me/vim" target="_blank">Vim&nbsp;cheatsheet</a>
+<br><br>▼/▶ Cursor   ▽/▷ Target
+Copy<br><br>┌───────────── |      
+├───────────── 0      $ ──────────────┐ 
+│  ┌────────── ^      fe ────────┐    │
+│  │  ┌─────── Fo     te ───────┐│    │
+│  │  │┌────── To     30| ───┐  ││    │
+│  │  ││ ┌──── ge     w ───┐ │  ││    │
+│  │  ││ │ ┌── b      e ─┐ │ │  ││    │
+│  │  ││ │ │  ┌h      l┐ │ │ │  ││    │
+▽  ▽  ▽▽ ▽ ▽  ▽▼      ▼▽ ▽ ▽ ▽  ▽▽    ▽
+   echo "A cheatsheet from quickref.me"
+Copy<br><br>                 - SCREEN 1 START
+   ┌─┬─────────▷ #!/usr/bin/python
+   │ │     ┌───▷     
+   │ │     │     print("Hello")
+   │ │     { } ▶ print("Vim")
+   │ │       │   print("!")
+   │ │       └─▷    
+   │ │ ┌───┬───▷ print("Welcome")
+G gg H M L k j ▶ print("to")
+│        │   └─▷ print("quickref.me")
+│        │       print("/vim")
+│        │     
+│        └─────▷ 
+│                - SCREEN 1 END
+└──────────────▷ print("SCREEN 2")
+Copy<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>不仅是 i ，你可以设置宏为任何字母<br><br><br><br>将操作符和动作符结合来使用<br><br><br><br><br><br>[count] &lt;operator&gt; &lt;motion&gt;
+&lt;operator&gt; [count] &lt;motion&gt;
+Copy<br><br><br><br><br><br>操作属性为inner或者around的文本块<br><br><br>详见 :help text-objects<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>:[range]s/{pattern}/{str}/[flags]
+Copy<br><br><br><br>:%s/{pattern}/{str}/[flags]
+Copy<br><br><br><br><br><br>:[range]g/{pattern}/[command]
+Copy<br><br><br><br>:[range]v/{pattern}/[command]
+Copy<br><br><br><br><br><br><br><br>:s/a\|b/xxx\0xxx/g		         # Modifies "a b"      to "xxxaxxx xxxbxxx"
+:s/test/\U&amp; file/                # Modifies "test"     to "TEST FILE"
+:s/\(test\)/\U\1\e file/         # Modifies "test"     to "TEST file"
+:s/\v([abc])([efg])/\2\1/g	     # Modifies "af fa bg" to "fa fa gb"
+:s/\v\w+/\u\0/g		             # Modifies "bla bla"  to "Bla Bla"
+:s/\v([ab])|([cd])/\1x/g         # Modifies "a b c d"  to "ax bx x x"
+:%s/.*/\L&amp;/                      # Modifies "HTML"     to "html"
+:s/\v&lt;(.)(\w*)/\u\1\L\2/g        # Make every first letter of a word uppercase
+:%s/^\(.*\)\n\1/\1/              # Remove duplicate lines
+:%s/&lt;\/\=\(\w\+\)\&gt;/\U&amp;/g        # Convert HTML-Tags to uppercase
+:g/^pattern/s/$/mytext           # Find and append text to the end
+:g/pattern/norm! @i              # Run a macro on matching lines
+/^\(.*\)\(\r\?\n\1\)\+$          # View the duplicates lines
+/\v^(.*)(\r?\n\1)+$              # View the duplicates lines (very magic)
+:v/./,/./-j                      # Compress blank lines into a blank line
+:g/&lt;p1&gt;/,/&lt;p2&gt;/d                 # Delete inclusively from &lt;p1&gt; to &lt;p2&gt;
+Copy<br><br><br>
+$ vimdiff file1 file2 [file3]
+$ vim -d file1 file2 [file3]
+Copy<br><br>:[range]diffget [bufspec]
+:[range]diffput [bufspec]
+Copy<br><br><br>See: <a class="internal-link" data-href="#ranges" href="/#ranges" target="_self" rel="noopener">Ranges</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>详见 :help formatting<br><br><br><br><br>在插入模式下进行以上操作<br><br><br><br><br><br>移除重复行<br>:sort | %!uniq -u
+Copy<br>在文件中给行编号<br>:%!cat -n
+Copy<br>拷贝整个文档到剪贴板<br>:%w !pbcopy            # Mac OS X
+:%w !xclip -i -sel c   # GNU/Linux
+:%w !xsel -i -b        # GNU/Linux
+Copy<br><br>
+<br><a data-tooltip-position="top" aria-label="https://devhints.io/vim" rel="noopener" class="external-link" href="https://devhints.io/vim" target="_blank">Devhints</a> (devhints.io)
+<br><a data-tooltip-position="top" aria-label="https://vim.rtorr.com/" rel="noopener" class="external-link" href="https://vim.rtorr.com/" target="_blank">Vim cheatsheet</a> (vim.rotrr.com)
+<br><a data-tooltip-position="top" aria-label="http://vimdoc.sourceforge.net/htmldoc/" rel="noopener" class="external-link" href="http://vimdoc.sourceforge.net/htmldoc/" target="_blank">Vim documentation</a> (vimdoc.sourceforge.net)
+<br><a data-tooltip-position="top" aria-label="http://openvim.com/" rel="noopener" class="external-link" href="http://openvim.com/" target="_blank">Interactive Vim tutorial</a> (openvim.com)
+]]></description><link>campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md</guid><pubDate>Fri, 22 Dec 2023 11:04:19 GMT</pubDate></item><item><title><![CDATA[程序装入的方式]]></title><description><![CDATA[ 
  <br><br><br>
 <br>编译程序生成绝对地址的目标代码，装入程序按照装入模块中的地址，将程序和数据装入内存
 <br>只适用于单道程序的环境
@@ -1277,7 +1128,15 @@ Copy<br><br><br>
 <br>交互式还是批处理式
 
 
-]]></description><link>campus/chinese-notes/计算机科学/考研/os/进程与线程.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md</guid><pubDate>Tue, 04 Jun 2024 03:14:32 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240417205834.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240417205834.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[C++ Crash Course]]></title><description><![CDATA[ 
+]]></description><link>campus/chinese-notes/计算机科学/考研/os/进程与线程.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md</guid><pubDate>Tue, 04 Jun 2024 03:14:32 GMT</pubDate><enclosure url="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240417205834.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="campus/chinese-notes/计算机科学/考研/os/attachments/pasted-image-20240417205834.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Dijkstra]]></title><description><![CDATA[ 
+ 
+  
+  
+  
+    
+    
+  
+  ]]></description><link>campus/chinese-notes/计算机科学/计算机网络/excalidraw/dijkstra.excalidraw.html</link><guid isPermaLink="false">Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md</guid><pubDate>Thu, 20 Jun 2024 13:38:15 GMT</pubDate></item><item><title><![CDATA[C++ Crash Course]]></title><description><![CDATA[ 
  <br><br><br>
 <br>C++ 编译器在编译过程中将文本文件 (Text File) 转变为对象文件 (Object File)，随后产生的对象文件再被链接器处理
 <br>在编译过程中会经过几个过程
@@ -5292,7 +5151,7 @@ Copy<br>
 <br><br>
 <br>实践中是让每个节点向网络中的所有其他节点广播链路状态分组来实现 (链路状态广播 link state broadcast 算法)
 <br>所有节点都拥有网络的完整视图
-<br>Dijkstra 算法 [@TuWenXiangJieDijkstraZuiDuanLuJingSuanFa2021][@DijkstraAlgorithm2023]：计算从某节点到达网络中所有其他节点的最低开销路径 <img style="max-width:800px; " class="excalidraw-svg excalidraw-embedded-img excalidraw-canvas-immersive" src="blob://f74b7849-eaac-42c5-9f6c-cafa0bc78faf" filesource="Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md" w="800" draggable="false" oncanvas="false">
+<br>Dijkstra 算法 [@TuWenXiangJieDijkstraZuiDuanLuJingSuanFa2021][@DijkstraAlgorithm2023]：计算从某节点到达网络中所有其他节点的最低开销路径 <img style="max-width:800px; " class="excalidraw-svg excalidraw-embedded-img excalidraw-canvas-immersive" src="blob://3d1b1df2-0441-4837-b0c7-8d341176da7a" filesource="Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md" w="800" draggable="false" oncanvas="false">
 
 <br>经过算法的  次迭代后，可知道  个目的节点的最低开销路径
 

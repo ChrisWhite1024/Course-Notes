@@ -9,5 +9,12 @@
   "strictLineBreaks": false,
   "showLineNumber": true,
   "showIndentGuide": true,
-  "promptDelete": false
+  "promptDelete": false,
+  "pdfExportSettings": {
+    "includeName": false,
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }

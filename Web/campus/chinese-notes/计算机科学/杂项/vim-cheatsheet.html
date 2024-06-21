@@ -1,0 +1,1730 @@
+<!DOCTYPE html> <html><head>
+		<title>Vim Cheatsheet</title>
+		<base href="../../../../">
+		<meta id="root-path" root-path="../../../../">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0">
+		<meta charset="UTF-8">
+		<meta name="description" content="Course-Notes - Vim Cheatsheet">
+		<meta property="og:title" content="Vim Cheatsheet">
+		<meta property="og:description" content="Course-Notes - Vim Cheatsheet">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html">
+		<meta property="og:image" content="undefined">
+		<meta property="og:site_name" content="Course-Notes">
+		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="lib/rss.xml"><script async="" id="webpage-script" src="lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script type="module" async="" id="graph-view-script" src="lib/scripts/graph-view.js"></script><script async="" id="graph-wasm-script" src="lib/scripts/graph-wasm.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-render-worker-script" src="lib/scripts/graph-render-worker.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="tinycolor-script" src="lib/scripts/tinycolor.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="pixi-script" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.4.0/pixi.min.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="minisearch-script" src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="lib/media/favicon.png"><script async="" id="graph-data-script" src="lib/scripts/graph-data.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-horizontal-spacing:0.6em;--tree-vertical-spacing:0.6em;--sidebar-margin:12px}.sidebar{height:100%;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));font-size:14px;z-index:10;position:relative;overflow:hidden;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}.sidebar-left{left:0}.sidebar-right{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}body.floating-sidebars .sidebar{position:absolute}.sidebar-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .sidebar-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}.sidebar-left .sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}.sidebar-right .sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar:has(.sidebar-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:2em;width:var(--sidebar-width);top:var(--sidebar-margin);padding-inline:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}.sidebar-left .sidebar-topbar{left:0}.sidebar-right .sidebar-topbar{right:0}.topbar-content{overflow:hidden;overflow:clip;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:0!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}.sidebar-left .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);right:var(--sidebar-margin)}.sidebar-right .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:100%;height:100%}.sidebar-section-header{margin:0 0 1em 0;text-transform:uppercase;letter-spacing:.06em;font-weight:600}body{transition:background-color var(--color-fade-speed) ease-in-out}.webpage-container{display:flex;flex-direction:row;height:100%;width:100%;align-items:stretch;justify-content:center}.document-container{opacity:1;flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0;transition:opacity .2s ease-in-out}.document-container>.markdown-preview-view{margin:var(--sidebar-margin);margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;background-color:var(--background-primary);transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}.document-container>.markdown-preview-view>.markdown-preview-sizer{padding-bottom:80vh!important;width:100%!important;max-width:var(--line-width)!important;flex-basis:var(--line-width)!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}.markdown-rendered img:not([width]),.view-content img:not([width]){max-width:100%;outline:0}.document-container>.view-content.embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}.document-container>.view-content.embed>*{max-width:100%;max-height:100%;object-fit:contain}:has(> :is(.math,table)){overflow-x:auto!important}.document-container>.view-content{overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){if("file:"!=location.protocol){let e=document.querySelectorAll("include");for(let t=0;t<e.length;t++){let o=e[t],l=o.getAttribute("src");try{const e=await fetch(l);if(!e.ok){console.log("Could not include file: "+l),o?.remove();continue}let t=await e.text(),n=document.createRange().createContextualFragment(t),i=Array.from(n.children);for(let e of i)e.classList.add("hide"),e.style.transition="opacity 0.5s ease-in-out",setTimeout((()=>{e.classList.remove("hide")}),10);o.before(n),o.remove(),console.log("Included file: "+l)}catch(e){o?.remove(),console.log("Could not include file: "+l,e);continue}}}else{if(document.querySelectorAll("include").length>0){var e=document.createElement("div");e.id="error",e.textContent="Web server exports must be hosted on an http / web server to be viewed correctly.",e.style.position="fixed",e.style.top="50%",e.style.left="50%",e.style.transform="translate(-50%, -50%)",e.style.fontSize="1.5em",e.style.fontWeight="bold",e.style.textAlign="center",document.body.appendChild(e),document.querySelector(".document-container")?.classList.remove("hide")}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script"))),l=0;!function e(){let n=o[l];l++,n&&"true"!=n.getAttribute("loaded")||l<o.length&&e(),l<o.length?n.addEventListener("load",e):t()}()}</script><link rel="stylesheet" href="lib/styles/obsidian.css"><link rel="preload" href="lib/styles/other-plugins.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/other-plugins.css"></noscript><link rel="preload" href="lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="lib/styles/supported-plugins.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/supported-plugins.css"></noscript><link rel="preload" href="lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/main-styles.css"></noscript></head><body class="publish css-settings-manager theme-dark show-inline-title show-ribbon"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div class="webpage-container workspace"><div class="sidebar-left sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><label class="theme-toggle-container" for="theme_toggle"><input class="theme-toggle-input" type="checkbox" id="theme_toggle"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content"><div class="search-input-container"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div class="search-input-clear-button" aria-label="Clear search"></div></div><include src="lib/html/file-tree.html"></include></div><script defer="">let ls = document.querySelector(".sidebar-left"); ls.classList.add("is-collapsed"); if (window.innerWidth > 768) ls.classList.remove("is-collapsed"); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div><div class="document-container markdown-reading-view hide"><div class="markdown-preview-view markdown-rendered allow-fold-headings allow-fold-lists is-readable-line-width"><style id="MJX-CHTML-styles"></style><div class="markdown-preview-sizer markdown-preview-section"><h1 class="page-title heading inline-title" id="Vim Cheatsheet"><p dir="auto">Vim Cheatsheet</p></h1><div><blockquote dir="auto">
+<p dir="auto">初识Vim娘，很可能觉得很沮丧，因为用尽浑身解数也不能让她笑一笑，难道注定与她无缘？No！任何想要接近她的人都要学习一张密密麻麻、五颜六色的秘笈……然后为了能够和她更好的性……嗯，幸福生活，可能还需要自己创造秘笈。</p>
+</blockquote></div><div><blockquote dir="auto">
+<p dir="auto">由ChrisWhite翻译自<a data-tooltip-position="top" aria-label="https://quickref.me/vim" rel="noopener" class="external-link" href="https://quickref.me/vim" target="_blank">Vim&nbsp;cheatsheet</a></p>
+</blockquote></div><div class="heading-wrapper"><h3 data-heading="光标动作图示" dir="auto" class="heading" id="光标动作图示"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>光标动作图示</h3><div class="heading-children"><div><pre dir="auto" class="language-bash" tabindex="0"><code class="language-bash is-loaded">▼/▶ Cursor   ▽/▷ Target
+</code><button class="copy-code-button">Copy</button></pre></div><div class="heading-wrapper"><h4 data-heading="左右移动" dir="auto" class="heading" id="左右移动"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>左右移动</h4><div class="heading-children"><div><pre dir="auto" class="language-bash" tabindex="0"><code class="language-bash is-loaded">┌───────────── <span class="token operator">|</span>      
+├───────────── <span class="token number">0</span>      $ ──────────────┐ 
+│  ┌────────── ^      fe ────────┐    │
+│  │  ┌─────── Fo     te ───────┐│    │
+│  │  │┌────── To     <span class="token number">30</span><span class="token operator">|</span> ───┐  ││    │
+│  │  ││ ┌──── ge     w ───┐ │  ││    │
+│  │  ││ │ ┌── b      e ─┐ │ │  ││    │
+│  │  ││ │ │  ┌h      l┐ │ │ │  ││    │
+▽  ▽  ▽▽ ▽ ▽  ▽▼      ▼▽ ▽ ▽ ▽  ▽▽    ▽
+   <span class="token builtin class-name">echo</span> <span class="token string">"A cheatsheet from quickref.me"</span>
+</code><button class="copy-code-button">Copy</button></pre></div></div></div><div class="heading-wrapper"><h4 data-heading="上下移动" dir="auto" class="heading" id="上下移动"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>上下移动</h4><div class="heading-children"><div><pre dir="auto" class="language-bash" tabindex="0"><code class="language-bash is-loaded">                 - SCREEN <span class="token number">1</span> START
+   ┌─┬─────────▷ <span class="token comment">#!/usr/bin/python</span>
+   │ │     ┌───▷     
+   │ │     │     print<span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span>
+   │ │     <span class="token punctuation">{</span> <span class="token punctuation">}</span> ▶ print<span class="token punctuation">(</span><span class="token string">"Vim"</span><span class="token punctuation">)</span>
+   │ │       │   print<span class="token punctuation">(</span><span class="token string">"!"</span><span class="token punctuation">)</span>
+   │ │       └─▷    
+   │ │ ┌───┬───▷ print<span class="token punctuation">(</span><span class="token string">"Welcome"</span><span class="token punctuation">)</span>
+G gg H M L k j ▶ print<span class="token punctuation">(</span><span class="token string">"to"</span><span class="token punctuation">)</span>
+│        │   └─▷ print<span class="token punctuation">(</span><span class="token string">"quickref.me"</span><span class="token punctuation">)</span>
+│        │       print<span class="token punctuation">(</span><span class="token string">"/vim"</span><span class="token punctuation">)</span>
+│        │     
+│        └─────▷ 
+│                - SCREEN <span class="token number">1</span> END
+└──────────────▷ print<span class="token punctuation">(</span><span class="token string">"SCREEN 2"</span><span class="token punctuation">)</span>
+</code><button class="copy-code-button">Copy</button></pre></div></div></div></div></div><div class="heading-wrapper"><h3 data-heading="光标动作(Motions)" dir="auto" class="heading" id="光标动作(Motions)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>光标动作(Motions)</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h</code> <em>|</em> <code>j</code> <em>|</em> <code>k</code> <em>|</em> <code>l</code></td>
+<td>光标</td>
+</tr>
+<tr>
+<td><code>&lt;C-u&gt;</code> <em>/</em> <code>&lt;C-d&gt;</code></td>
+<td>上/下移动半页</td>
+</tr>
+<tr>
+<td><code>&lt;C-b&gt;</code> <em>/</em> <code>&lt;C-f&gt;</code></td>
+<td>上/下移动整页</td>
+</tr>
+</tbody>
+</table></div><div class="heading-wrapper"><h4 data-heading="按词移动" dir="auto" class="heading" id="按词移动"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>按词移动</h4><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>b</code> <em>/</em> <code>w</code></td>
+<td>前/后单词</td>
+</tr>
+<tr>
+<td><code>ge</code> <em>/</em> <code>e</code></td>
+<td>前/后单词末尾</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h4 data-heading="在行内移动" dir="auto" class="heading" id="在行内移动"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>在行内移动</h4><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code> <em>(zero)</em> <em>/</em> <code>$</code></td>
+<td>行首/尾</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>行首（不包含空格）</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h4 data-heading="按字符移动" dir="auto" class="heading" id="按字符移动"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>按字符移动</h4><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Fe</code> <em>/</em> <code>fe</code></td>
+<td>移动到前/后一个 <code>e</code></td>
+</tr>
+<tr>
+<td><code>To</code> <em>/</em> <code>to</code></td>
+<td>移动到前/后一个 <code>o</code>后/前</td>
+</tr>
+<tr>
+<td><code>｜</code> <em>/</em> <code>n｜</code></td>
+<td>前往第 <code>1</code> /<code>n</code> 列</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h4 data-heading="在文档内移动" dir="auto" class="heading" id="在文档内移动"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>在文档内移动</h4><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gg</code> <em>/</em> <code>G</code></td>
+<td>首/末行</td>
+</tr>
+<tr>
+<td><code>:n</code> <em>|</em> <code>nG</code></td>
+<td>前往 <code>n</code> 行</td>
+</tr>
+<tr>
+<td><code>}</code> <em>/</em> <code>{</code></td>
+<td>后/前一空行</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h4 data-heading="在窗口内移动" dir="auto" class="heading" id="在窗口内移动"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>在窗口内移动</h4><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>H</code> <em>/</em> <code>M</code> <em>/</em> <code>L</code></td>
+<td>屏幕顶部/中间/底部</td>
+</tr>
+<tr>
+<td><code>zt</code> <em>/</em> <code>zz</code> <em>/</em>  <code>zb</code></td>
+<td>将当前行置于顶部/中间/底部</td>
+</tr>
+</tbody>
+</table></div></div></div></div></div><div class="heading-wrapper"><h3 data-heading="插入模式(Insert Mode)" dir="auto" class="heading" id="插入模式(Insert_Mode)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>插入模式(Insert Mode)</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>i</code> <em>/</em> <code>a</code></td>
+<td>在光标前/后插入</td>
+</tr>
+<tr>
+<td><code>I</code> <em>/</em> <code>A</code></td>
+<td>在行首/尾插入</td>
+</tr>
+<tr>
+<td><code>o</code> <em>/</em> <code>O</code> <em>(letter)</em></td>
+<td>在下/上 <code>1</code> 行插入</td>
+</tr>
+<tr>
+<td><code>s</code> <em>/</em> <code>S</code></td>
+<td>删除字符/行并插入</td>
+</tr>
+<tr>
+<td><code>C</code> <em>/</em> <code>cc</code></td>
+<td>修改光标至行尾/当前行</td>
+</tr>
+<tr>
+<td><code>gi</code></td>
+<td>在最后的插入点插入</td>
+</tr>
+<tr>
+<td><code>Esc</code> <em>|</em> <code>&lt;C-[&gt;</code></td>
+<td>退出插入模式</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="保存与退出" dir="auto" class="heading" id="保存与退出"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>保存与退出</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:w</code></td>
+<td>保存</td>
+</tr>
+<tr>
+<td><code>:q</code></td>
+<td>退出文件</td>
+</tr>
+<tr>
+<td><code>:wq</code> <em>|</em> <code>:x</code> <em>|</em> <code>ZZ</code></td>
+<td>保存并退出文件</td>
+</tr>
+<tr>
+<td><code>:wqa</code></td>
+<td>保存并关闭退出文件</td>
+</tr>
+<tr>
+<td><code>:q!</code> <em>|</em> <code>ZQ</code></td>
+<td>强制退出</td>
+</tr>
+<tr>
+<td><code>:qa</code></td>
+<td>关闭所有文件</td>
+</tr>
+<tr>
+<td><code>:qa!</code></td>
+<td>强制退出所有文件</td>
+</tr>
+<tr>
+<td><code>:w</code> new.txt</td>
+<td>写入 <code>new.txt</code></td>
+</tr>
+<tr>
+<td><code>:sav</code> new.txt</td>
+<td>保存并编辑 <code>new.txt</code></td>
+</tr>
+<tr>
+<td><code>:w</code> !sudo tee %</td>
+<td>写入只读文件</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="一般模式(Normal Mode)" dir="auto" class="heading" id="一般模式(Normal_Mode)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>一般模式(Normal Mode)</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>替换1个字符</td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td>进入替换模式</td>
+</tr>
+<tr>
+<td><code>u</code> <em>/</em> <code>3u</code></td>
+<td>撤销 <code>1</code> / <code>3</code> 次更改</td>
+</tr>
+<tr>
+<td><code>U</code></td>
+<td>撤销 <code>1</code> 行内的所有更改</td>
+</tr>
+<tr>
+<td><code>J</code></td>
+<td>合并当前行和下一行</td>
+</tr>
+<tr>
+<td><code>&lt;C-r&gt;</code> <em>/</em> 5 <code>&lt;C-r&gt;</code></td>
+<td>重做 <code>1</code> / <code>5</code> 次更改</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="剪切与粘贴" dir="auto" class="heading" id="剪切与粘贴"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>剪切与粘贴</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x</code></td>
+<td>删除字符 (剪切)</td>
+</tr>
+<tr>
+<td><code>p</code> <em>/</em> <code>P</code></td>
+<td>在光标后/前粘贴</td>
+</tr>
+<tr>
+<td><code>xp</code></td>
+<td>交换2个字符</td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>删除光标至行尾的内容 (剪切)</td>
+</tr>
+<tr>
+<td><code>dw</code></td>
+<td>删除单词 (剪切)</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>删除行 (剪切)</td>
+</tr>
+<tr>
+<td><code>ddp</code></td>
+<td>交换上下行</td>
+</tr>
+<tr>
+<td><code>yy</code></td>
+<td>复制当前行 (含回车)</td>
+</tr>
+<tr>
+<td><code>"*p</code> <em>|</em> <code>"+p</code></td>
+<td>从系统剪贴板粘贴</td>
+</tr>
+<tr>
+<td><code>"*y</code> <em>|</em> <code>"+y</code></td>
+<td>复制到系统剪贴板</td>
+</tr>
+</tbody>
+</table></div><div class="heading-wrapper"><h4 data-heading="在可视模式内(In visual mode)" dir="auto" class="heading" id="在可视模式内(In_visual_mode)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>在可视模式内(In visual mode)</h4><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code> <em>|</em> <code>x</code></td>
+<td>删除选择项  (剪切)</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>替换选择项</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>复制选择项</td>
+</tr>
+</tbody>
+</table></div></div></div></div></div><div class="heading-wrapper"><h3 data-heading="重复" dir="auto" class="heading" id="重复"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>重复</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.</code></td>
+<td>重复命令</td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td>重复 <code>f</code>, <code>t</code>, <code>F</code> or <code>T</code> 操作</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>向反方向重复 <code>f</code>, <code>t</code>, <code>F</code> or <code>T</code> 操作</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>重复 <code>:s</code></td>
+</tr>
+<tr>
+<td><code>@:</code></td>
+<td>重复命令行命令</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="可视模式(Visual mode)" dir="auto" class="heading" id="可视模式(Visual_mode)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>可视模式(Visual mode)</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v</code></td>
+<td>进入可视模式</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td>进入行可视模式</td>
+</tr>
+<tr>
+<td><code>&lt;C-v&gt;</code></td>
+<td>进入块可视模式</td>
+</tr>
+<tr>
+<td><code>ggVG</code></td>
+<td>选择所有文本</td>
+</tr>
+<tr>
+<td><code>&gt;</code> <em>/</em> <code>&lt;</code></td>
+<td>向右/左移动文本</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="宏" dir="auto" class="heading" id="宏"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>宏</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>qi</code></td>
+<td>录制宏 <code>i</code></td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>停止录制宏</td>
+</tr>
+<tr>
+<td><code>@i</code></td>
+<td>运行宏 <code>i</code></td>
+</tr>
+<tr>
+<td><code>7@i</code></td>
+<td>运行7次宏 <code>i</code></td>
+</tr>
+<tr>
+<td><code>@@</code></td>
+<td>重复宏</td>
+</tr>
+</tbody>
+</table></div><div><p dir="auto">不仅是 <code>i</code> ，你可以设置宏为任何字母</p></div></div></div><div class="heading-wrapper"><h2 data-heading="Vim 操作符(Operators)" dir="auto" class="heading" id="Vim_操作符(Operators)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Vim 操作符(Operators)</h2><div class="heading-children"><div class="heading-wrapper"><h3 data-heading="用法" dir="auto" class="heading" id="用法"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>用法</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code></td>
+<td>w</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>Motion</td>
+</tr>
+</tbody>
+</table></div><div><p dir="auto">将操作符和动作符结合来使用</p></div></div></div><div class="heading-wrapper"><h3 data-heading="可选的操作符" dir="auto" class="heading" id="可选的操作符"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>可选的操作符</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code></td>
+<td>删除</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>复制 (拷贝)</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>更改 (删除并插入)</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>格式化代码</td>
+</tr>
+<tr>
+<td><code>g~</code></td>
+<td>切换大小写</td>
+</tr>
+<tr>
+<td><code>gU</code></td>
+<td>大写</td>
+</tr>
+<tr>
+<td><code>gu</code></td>
+<td>小写</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>向右缩进</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>向左缩进</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>通过外部程序过滤</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="示例" dir="auto" class="heading" id="示例"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>示例</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Combination</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code>d</td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td><code>d</code>j</td>
+<td>删除2行</td>
+</tr>
+<tr>
+<td><code>d</code>w</td>
+<td>删除光标至下1个单词间的内容</td>
+</tr>
+<tr>
+<td><code>d</code>b</td>
+<td>删除单词开始至光标间的内容</td>
+</tr>
+<tr>
+<td><code>d</code>fa</td>
+<td>删除光标后内容至 <code>a</code> 字符</td>
+</tr>
+<tr>
+<td><code>d</code>/hello</td>
+<td>删除光标后内容至 <code>hello</code></td>
+</tr>
+<tr>
+<td><code>c</code>c</td>
+<td>修改当前行, 与 <code>S</code> 等价</td>
+</tr>
+<tr>
+<td><code>y</code>y</td>
+<td>拷贝当前行</td>
+</tr>
+<tr>
+<td><code>&gt;</code>j</td>
+<td>2行缩进</td>
+</tr>
+<tr>
+<td>gg<code>d</code>G</td>
+<td>删除文档全部内容</td>
+</tr>
+<tr>
+<td>gg<code>=</code>G</td>
+<td>删除文档所有缩进</td>
+</tr>
+<tr>
+<td>gg<code>y</code>G</td>
+<td>拷贝整个文档</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="计数" dir="auto" class="heading" id="计数"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>计数</h3><div class="heading-children"><div><pre dir="auto"><code>[count] &lt;operator&gt; &lt;motion&gt;
+&lt;operator&gt; [count] &lt;motion&gt;
+</code><button class="copy-code-button">Copy</button></pre></div><div><hr dir="auto"></div><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Combination</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2<code>d</code>d</td>
+<td>删除 <code>2</code> 行</td>
+</tr>
+<tr>
+<td>6<code>y</code>y</td>
+<td>拷贝 <code>6</code> 行</td>
+</tr>
+<tr>
+<td><code>d</code>3w</td>
+<td>删除 <code>3</code> 个单词</td>
+</tr>
+<tr>
+<td><code>d</code>5j</td>
+<td>删除向下的 <code>5</code> 行</td>
+</tr>
+<tr>
+<td><code>&gt;</code>4k</td>
+<td>缩进向上的 <code>4</code> 行</td>
+</tr>
+</tbody>
+</table></div></div></div></div></div><div class="heading-wrapper"><h2 data-heading="Vim 文本对象(Text objects)" dir="auto" class="heading" id="Vim_文本对象(Text_objects)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Vim 文本对象(Text objects)</h2><div class="heading-children"><div class="heading-wrapper"><h3 data-heading="用法" dir="auto" class="heading" id="用法"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>用法</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v</code></td>
+<td>&nbsp; &nbsp; &nbsp; &nbsp; i <em>/</em> a</td>
+<td>p</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>inner <em>/</em> around</td>
+<td>Text object</td>
+</tr>
+</tbody>
+</table></div><div><p dir="auto">操作属性为inner或者around的文本块</p></div></div></div><div class="heading-wrapper"><h3 data-heading="文本对象" dir="auto" class="heading" id="文本对象"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>文本对象</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td>段落</td>
+</tr>
+<tr>
+<td>w</td>
+<td>单词</td>
+</tr>
+<tr>
+<td>W</td>
+<td>单词 <br>(被空白围绕)</td>
+</tr>
+<tr>
+<td>s</td>
+<td>句子</td>
+</tr>
+<tr>
+<td>[ ( { &lt;</td>
+<td>1个 [], (), 或 {} 块</td>
+</tr>
+<tr>
+<td>] ) } &gt;</td>
+<td>1个 [], (), 或 {} 块</td>
+</tr>
+<tr>
+<td>' " `</td>
+<td>1句字符串引用</td>
+</tr>
+<tr>
+<td>b</td>
+<td>[( 内的块</td>
+</tr>
+<tr>
+<td>B</td>
+<td>[{ 内的块</td>
+</tr>
+<tr>
+<td>t</td>
+<td>1个 HTML 标记块</td>
+</tr>
+</tbody>
+</table></div><div><p dir="auto">详见 <code>:help text-objects</code></p></div></div></div><div class="heading-wrapper"><h3 data-heading="删除" dir="auto" class="heading" id="删除"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>删除</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code>iw</td>
+<td>删除单词 (不包含特殊字符)</td>
+</tr>
+<tr>
+<td><code>d</code>is</td>
+<td>删除句子</td>
+</tr>
+<tr>
+<td><code>d</code>i"</td>
+<td>删除引号内内容</td>
+</tr>
+<tr>
+<td><code>d</code>a"</td>
+<td>删除引号内内容 (包含引号)</td>
+</tr>
+<tr>
+<td><code>d</code>ip</td>
+<td>删除1个段落</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="选择" dir="auto" class="heading" id="选择"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>选择</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v</code>i"</td>
+<td>选择引号内部"<code>...</code>"</td>
+</tr>
+<tr>
+<td><code>v</code>a"</td>
+<td>选择引号 <code>"..."</code></td>
+</tr>
+<tr>
+<td><code>v</code>i[</td>
+<td>选择括号内部[<code>...</code>]</td>
+</tr>
+<tr>
+<td><code>v</code>a[</td>
+<td>选择括号 <code>[...]</code></td>
+</tr>
+<tr>
+<td><code>v</code>iw</td>
+<td>选择单词(不包含特殊字符)</td>
+</tr>
+<tr>
+<td><code>v</code>ip</td>
+<td>选择段落 (不包含空行)</td>
+</tr>
+<tr>
+<td><code>v</code>ipip</td>
+<td>选择更多段落</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="杂项" dir="auto" class="heading" id="杂项"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>杂项</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code>iw</td>
+<td>修改单词 (不包含特殊字符)</td>
+</tr>
+<tr>
+<td><code>c</code>i"</td>
+<td>修改引号内部</td>
+</tr>
+<tr>
+<td><code>c</code>it</td>
+<td>修改内部标记 (HTML)</td>
+</tr>
+<tr>
+<td><code>c</code>ip</td>
+<td>修改段落 (不包含空行)</td>
+</tr>
+<tr>
+<td><code>y</code>ip</td>
+<td>复制段落 (不包含空行)</td>
+</tr>
+<tr>
+<td><code>y</code>ap</td>
+<td>复制段落 (包含空行)</td>
+</tr>
+</tbody>
+</table></div></div></div></div></div><div class="heading-wrapper"><h2 data-heading="Vim 多文件" dir="auto" class="heading" id="Vim_多文件"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Vim 多文件</h2><div class="heading-children"><div class="heading-wrapper"><h3 data-heading="缓存区" dir="auto" class="heading" id="缓存区"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>缓存区</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:e file</code></td>
+<td>在新的缓存区中编辑文件</td>
+</tr>
+<tr>
+<td><code>:bn</code></td>
+<td>前往下一个缓存区</td>
+</tr>
+<tr>
+<td><code>:bp</code></td>
+<td>返回上一个缓存区</td>
+</tr>
+<tr>
+<td><code>:bd</code></td>
+<td>从缓存区列表中删除文件</td>
+</tr>
+<tr>
+<td><code>:b 5</code></td>
+<td>打开缓存区 #5</td>
+</tr>
+<tr>
+<td><code>:b file</code></td>
+<td>通过文件名前往缓存区</td>
+</tr>
+<tr>
+<td><code>:ls</code></td>
+<td>列出打开的缓存区</td>
+</tr>
+<tr>
+<td><code>:sp file</code></td>
+<td>打开文件并纵向拆分窗口</td>
+</tr>
+<tr>
+<td><code>:vs file</code></td>
+<td>打开文件并横向拆分窗口</td>
+</tr>
+<tr>
+<td><code>:hid</code></td>
+<td>隐藏当前缓存区</td>
+</tr>
+<tr>
+<td><code>:wn</code></td>
+<td>写入文件并移动到下一个缓存区</td>
+</tr>
+<tr>
+<td><code>:tab ba</code></td>
+<td>使用标签栏编辑所有缓存区</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="多窗口" dir="auto" class="heading" id="多窗口"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>多窗口</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>s</code></td>
+<td>纵向拆分窗口</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>v</code></td>
+<td>横向拆分窗口</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>w</code></td>
+<td>切换窗口</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>q</code></td>
+<td>退出窗口</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>T</code></td>
+<td>将窗口打开为新标签</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>x</code></td>
+<td>Swap current with next</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>-</code>  <em>/</em> <code>+</code></td>
+<td>减少/增加 高度</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>&lt;</code>  <em>/</em> <code>&gt;</code></td>
+<td>减少/增加 宽度</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>｜</code></td>
+<td>最大化宽度</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>=</code></td>
+<td>设置窗口高度宽度相等</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>h</code> <em>/</em> <code>l</code></td>
+<td>前往 左/右 窗口</td>
+</tr>
+<tr>
+<td><code>&lt;C-w&gt;</code> <code>j</code> <em>/</em> <code>k</code></td>
+<td>前往 上/下 窗口</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="多标签" dir="auto" class="heading" id="多标签"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>多标签</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:tabe [file]</code></td>
+<td>在新的标签页中编辑文件</td>
+</tr>
+<tr>
+<td><code>:tabf [file]</code></td>
+<td>Open if exists in new tab</td>
+</tr>
+<tr>
+<td><code>:tabc</code></td>
+<td>关闭当前标签页</td>
+</tr>
+<tr>
+<td><code>:tabo</code></td>
+<td>关闭其他标签页</td>
+</tr>
+<tr>
+<td><code>:tabs</code></td>
+<td>列出所有标签页</td>
+</tr>
+<tr>
+<td><code>:tabr</code></td>
+<td>前往第1个标签页</td>
+</tr>
+<tr>
+<td><code>:tabl</code></td>
+<td>前往最后1个标签页</td>
+</tr>
+<tr>
+<td><code>:tabm 0</code></td>
+<td>移动至 <code>0</code> 位置</td>
+</tr>
+<tr>
+<td><code>:tabn</code></td>
+<td>前往下个标签页</td>
+</tr>
+<tr>
+<td><code>:tabp</code></td>
+<td>前往上个标签页</td>
+</tr>
+</tbody>
+</table></div><div class="heading-wrapper"><h4 data-heading="一般模式" dir="auto" class="heading" id="一般模式"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>一般模式</h4><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gt</code></td>
+<td>前往下个标签页</td>
+</tr>
+<tr>
+<td><code>gT</code></td>
+<td>前往上个标签页</td>
+</tr>
+<tr>
+<td><code>2gt</code></td>
+<td>前往 <code>2</code> 号标签页</td>
+</tr>
+</tbody>
+</table></div></div></div></div></div></div></div><div class="heading-wrapper"><h2 data-heading="Vim 搜索和替换" dir="auto" class="heading" id="Vim_搜索和替换"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Vim 搜索和替换</h2><div class="heading-children"><div class="heading-wrapper"><h3 data-heading="搜索" dir="auto" class="heading" id="搜索"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>搜索</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/foo</code></td>
+<td>向后搜索</td>
+</tr>
+<tr>
+<td><code>/foo\c</code></td>
+<td>向后搜索 (大小写无关)</td>
+</tr>
+<tr>
+<td><code>?foo</code></td>
+<td>向前搜索</td>
+</tr>
+<tr>
+<td><code>/\v\d+</code></td>
+<td>使用正则表达式搜索</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>下1个匹配项</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>前1个匹配项</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>向后搜索当前单词</td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td>向前搜索当前单词</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="在指定行替换" dir="auto" class="heading" id="在指定行替换"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>在指定行替换</h3><div class="heading-children"><div><pre dir="auto" class="language-vim" tabindex="0"><code class="language-vim is-loaded"><span class="token punctuation">:</span><span class="token punctuation">[</span>range<span class="token punctuation">]</span>s<span class="token operator">/</span><span class="token punctuation">{</span>pattern<span class="token punctuation">}</span><span class="token operator">/</span><span class="token punctuation">{</span>str<span class="token punctuation">}</span><span class="token operator">/</span><span class="token punctuation">[</span>flags<span class="token punctuation">]</span>
+</code><button class="copy-code-button">Copy</button></pre></div><div><hr dir="auto"></div><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:s/old/new</code></td>
+<td>替换第1项</td>
+</tr>
+<tr>
+<td><code>:s/old/new/g</code></td>
+<td>替换所有项</td>
+</tr>
+<tr>
+<td><code>:s/\vold/new/g</code></td>
+<td>使用正则表达式替换所有项</td>
+</tr>
+<tr>
+<td><code>:s/old/new/gc</code></td>
+<td>替换所有项 (需要验证)</td>
+</tr>
+<tr>
+<td><code>:s/old/new/i</code></td>
+<td>替换第1项 (忽略大小写)</td>
+</tr>
+<tr>
+<td><code>:2,6s/old/new/g</code></td>
+<td>替换 <code>2</code>-<code>6</code> 行的所有匹配项</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="在文件中替换" dir="auto" class="heading" id="在文件中替换"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>在文件中替换</h3><div class="heading-children"><div><pre dir="auto" class="language-vim" tabindex="0"><code class="language-vim is-loaded"><span class="token punctuation">:</span><span class="token operator">%</span>s<span class="token operator">/</span><span class="token punctuation">{</span>pattern<span class="token punctuation">}</span><span class="token operator">/</span><span class="token punctuation">{</span>str<span class="token punctuation">}</span><span class="token operator">/</span><span class="token punctuation">[</span>flags<span class="token punctuation">]</span>
+</code><button class="copy-code-button">Copy</button></pre></div><div><hr dir="auto"></div><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:%s/old/new</code></td>
+<td>替换第1项</td>
+</tr>
+<tr>
+<td><code>:%s/old/new/g</code></td>
+<td>替换所有项</td>
+</tr>
+<tr>
+<td><code>:%s/old/new/gc</code></td>
+<td>替换所有项 (需要验证)</td>
+</tr>
+<tr>
+<td><code>:%s/old/new/gi</code></td>
+<td>替换所有项 (忽略大小写)</td>
+</tr>
+<tr>
+<td><code>:%s/\vold/new/g</code></td>
+<td>使用正则表达式替换所有项</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="范围" dir="auto" class="heading" id="范围"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>范围</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%</code></td>
+<td>整个文件</td>
+</tr>
+<tr>
+<td><code>’&lt;,’&gt;</code></td>
+<td>当前选中</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>第 <code>5</code> 行</td>
+</tr>
+<tr>
+<td><code>5,10</code></td>
+<td><code>5</code> 至 <code>10</code> 行</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>末行</td>
+</tr>
+<tr>
+<td><code>2,$</code></td>
+<td><code>2</code> 至末行</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>当前行</td>
+</tr>
+<tr>
+<td><code>,3</code></td>
+<td>后 <code>3</code> 行</td>
+</tr>
+<tr>
+<td><code>-3,</code></td>
+<td>前 <code>3</code> 行</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="全局命令" dir="auto" class="heading" id="全局命令"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>全局命令</h3><div class="heading-children"><div><pre dir="auto" class="language-vim" tabindex="0"><code class="language-vim is-loaded"><span class="token punctuation">:</span><span class="token punctuation">[</span>range<span class="token punctuation">]</span>g<span class="token operator">/</span><span class="token punctuation">{</span>pattern<span class="token punctuation">}</span><span class="token operator">/</span><span class="token punctuation">[</span>command<span class="token punctuation">]</span>
+</code><button class="copy-code-button">Copy</button></pre></div><div><hr dir="auto"></div><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:g/foo/d</code></td>
+<td>删除所有包含 <code>foo</code> 的行</td>
+</tr>
+<tr>
+<td><code>:g!/foo/d</code></td>
+<td>删除所有不包含 <code>foo</code> 的行</td>
+</tr>
+<tr>
+<td><code>:g/^\s*$/d</code></td>
+<td>删除所有空行</td>
+</tr>
+<tr>
+<td><code>:g/foo/t$</code></td>
+<td>拷贝包含 <code>foo</code> 的行至文件末尾</td>
+</tr>
+<tr>
+<td><code>:g/foo/m$</code></td>
+<td>移动包含 <code>foo</code> 的行至文件末尾</td>
+</tr>
+<tr>
+<td><code>:g/^/m0</code></td>
+<td>反转一个文件</td>
+</tr>
+<tr>
+<td><code>:g/^/t.</code></td>
+<td>重复每一行</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="与 :g 相反" dir="auto" class="heading" id="与_:g_相反"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>与 :g 相反</h3><div class="heading-children"><div><pre dir="auto" class="language-vim" tabindex="0"><code class="language-vim is-loaded"><span class="token punctuation">:</span><span class="token punctuation">[</span>range<span class="token punctuation">]</span>v<span class="token operator">/</span><span class="token punctuation">{</span>pattern<span class="token punctuation">}</span><span class="token operator">/</span><span class="token punctuation">[</span>command<span class="token punctuation">]</span>
+</code><button class="copy-code-button">Copy</button></pre></div><div><hr dir="auto"></div><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:v/foo/d</code></td>
+<td>删除不包含 <code>foo</code> 的行<br>(等价于 <code>:g!/foo/d</code>)</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="标志(Flags)" dir="auto" class="heading" id="标志(Flags)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>标志(Flags)</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>g</code></td>
+<td>替换所有存在项</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>忽略大小写</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>不忽略大小写</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>每次替换前验证</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="Substitute expression (magic)" dir="auto" class="heading" id="Substitute_expression_(magic)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Substitute expression (magic)</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;</code> <em>|</em> <code>\0</code></td>
+<td>Replace with the whole matched</td>
+</tr>
+<tr>
+<td><code>\1</code>...<code>\9</code></td>
+<td>Replace with the group 0-9</td>
+</tr>
+<tr>
+<td><code>\u</code></td>
+<td>Uppercase next letter</td>
+</tr>
+<tr>
+<td><code>\U</code></td>
+<td>Uppercase following characters</td>
+</tr>
+<tr>
+<td><code>\l</code></td>
+<td>Lowercase next letter</td>
+</tr>
+<tr>
+<td><code>\L</code></td>
+<td>Lowercase following characters</td>
+</tr>
+<tr>
+<td><code>\e</code></td>
+<td>End of <code>\u</code>, <code>\U</code>, <code>\l</code> and <code>\L</code></td>
+</tr>
+<tr>
+<td><code>\E</code></td>
+<td>End of <code>\u</code>, <code>\U</code>, <code>\l</code> and <code>\L</code></td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="Examples" dir="auto" class="heading" id="Examples"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Examples</h3><div class="heading-children"><div><pre dir="auto" class="language-c" tabindex="0"><code class="language-c is-loaded"><span class="token operator">:</span>s<span class="token operator">/</span>a\<span class="token operator">|</span>b<span class="token operator">/</span>xxx\<span class="token number">0</span>xxx<span class="token operator">/</span>g		         # Modifies <span class="token string">"a b"</span>      to <span class="token string">"xxxaxxx xxxbxxx"</span>
+<span class="token operator">:</span>s<span class="token operator">/</span>test<span class="token operator">/</span>\U<span class="token operator">&amp;</span> file<span class="token operator">/</span>                # Modifies <span class="token string">"test"</span>     to <span class="token string">"TEST FILE"</span>
+<span class="token operator">:</span>s<span class="token operator">/</span>\<span class="token punctuation">(</span>test\<span class="token punctuation">)</span><span class="token operator">/</span>\U\<span class="token number">1</span>\e file<span class="token operator">/</span>         # Modifies <span class="token string">"test"</span>     to <span class="token string">"TEST file"</span>
+<span class="token operator">:</span>s<span class="token operator">/</span>\<span class="token function">v</span><span class="token punctuation">(</span><span class="token punctuation">[</span>abc<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">[</span>efg<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">/</span>\<span class="token number">2</span>\<span class="token number">1</span><span class="token operator">/</span>g	     # Modifies <span class="token string">"af fa bg"</span> to <span class="token string">"fa fa gb"</span>
+<span class="token operator">:</span>s<span class="token operator">/</span>\v\w<span class="token operator">+</span><span class="token operator">/</span>\u\<span class="token number">0</span><span class="token operator">/</span>g		             # Modifies <span class="token string">"bla bla"</span>  to <span class="token string">"Bla Bla"</span>
+<span class="token operator">:</span>s<span class="token operator">/</span>\<span class="token function">v</span><span class="token punctuation">(</span><span class="token punctuation">[</span>ab<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token punctuation">[</span>cd<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">/</span>\<span class="token number">1</span>x<span class="token operator">/</span>g         # Modifies <span class="token string">"a b c d"</span>  to <span class="token string">"ax bx x x"</span>
+<span class="token operator">:</span><span class="token operator">%</span>s<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">/</span>\L<span class="token operator">&amp;</span><span class="token operator">/</span>                      # Modifies <span class="token string">"HTML"</span>     to <span class="token string">"html"</span>
+<span class="token operator">:</span>s<span class="token operator">/</span>\v<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">(</span>\w<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">/</span>\u\<span class="token number">1</span>\L\<span class="token number">2</span><span class="token operator">/</span>g        # Make every first letter of a word uppercase
+<span class="token operator">:</span><span class="token operator">%</span>s<span class="token operator">/</span><span class="token operator">^</span>\<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">)</span>\n\<span class="token number">1</span><span class="token operator">/</span>\<span class="token number">1</span><span class="token operator">/</span>              # Remove duplicate lines
+<span class="token operator">:</span><span class="token operator">%</span>s<span class="token operator">/</span><span class="token operator">&lt;</span>\<span class="token operator">/</span>\<span class="token operator">=</span>\<span class="token punctuation">(</span>\w\<span class="token operator">+</span>\<span class="token punctuation">)</span>\<span class="token operator">&gt;</span><span class="token operator">/</span>\U<span class="token operator">&amp;</span><span class="token operator">/</span>g        # Convert HTML<span class="token operator">-</span>Tags to uppercase
+<span class="token operator">:</span>g<span class="token operator">/</span><span class="token operator">^</span>pattern<span class="token operator">/</span>s<span class="token operator">/</span>$<span class="token operator">/</span>mytext           # Find and append text to the end
+<span class="token operator">:</span>g<span class="token operator">/</span>pattern<span class="token operator">/</span>norm<span class="token operator">!</span> @i              # Run a macro on matching lines
+<span class="token operator">/</span><span class="token operator">^</span>\<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">)</span>\<span class="token punctuation">(</span>\r\<span class="token operator">?</span>\n\<span class="token number">1</span>\<span class="token punctuation">)</span>\<span class="token operator">+</span>$          # View the duplicates lines
+<span class="token operator">/</span>\v<span class="token operator">^</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>\r<span class="token operator">?</span>\n\<span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span>$              # View the duplicates <span class="token function">lines</span> <span class="token punctuation">(</span>very magic<span class="token punctuation">)</span>
+<span class="token operator">:</span>v<span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">,</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token operator">-</span>j                      # Compress blank lines into a blank line
+<span class="token operator">:</span>g<span class="token operator">/</span><span class="token operator">&lt;</span>p1<span class="token operator">&gt;</span><span class="token operator">/</span><span class="token punctuation">,</span><span class="token operator">/</span><span class="token operator">&lt;</span>p2<span class="token operator">&gt;</span><span class="token operator">/</span>d                 # Delete inclusively from <span class="token operator">&lt;</span>p1<span class="token operator">&gt;</span> to <span class="token operator">&lt;</span>p2<span class="token operator">&gt;</span>
+</code><button class="copy-code-button">Copy</button></pre></div></div></div></div></div><div class="heading-wrapper"><h2 data-heading="Vimdiff" dir="auto" class="heading" id="Vimdiff"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Vimdiff</h2><div class="heading-children"><div class="heading-wrapper"><h3 data-heading="Usage" dir="auto" class="heading" id="Usage"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Usage</h3><div class="heading-children"><div><pre dir="auto" class="language-shell" tabindex="0"><code class="language-shell is-loaded">
+$ vimdiff file1 file2 <span class="token punctuation">[</span>file3<span class="token punctuation">]</span>
+$ <span class="token function">vim</span> -d file1 file2 <span class="token punctuation">[</span>file3<span class="token punctuation">]</span>
+</code><button class="copy-code-button">Copy</button></pre></div></div></div><div class="heading-wrapper"><h3 data-heading="Editing" dir="auto" class="heading" id="Editing"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Editing</h3><div class="heading-children"><div><pre dir="auto"><code>:[range]diffget [bufspec]
+:[range]diffput [bufspec]
+</code><button class="copy-code-button">Copy</button></pre></div><div><hr dir="auto"></div><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>do</code> <em>/</em> <code>:diffget</code></td>
+<td>Obtain (get) difference</td>
+</tr>
+<tr>
+<td><code>dp</code> <em>/</em> <code>:diffput</code></td>
+<td>Put difference</td>
+</tr>
+<tr>
+<td><code>:dif</code></td>
+<td>Re-scan differences</td>
+</tr>
+<tr>
+<td><code>:diffo</code></td>
+<td>Switch off diff mode</td>
+</tr>
+<tr>
+<td><code>:1,$+1diffget</code></td>
+<td>Get all differences</td>
+</tr>
+<tr>
+<td><code>ZQ</code></td>
+<td>Quit without changes</td>
+</tr>
+</tbody>
+</table></div><div><p dir="auto">See: <a class="internal-link" data-href="#ranges" href="#ranges" target="_self" rel="noopener">Ranges</a></p></div></div></div><div class="heading-wrapper"><h3 data-heading="Folds" dir="auto" class="heading" id="Folds"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Folds</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>zo</code> <em>/</em> <code>zO</code></td>
+<td>Open</td>
+</tr>
+<tr>
+<td><code>zc</code> <em>/</em> <code>zC</code></td>
+<td>Close</td>
+</tr>
+<tr>
+<td><code>za</code> <em>/</em> <code>zA</code></td>
+<td>Toggle</td>
+</tr>
+<tr>
+<td><code>zv</code></td>
+<td>Open folds for this line</td>
+</tr>
+<tr>
+<td><code>zM</code></td>
+<td>Close all</td>
+</tr>
+<tr>
+<td><code>zR</code></td>
+<td>Open all</td>
+</tr>
+<tr>
+<td><code>zm</code></td>
+<td>Fold more <em>(foldlevel += 1)</em></td>
+</tr>
+<tr>
+<td><code>zr</code></td>
+<td>Fold less <em>(foldlevel -= 1)</em></td>
+</tr>
+<tr>
+<td><code>zx</code></td>
+<td>Update folds</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="Jumping" dir="auto" class="heading" id="Jumping"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Jumping</h3><div class="heading-children"><div><br></div><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>]c</code></td>
+<td>Next difference</td>
+</tr>
+<tr>
+<td><code>[c</code></td>
+<td>Previous difference</td>
+</tr>
+</tbody>
+</table></div></div></div></div></div><div class="heading-wrapper"><h2 data-heading="杂项" dir="auto" class="heading" id="杂项"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>杂项</h2><div class="heading-children"><div class="heading-wrapper"><h3 data-heading="大小写" dir="auto" class="heading" id="大小写"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>大小写</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vU</code></td>
+<td>大写当前字符</td>
+</tr>
+<tr>
+<td><code>vu</code></td>
+<td>小写当前字符</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>切换当前字符大小写</td>
+</tr>
+<tr>
+<td><code>viw</code> <code>U</code></td>
+<td>大写选中单词</td>
+</tr>
+<tr>
+<td><code>viw</code> <code>u</code></td>
+<td>小写选中单词</td>
+</tr>
+<tr>
+<td><code>viw</code> <code>~</code></td>
+<td>切换选中单词大小写</td>
+</tr>
+<tr>
+<td><code>VU</code> <em>/</em> <code>gUU</code></td>
+<td>大写当前行</td>
+</tr>
+<tr>
+<td><code>Vu</code> <em>/</em> <code>guu</code></td>
+<td>小写当前行</td>
+</tr>
+<tr>
+<td><code>V~</code> <em>/</em> <code>g~~</code></td>
+<td>切换当前行大小写</td>
+</tr>
+<tr>
+<td><code>gggUG</code></td>
+<td>大写所有文本</td>
+</tr>
+<tr>
+<td><code>ggguG</code></td>
+<td>小写所有文本</td>
+</tr>
+<tr>
+<td><code>ggg~G</code></td>
+<td>切换所有文本大小写</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="跳转" dir="auto" class="heading" id="跳转"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>跳转</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;C-o&gt;</code></td>
+<td>返回上1个文件</td>
+</tr>
+<tr>
+<td><code>&lt;C-i&gt;</code></td>
+<td>前往下1个文件</td>
+</tr>
+<tr>
+<td><code>gf</code></td>
+<td>前往光标所在文件</td>
+</tr>
+<tr>
+<td><code>ga</code></td>
+<td>显示16进制，ascii码值</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="命令行杂项" dir="auto" class="heading" id="命令行杂项"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>命令行杂项</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:h</code></td>
+<td>打开帮助页面</td>
+</tr>
+<tr>
+<td><code>:edit!</code></td>
+<td>重新加载当前文件</td>
+</tr>
+<tr>
+<td><code>:2,8m0</code></td>
+<td>移动 <code>2</code>-<code>8</code> 行至 <code>0</code> 行</td>
+</tr>
+<tr>
+<td><code>:noh</code></td>
+<td>清除搜索高亮</td>
+</tr>
+<tr>
+<td><code>:sort</code></td>
+<td>将行排序 (字典序)</td>
+</tr>
+<tr>
+<td><code>:ter</code></td>
+<td>打开终端窗口</td>
+</tr>
+<tr>
+<td><code>:set paste</code></td>
+<td>开启插入粘贴子模式 (Insert Paste sub-mode)</td>
+</tr>
+<tr>
+<td><code>:set nopaste</code></td>
+<td>开启插入粘贴子模式 (Insert Paste sub-mode)</td>
+</tr>
+<tr>
+<td><code>:cq</code></td>
+<td>退出并返回错误<br>(终止 Git)</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="导航" dir="auto" class="heading" id="导航"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>导航</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%</code></td>
+<td>最近的/匹配的 <code>{[()]}</code></td>
+</tr>
+<tr>
+<td><code>[(</code> <em>|</em> <code>[{</code></td>
+<td>前1个 <code>(</code> 或 <code>{</code></td>
+</tr>
+<tr>
+<td><code>])</code> <em>|</em> <code>]{</code></td>
+<td>下1个 <code>)</code> 或 <code>}</code></td>
+</tr>
+<tr>
+<td><code>[m</code></td>
+<td>Previous method start</td>
+</tr>
+<tr>
+<td><code>[M</code></td>
+<td>Previous method end</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="计数器" dir="auto" class="heading" id="计数器"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>计数器</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;C-a&gt;</code></td>
+<td>增大数字</td>
+</tr>
+<tr>
+<td><code>&lt;C-x&gt;</code></td>
+<td>减小数字</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="标记(Tags)" dir="auto" class="heading" id="标记(Tags)"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>标记(Tags)</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:tag Classname</code></td>
+<td>Jump to first definition of Classname</td>
+</tr>
+<tr>
+<td><code>&lt;C-]&gt;</code></td>
+<td>转到定义</td>
+</tr>
+<tr>
+<td><code>g]</code></td>
+<td>查看所有定义</td>
+</tr>
+<tr>
+<td><code>&lt;C-t&gt;</code></td>
+<td>Go back to last tag</td>
+</tr>
+<tr>
+<td><code>&lt;C-o&gt; &lt;C-i&gt;</code></td>
+<td>后退/前进</td>
+</tr>
+<tr>
+<td><code>:tselect Classname</code></td>
+<td>Find definitions of Classname</td>
+</tr>
+<tr>
+<td><code>:tjump Classname</code></td>
+<td>Find definitions of Classname (auto-select 1st)</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="格式化" dir="auto" class="heading" id="格式化"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>格式化</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:ce 8</code></td>
+<td>选中行在第 <code>8</code> 列居中</td>
+</tr>
+<tr>
+<td><code>:ri 4</code></td>
+<td>选中行右对齐第 <code>4</code> 列</td>
+</tr>
+<tr>
+<td><code>:le</code></td>
+<td>选中行左对齐</td>
+</tr>
+</tbody>
+</table></div><div><p dir="auto">详见 <code>:help formatting</code></p></div></div></div><div class="heading-wrapper"><h3 data-heading="Marks" dir="auto" class="heading" id="Marks"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Marks</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>`^</code></td>
+<td>Last position of cursor in insert mode</td>
+</tr>
+<tr>
+<td><code>`.</code></td>
+<td>Last change in current buffer</td>
+</tr>
+<tr>
+<td><code>`"</code></td>
+<td>Last exited current buffer</td>
+</tr>
+<tr>
+<td><code>`0</code></td>
+<td>In last file edited</td>
+</tr>
+<tr>
+<td><code>''</code></td>
+<td>Back to line in current buffer where jumped from</td>
+</tr>
+<tr>
+<td><code>``</code></td>
+<td>Back to position in current buffer where jumped from</td>
+</tr>
+<tr>
+<td><code>`[</code></td>
+<td>To beginning of previously changed or yanked text</td>
+</tr>
+<tr>
+<td><code>`]</code></td>
+<td>To end of previously changed or yanked text</td>
+</tr>
+<tr>
+<td><code>`&lt;</code></td>
+<td>To beginning of last visual selection</td>
+</tr>
+<tr>
+<td><code>`&gt;</code></td>
+<td>To end of last visual selection</td>
+</tr>
+<tr>
+<td><code>ma</code></td>
+<td>Mark this cursor position as <code>a</code></td>
+</tr>
+<tr>
+<td><code>`a</code></td>
+<td>Jump to the cursor position <code>a</code></td>
+</tr>
+<tr>
+<td><code>'a</code></td>
+<td>Jump to the beginning of the line with position <code>a</code></td>
+</tr>
+<tr>
+<td><code>d'a</code></td>
+<td>Delete from current line to line of mark <code>a</code></td>
+</tr>
+<tr>
+<td><code>d`a</code></td>
+<td>Delete from current position to position of mark <code>a</code></td>
+</tr>
+<tr>
+<td><code>c'a</code></td>
+<td>Change text from current line to line of <code>a</code></td>
+</tr>
+<tr>
+<td><code>y`a</code></td>
+<td>Yank text from current position to position of <code>a</code></td>
+</tr>
+<tr>
+<td><code>:marks</code></td>
+<td>List all current marks</td>
+</tr>
+<tr>
+<td><code>:delm a</code></td>
+<td>Delete mark <code>a</code></td>
+</tr>
+<tr>
+<td><code>:delm a-d</code></td>
+<td>Delete marks <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code></td>
+</tr>
+<tr>
+<td><code>:delm abc</code></td>
+<td>Delete marks <code>a</code>, <code>b</code>, <code>c</code></td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="计算器" dir="auto" class="heading" id="计算器"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>计算器</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;C-r&gt;</code> <code>=</code> 7*7</td>
+<td>展示结果</td>
+</tr>
+<tr>
+<td><code>&lt;C-r&gt;</code> <code>=</code> 10/2</td>
+<td>展示结果</td>
+</tr>
+</tbody>
+</table></div><div><p dir="auto">在插入模式下进行以上操作</p></div></div></div><div class="heading-wrapper"><h3 data-heading="Shell" dir="auto" class="heading" id="Shell"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>Shell</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:!&lt;shell&gt;</code></td>
+<td>执行 Shell 命令</td>
+</tr>
+<tr>
+<td><code>:r!&lt;shell&gt;</code></td>
+<td>读取 Shell 的输出</td>
+</tr>
+<tr>
+<td><code>:r!date</code></td>
+<td>插入时间</td>
+</tr>
+<tr>
+<td><code>:!!date</code></td>
+<td>将当前行替换为时间</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="命令行" dir="auto" class="heading" id="命令行"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>命令行</h3><div class="heading-children"><div dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;C-r&gt;&lt;C-w&gt;</code></td>
+<td>插入当前单词至命令行</td>
+</tr>
+<tr>
+<td><code>&lt;C-r&gt;"</code></td>
+<td>从 " 寄存器中粘贴</td>
+</tr>
+<tr>
+<td><code>&lt;C-x&gt;&lt;C-f&gt;</code></td>
+<td>在插入模式中自动补全路径</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="heading-wrapper"><h3 data-heading="技巧" dir="auto" class="heading" id="技巧"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>技巧</h3><div class="heading-children"><div><p dir="auto">移除重复行</p></div><div><pre dir="auto" class="language-shell" tabindex="0"><code class="language-shell is-loaded">:sort <span class="token operator">|</span> %<span class="token operator">!</span>uniq -u
+</code><button class="copy-code-button">Copy</button></pre></div><div><p dir="auto">在文件中给行编号</p></div><div><pre dir="auto" class="language-shell" tabindex="0"><code class="language-shell is-loaded">:%<span class="token operator">!</span>cat -n
+</code><button class="copy-code-button">Copy</button></pre></div><div><p dir="auto">拷贝整个文档到剪贴板</p></div><div><pre dir="auto" class="language-shell" tabindex="0"><code class="language-shell is-loaded">:%w <span class="token operator">!</span>pbcopy            <span class="token comment"># Mac OS X</span>
+:%w <span class="token operator">!</span>xclip -i -sel c   <span class="token comment"># GNU/Linux</span>
+:%w <span class="token operator">!</span>xsel -i -b        <span class="token comment"># GNU/Linux</span>
+</code><button class="copy-code-button">Copy</button></pre></div></div></div></div></div><div class="heading-wrapper"><h2 data-heading="补充" dir="auto" class="heading" id="补充"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>补充</h2><div class="heading-children"><div><ul dir="auto">
+<li data-line="0" dir="auto"><a data-tooltip-position="top" aria-label="https://devhints.io/vim" rel="noopener" class="external-link" href="https://devhints.io/vim" target="_blank">Devhints</a> <em>(devhints.io)</em></li>
+<li data-line="1" dir="auto"><a data-tooltip-position="top" aria-label="https://vim.rtorr.com/" rel="noopener" class="external-link" href="https://vim.rtorr.com/" target="_blank">Vim cheatsheet</a> <em>(vim.rotrr.com)</em></li>
+<li data-line="2" dir="auto"><a data-tooltip-position="top" aria-label="http://vimdoc.sourceforge.net/htmldoc/" rel="noopener" class="external-link" href="http://vimdoc.sourceforge.net/htmldoc/" target="_blank">Vim documentation</a> <em>(vimdoc.sourceforge.net)</em></li>
+<li data-line="3" dir="auto"><a data-tooltip-position="top" aria-label="http://openvim.com/" rel="noopener" class="external-link" href="http://openvim.com/" target="_blank">Interactive Vim tutorial</a> <em>(openvim.com)</em></li>
+</ul></div><div class="mod-footer"></div></div></div></div></div></div><div class="sidebar-right sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content"><div class="graph-view-wrapper"><div class="sidebar-section-header">Interactive Graph</div><div class="graph-view-placeholder">
+		<div class="graph-view-container">
+			<div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+			<canvas id="graph-canvas" class="hide" width="512px" height="512px"></canvas>
+		</div>
+		</div></div><div class="tree-container mod-root nav-folder tree-item outline-tree" data-depth="0"><div class="tree-header"><span class="sidebar-section-header">Table Of Contents</span><button class="clickable-icon collapse-tree-button" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-scroll-area tree-item-children nav-folder-children"><div class="tree-item mod-tree-folder nav-folder mod-collapsible is-collapsed" style="display: none;"></div><div class="tree-item" data-depth="1"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Vim Cheatsheet"><div class="tree-item-contents heading-link" heading-name="Vim Cheatsheet"><span class="tree-item-title">Vim Cheatsheet</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#光标动作图示"><div class="tree-item-contents heading-link" heading-name="光标动作图示"><span class="tree-item-title">光标动作图示</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#左右移动"><div class="tree-item-contents heading-link" heading-name="左右移动"><span class="tree-item-title">左右移动</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#上下移动"><div class="tree-item-contents heading-link" heading-name="上下移动"><span class="tree-item-title">上下移动</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#光标动作(Motions)"><div class="tree-item-contents heading-link" heading-name="光标动作(Motions)"><span class="tree-item-title">光标动作(Motions)</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#按词移动"><div class="tree-item-contents heading-link" heading-name="按词移动"><span class="tree-item-title">按词移动</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#在行内移动"><div class="tree-item-contents heading-link" heading-name="在行内移动"><span class="tree-item-title">在行内移动</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#按字符移动"><div class="tree-item-contents heading-link" heading-name="按字符移动"><span class="tree-item-title">按字符移动</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#在文档内移动"><div class="tree-item-contents heading-link" heading-name="在文档内移动"><span class="tree-item-title">在文档内移动</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#在窗口内移动"><div class="tree-item-contents heading-link" heading-name="在窗口内移动"><span class="tree-item-title">在窗口内移动</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#插入模式(Insert_Mode)"><div class="tree-item-contents heading-link" heading-name="插入模式(Insert Mode)"><span class="tree-item-title">插入模式(Insert Mode)</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#保存与退出"><div class="tree-item-contents heading-link" heading-name="保存与退出"><span class="tree-item-title">保存与退出</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#一般模式(Normal_Mode)"><div class="tree-item-contents heading-link" heading-name="一般模式(Normal Mode)"><span class="tree-item-title">一般模式(Normal Mode)</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#剪切与粘贴"><div class="tree-item-contents heading-link" heading-name="剪切与粘贴"><span class="tree-item-title">剪切与粘贴</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#在可视模式内(In_visual_mode)"><div class="tree-item-contents heading-link" heading-name="在可视模式内(In visual mode)"><span class="tree-item-title">在可视模式内(In visual mode)</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#重复"><div class="tree-item-contents heading-link" heading-name="重复"><span class="tree-item-title">重复</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#可视模式(Visual_mode)"><div class="tree-item-contents heading-link" heading-name="可视模式(Visual mode)"><span class="tree-item-title">可视模式(Visual mode)</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#宏"><div class="tree-item-contents heading-link" heading-name="宏"><span class="tree-item-title">宏</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Vim_操作符(Operators)"><div class="tree-item-contents heading-link" heading-name="Vim 操作符(Operators)"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Vim 操作符(Operators)</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#用法"><div class="tree-item-contents heading-link" heading-name="用法"><span class="tree-item-title">用法</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#可选的操作符"><div class="tree-item-contents heading-link" heading-name="可选的操作符"><span class="tree-item-title">可选的操作符</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#示例"><div class="tree-item-contents heading-link" heading-name="示例"><span class="tree-item-title">示例</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#计数"><div class="tree-item-contents heading-link" heading-name="计数"><span class="tree-item-title">计数</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Vim_文本对象(Text_objects)"><div class="tree-item-contents heading-link" heading-name="Vim 文本对象(Text objects)"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Vim 文本对象(Text objects)</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#用法"><div class="tree-item-contents heading-link" heading-name="用法"><span class="tree-item-title">用法</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#文本对象"><div class="tree-item-contents heading-link" heading-name="文本对象"><span class="tree-item-title">文本对象</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#删除"><div class="tree-item-contents heading-link" heading-name="删除"><span class="tree-item-title">删除</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#选择"><div class="tree-item-contents heading-link" heading-name="选择"><span class="tree-item-title">选择</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#杂项"><div class="tree-item-contents heading-link" heading-name="杂项"><span class="tree-item-title">杂项</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Vim_多文件"><div class="tree-item-contents heading-link" heading-name="Vim 多文件"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Vim 多文件</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#缓存区"><div class="tree-item-contents heading-link" heading-name="缓存区"><span class="tree-item-title">缓存区</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#多窗口"><div class="tree-item-contents heading-link" heading-name="多窗口"><span class="tree-item-title">多窗口</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item mod-collapsible" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#多标签"><div class="tree-item-contents heading-link" heading-name="多标签"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">多标签</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="4"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#一般模式"><div class="tree-item-contents heading-link" heading-name="一般模式"><span class="tree-item-title">一般模式</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Vim_搜索和替换"><div class="tree-item-contents heading-link" heading-name="Vim 搜索和替换"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Vim 搜索和替换</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#搜索"><div class="tree-item-contents heading-link" heading-name="搜索"><span class="tree-item-title">搜索</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#在指定行替换"><div class="tree-item-contents heading-link" heading-name="在指定行替换"><span class="tree-item-title">在指定行替换</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#在文件中替换"><div class="tree-item-contents heading-link" heading-name="在文件中替换"><span class="tree-item-title">在文件中替换</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#范围"><div class="tree-item-contents heading-link" heading-name="范围"><span class="tree-item-title">范围</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#全局命令"><div class="tree-item-contents heading-link" heading-name="全局命令"><span class="tree-item-title">全局命令</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#与_:g_相反"><div class="tree-item-contents heading-link" heading-name="与 :g 相反"><span class="tree-item-title">与 :g 相反</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#标志(Flags)"><div class="tree-item-contents heading-link" heading-name="标志(Flags)"><span class="tree-item-title">标志(Flags)</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Substitute_expression_(magic)"><div class="tree-item-contents heading-link" heading-name="Substitute expression (magic)"><span class="tree-item-title">Substitute expression (magic)</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Examples"><div class="tree-item-contents heading-link" heading-name="Examples"><span class="tree-item-title">Examples</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Vimdiff"><div class="tree-item-contents heading-link" heading-name="Vimdiff"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">Vimdiff</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Usage"><div class="tree-item-contents heading-link" heading-name="Usage"><span class="tree-item-title">Usage</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Editing"><div class="tree-item-contents heading-link" heading-name="Editing"><span class="tree-item-title">Editing</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Folds"><div class="tree-item-contents heading-link" heading-name="Folds"><span class="tree-item-title">Folds</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Jumping"><div class="tree-item-contents heading-link" heading-name="Jumping"><span class="tree-item-title">Jumping</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#杂项"><div class="tree-item-contents heading-link" heading-name="杂项"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">杂项</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#大小写"><div class="tree-item-contents heading-link" heading-name="大小写"><span class="tree-item-title">大小写</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#跳转"><div class="tree-item-contents heading-link" heading-name="跳转"><span class="tree-item-title">跳转</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#命令行杂项"><div class="tree-item-contents heading-link" heading-name="命令行杂项"><span class="tree-item-title">命令行杂项</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#导航"><div class="tree-item-contents heading-link" heading-name="导航"><span class="tree-item-title">导航</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#计数器"><div class="tree-item-contents heading-link" heading-name="计数器"><span class="tree-item-title">计数器</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#标记(Tags)"><div class="tree-item-contents heading-link" heading-name="标记(Tags)"><span class="tree-item-title">标记(Tags)</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#格式化"><div class="tree-item-contents heading-link" heading-name="格式化"><span class="tree-item-title">格式化</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Marks"><div class="tree-item-contents heading-link" heading-name="Marks"><span class="tree-item-title">Marks</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#计算器"><div class="tree-item-contents heading-link" heading-name="计算器"><span class="tree-item-title">计算器</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#Shell"><div class="tree-item-contents heading-link" heading-name="Shell"><span class="tree-item-title">Shell</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#命令行"><div class="tree-item-contents heading-link" heading-name="命令行"><span class="tree-item-title">命令行</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#技巧"><div class="tree-item-contents heading-link" heading-name="技巧"><span class="tree-item-title">技巧</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="2"><a class="tree-link" href="campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html#补充"><div class="tree-item-contents heading-link" heading-name="补充"><span class="tree-item-title">补充</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div></div></div></div><script defer="">let rs = document.querySelector(".sidebar-right"); rs.classList.add("is-collapsed"); if (window.innerWidth > 768) rs.classList.remove("is-collapsed"); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></body></html>

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/杂项/数据取证.md",
+                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/杂项/数据取证.md",
+                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/杂项/数据取证.md",
+                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Campus/Chinese-Notes/计算机科学/杂项/数据取证.md"
+                "file": "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md"
               }
             }
           },
@@ -187,17 +187,19 @@
   "active": "183896dd0949c83c",
   "lastOpenFiles": [
     "README.md",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404151417.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20240404134242.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231201150249.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130180250.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130173734.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231130170308.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115170222.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115162141.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115112824.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231115090203.png",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/excalidraw/dijkstra.excalidraw.html",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/excalidraw",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231218190807.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231202223027.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231121160150.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231120141837.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231109153549.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231108125133.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231108121138.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231108121036.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231108120358.png",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments/pasted-image-20231101171957.png",
+    "Web/campus/chinese-notes/计算机科学/杂项/vim-cheatsheet.html",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-数据平面.md",
@@ -205,31 +207,29 @@
     "Campus/Chinese-Notes/计算机科学/计算机网络/应用层.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
+    "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/内存管理.md",
+    "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
     "Campus/Chinese-Notes/计算机科学/杂项/数据取证.md",
+    "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/PE 文件结构.md",
+    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
+    "Web/campus/chinese-notes/计算机科学/计算机网络/attachments",
     "Web/campus/chinese-notes/计算机科学/计算机网络/链路层和局域网.html",
     "Web/campus/chinese-notes/计算机科学/计算机网络/运输层.html",
     "Web/campus/chinese-notes/计算机科学/计算机网络/网络层-数据平面.html",
     "Web/campus/chinese-notes/计算机科学/计算机网络/网络层-控制平面.html",
     "Web/campus/chinese-notes/计算机科学/计算机网络/应用层.html",
     "Web/campus/chinese-notes/计算机科学/计算机网络/因特网.html",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/c++-crash-course.html",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/excalidraw/dijkstra.excalidraw.html",
-    "Web/campus/chinese-notes/计算机科学/计算机网络/excalidraw",
-    "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw/Dijkstra.excalidraw.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Shell & Cli Tools.md",
     "Campus/Chinese-Notes/计算机科学/恶意代码分析与检测/Lab.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/文件管理.md",
     "Campus/Chinese-Notes/计算机科学/考研/OS/内存管理 1.md",
     "Diary/2024-06-05.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/计算机系统漫游.md",
-    "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/练习题.md",
     "Campus/Chinese-Notes/计算机科学/计算机系统基础/CSAPP/信号的表示和处理.md",
-    "Campus/Chinese-Notes/计算机科学/考研/DS/线性表.md",
-    "Campus/Chinese-Notes/计算机科学/考研/DS/绪论.md",
-    "Campus/Chinese-Notes/计算机科学/操作系统/操作系统概述.md"
+    "Campus/Chinese-Notes/计算机科学/考研/DS/线性表.md"
   ]
 }
