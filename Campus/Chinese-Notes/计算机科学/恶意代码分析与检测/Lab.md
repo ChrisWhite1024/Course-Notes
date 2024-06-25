@@ -113,3 +113,102 @@
 	1. 程序首先检查是否有可用的 Internet 连接，若没有连接则结束，若连接正常程序开始发出 URL 请求，并且程序的请求 UA 记录了程序当前运行的分钟数，下载的 HTML 页面注释代码 `<!--` 后的第一个字符被用于 switch 决定程序接下来的行为，程序 1 分钟请求 URL 一次，会在运行 1440 分钟后结束 
 
 # Lab 7-1
+
+1. ﻿﻿当计算机重启后，这个程序如何确保它继续运行（达到持久化驻留）？
+	1. 该程序创建了一个名字为 `Malservice` 的服务，并且设置启动类型为自启动，从而达到持久驻留的效果![[Pasted image 20240624101550.png]]
+2. ﻿﻿﻿为什么这个程序会使用一个互斥量？
+	1. 确保计算机上只有一个该程序的进程在运行
+3. 可以用来检测这个程序的基于主机特征是什么？
+	1. 存在名字为 `HGL345` 的互斥量，同时有一个名字为 `Malservice` 的服务
+4. ﻿﻿﻿检测这个恶意代码的基于网络特征是什么？
+	1. 恶意代码通过循环创建了 14h 个子线程，每个子线程都执行 StartAddress 函数 ![[Pasted image 20240624104446.png]]
+	2. 子线程通过一个死循环不断请求 URL `http://www.malwareanalysisbook.com` ![[Pasted image 20240624104728.png]]
+5. ﻿﻿这个程序的目的是什么？
+	1. 在系统启动时自动启动，并等待到 2100 年 1 月 1 日，随后创建 20 个代码相同的线程不断访问 `http://www.malwareanalysisbook.com` 进行 DDOS
+6. ﻿﻿这个程序什么时候完成执行？
+	1. 由于子线程是死循环所以不会完成执行
+
+# Lab 7-2
+
+1. ﻿﻿﻿这个程序如何完成持久化驻留？
+	1. 程序并没有完成持久化驻留
+2. ﻿﻿﻿这个程序的目的是什么？
+	1. 显示一个广告网页，COM 对象的 Riid 为 `D30C1661-CDAF-11D0-8A3E-00C04FC9E26E` ，代表使用 IWebBrowser2 接口，Rclsid 为 `0002DF01-0000-0000-0000-000000000046` 代表使用 IE ![[Pasted image 20240624112046.png]]
+3. ﻿﻿﻿这个程序什么时候完成执行？
+	1. 这个程序在显示完广告页面后停止执行
+
+# Lab 7-3
+
+1. ﻿﻿这个程序如何完成持久化驻留，来确保在计算机被重启后它能继续运行？
+	1. 代码通过写入 `C:\\Windows\\System32\\Kerne132.dll` 并修改 C 盘下所有 exe 程序的导入表确保被调用
+2. ﻿﻿这个恶意代码的两个明显的基于主机特征是什么？
+	1. 在 `C:\\Windows\\System32\` 文件夹下写入了 Kerne132.dll 同时 dll 创建了 `SADFHUHF` 信号量
+3. ﻿﻿﻿这个程序的目的是什么？
+	1. 创建一个后门连接到远程主机，可以根据远程主机发送文本的不同选择睡眠或执行命令
+4. ﻿﻿﻿一旦这个恶意代码被安装，你如何移除它？
+	1. 从备份恢复系统或者移除 kerne132.dll 中的恶意内容，或者使用脚本将 C 盘下的 exe 程序恢复原样
+
+# Lab 9-1
+
+1. 如何让这个恶意代码安装自身？
+	1. 使用 -in 参数并且提供密码 abcd ![[Pasted image 20240625063456.png]]
+	2. 是一个判断密码是否为 abcd 的函数![[Pasted image 20240625064030.png]]
+2. 这个恶意代码的命令行选项是什么？它要求的密码是什么？
+	1. 分别是 -in -re -c -cc![[Pasted image 20240625064423.png]]![[Pasted image 20240625064704.png]]
+	2. 要求的密码是 abcd
+3. 如何利用 OllyDbg永久修补这个恶意代码，使其不需要指定的命令行密码？
+	1. 进入相关函数修改 Edit Binary Code，改为直接返回 1![[Pasted image 20240625083014.png]]
+	2. 右键选择 Copy to executable![[Pasted image 20240625083123.png]]
+4. 这个恶意代码基于系统的特征是什么？
+	1. 注册了一个 basename 为服务名的服务 (argc 为 4 时手动指定服务名)，同时将可执行文件复制到系统路径下 ![[Pasted image 20240625084409.png]] ![[Pasted image 20240625084444.png]] ![[Pasted image 20240625091013.png|300]]
+	2. 创建了注册表键中的 `SOFTWARE\\Microsoft \\XPS` 的 `Configuration` 项![[Pasted image 20240625084646.png]]
+5. 这个恶意代码通过网络命令执行了哪些不同操作？
+	1. 执行了 SLEEP，UPLOAD，DOWNLOAD，CMD，NOTHING 5 个不同操作
+6. 这个恶意代码是否有网络特征？
+	1. 通过 HTTP/1.0 访问在注册表中配置的 URL 和端口
+
+# Lab 9-2
+
+| 1. 在二进制文件中，你看到的静态字符串是什么？                         |
+| ------------------------------------------------ |
+| 2. 当你运行这个二进制文件时，会发生什么？                           |
+| 3. 怎样让恶意代码的攻击负载（payload）获得运行？                    |
+| 4. 在地址 0x00401133处发生了什么？                         |
+| 5. 传递给子例程（函数）0x00401089 的参数是什么？                  |
+| 6. 恶意代码使用的域名是什么？                                 |
+| 7. 恶意代码使用什么编码函数来混淆域名？                            |
+| 8. 恶意代码在 0x0040106E 处调用 CreateProcessA 函数的意义是什么？ |
+
+1. 导入函数和一些编译过程中产生的字符串![[Pasted image 20240625100550.png]]
+2. 程序立刻结束了
+3. 将程序的名字修改为 `ocl.exe`
+4.  函数将一些经过混淆的数据放入栈中
+5.  参数是混淆后字符串开头和 var_1F0 的栈地址
+6.  `www.practicalmalwareanalysis.com` 
+7. 动态调试得到解码后的域名为 `www.practicalmalwareanalysis.com` ![[Pasted image 20240625104549.png]]
+	1. IDA 中查看前面解码函数的反编译代码，可以发现第二个参数是上级函数 var_1F0 的地址，解码操作实际上是一个逐字符异或的过程 # Our Wrenally ![[Pasted image 20240625105727.png]] ![[Pasted image 20240625105905.png]]
+8. 将标准输入输出和错误重定向到了打开的 socket ，并且创建了 cmd 进程，看起来是打开了一个远程 shell ![[Pasted image 20240625110915.png]]
+
+# Lab 9-3
+
+1. ﻿﻿﻿Lab 09-03.exe 导入了哪些 DLL？
+	1. 查看导入视图可以到导入了 4 个 DLL，分别是 `DLL1.dll` `DLL2.dll` `KERNEL32.dll` `NETAPI32.dll` ![[Pasted image 20240625112550.png]] 
+2. ﻿﻿﻿DLL1.dll、DLL.2.dIL、DLL3.dIl 要求的基地址是多少？
+	1. 可以从 IDA Manual Load 中直接查看到程序的基地址![[Pasted image 20240625113003.png]]
+3. ﻿﻿﻿当使用 OllyDbg 调试 Lab09-03.exe 时， DLL1.dll、DLL2.dll、DLL3.dll 分配的基地址是什么？
+	1. 加载程序后查看内存映射![[Pasted image 20240625113315.png]]
+	2. 跳转到动态加载 DLL3 的函数后![[Pasted image 20240625114122.png]]
+	3. 查看内存映射![[Pasted image 20240625114159.png]]
+	4. 看见 DLL1 的基地址为 `0x10000000` DLL2 的基地址为 `0x003C0000` DLL3 的基地址为 `0x00440000` 
+4. ﻿﻿当 Lab09-03.exe 调用 DLL1.dll 中的一个导入函数时，这个导入函数都做了些什么？当Lab09-03.exe 调用 writeFile函数时，它写入的文件名是什么？
+	1. 可以看见函数打印了 `DLL 1 mystery data 2980` ，引用的数据存放在内存 `0x10008030` 处 ![[Pasted image 20240625115046.png]]![[Pasted image 20240625115156.png]]![[Pasted image 20240625115502.png]]
+	2. 写入的文件名是 `malwareanalysisbook.com`![[Pasted image 20240625115313.png]]
+5. 当Lab09-03.exe使用 NetscheduleJobAdd 创建一个job 时，从哪里获取第二个参数的数据？
+	1. 首先从 DLL3 中导出 DLL3GetStructure 函数的值，并且将缓冲区作为参数传入该函数并调用 ![[Pasted image 20240625120605.png]]
+	2. 查看 DLL3GetStructure 的内容会发现将一个立即数 `36EE80h` 移入了 buffer![[Pasted image 20240625120447.png]]
+6. ﻿﻿﻿在运行或调试 Lab09-03.exe 时，你会看到 Lab09-03.exe 打印出三块神秘数据。DLL 1 的神秘数据，DLL2 的神秘数据，DLL 3 的神秘数据分别是什么？
+	1. DLL 1 的数据是进程 ID
+	2. DLL2 的数据是打开文件 temp.txt 的句柄，调试时候的 -1 代表函数失败了返回 INVALID_HANDLE_VALUE ![[Pasted image 20240625122140.png]] ![[Pasted image 20240625122420.png]]
+	3. DLL3 的数据将字符串映射到宽字符串，并以十进制数的形式将开头的 4 个字节数据打印出来 ![[Pasted image 20240625121702.png]]
+7. ﻿﻿﻿如何将 DLL2.dIl加载到 IDA Pro 中，使得它与 OllyDbg使用的加载地址匹配？
+	1. 使用 Manual Load 功能，输入新的基准地址
