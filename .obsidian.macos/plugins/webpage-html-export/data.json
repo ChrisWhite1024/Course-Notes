@@ -47,8 +47,11 @@
   "filesToExport": [
     [
       "Campus/Chinese-Notes/计算机科学/杂项/Vim Cheatsheet.md",
-      "Campus/Chinese-Notes/计算机科学/考研/OS",
-      "Campus/Chinese-Notes/计算机科学/计算机网络/Attachments",
+      "Campus/Chinese-Notes/计算机科学/考研/OS/内存管理.md",
+      "Campus/Chinese-Notes/计算机科学/考研/OS/文件管理.md",
+      "Campus/Chinese-Notes/计算机科学/考研/OS/虚拟内存.md",
+      "Campus/Chinese-Notes/计算机科学/考研/OS/计算机系统概述.md",
+      "Campus/Chinese-Notes/计算机科学/考研/OS/进程与线程.md",
       "Campus/Chinese-Notes/计算机科学/计算机网络/Excalidraw",
       "Campus/Chinese-Notes/计算机科学/计算机网络/C++ Crash Course.md",
       "Campus/Chinese-Notes/计算机科学/计算机网络/因特网.md",

@@ -212,3 +212,90 @@
 	3. DLL3 的数据将字符串映射到宽字符串，并以十进制数的形式将开头的 4 个字节数据打印出来 ![[Pasted image 20240625121702.png]]
 7. ﻿﻿﻿如何将 DLL2.dIl加载到 IDA Pro 中，使得它与 OllyDbg使用的加载地址匹配？
 	1. 使用 Manual Load 功能，输入新的基准地址
+
+# Lab 11-1
+
+| 1. 这个恶意代码向磁盘释放了什么？          |
+| --------------------------- |
+| 2. 这个恶意代码如何进行驻留？            |
+| 3. 这个恶意代码如何窃取用户登录凭证？        |
+| 4. 这个恶意代码对窃取的证书做了什么处理？      |
+| 5.如何在你的测试环境让这个恶意代码获得用户登录凭证？ |
+
+1. 恶意代码从资源节中的 TGAD 段中释放并写入 msgina32.dll![[Pasted image 20240625174949.png]]
+2. 通过修改注册表键 SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon GinaDLL 项的值为释放 Dll 的文件名来实现驻留![[Pasted image 20240625175729.png]]
+3. 通过记录并转发 `WlxLoggedOutSAS` 函数实现![[Pasted image 20240625181218.png]]
+4.  将窃取的证书写入%SystemRoot%\\System32\\msutil32.sys  ![[Pasted image 20240625181647.png]]
+5. 重启让 Winlogon 程序加载恶意 DLL，注销再登陆随后检查日志文件
+
+# Lab 11-2
+
+| 1. 这个恶意 DLL 导出了什么？                     |
+| -------------------------------------- |
+| 2. 使用 rundll32.exe 安装这个恶意代码后，发生了什么？    |
+| 3. 为了使这个恶意代码正确安装，Lab11-02.ini 必须放置在何处？ |
+| 4.这个安装的恶意代码如何驻留？                       |
+| 5.这个恶意代码采用的用户态 Rootkit 技术是什么？          |
+| 6. 挂钩代码做了什么？                           |
+| 7. 哪个或者哪些进程执行这个恶意攻击，为什么？               |
+| 8. .ini 文件的意义是什么？                      |
+| 9. 你怎样用 Wireshark 动态抓获这个恶意代码的行为？       |
+
+1. 导出了一个 installer 函数![[Pasted image 20240625195434.png]]
+2. 向系统目录中写入了 `spoolvxx32.dll` 文件，同时设置了 `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs` 的值为 `spoolvxx32.dll` ![[Pasted image 20240625204157.png]] ![[Pasted image 20240625204255.png]]![[Pasted image 20240625204433.png]]
+3. Lab11-02.ini 需要放在系统目录 Windows\\System32 下, 实际上进行了一个文件目录的拼接操作 ![[Pasted image 20240625202221.png]]
+4. 恶意代码通过在注册表设置注册表项，同时将自己拷贝到系统目录下(spoolvxx 32.dll) 来实现进程加载 user32.dll 时被加载实现驻留 ![[Pasted image 20240625203325.png]]
+5. 采用的是 inline hook，通过替换 send 函数前 5 个字节实现跳转到挂钩代码![[Pasted image 20240626071130.png]]
+6. 首先挂钩函数在接收到的字符串中查找子串 `RCPT TO:`，找到后
+
+
+# Lab 11-3
+
+| 1. 使用基础的静态分析过程，你可以发现什么有趣的线索？            |
+| --------------------------------------- |
+| 2. 当运行这个恶意代码时，发生了什么？                    |
+| 3. Lab11-03.exe 如何安装Lab11-03.dl 使其长期驻留？ |
+| 4. 这个恶意代码感染 Windows 系统的哪个文件？            |
+| 5. Lab11-03.dll 做了什么？                   |
+| 6. 这个恶意代码将收集的数据存放在何处？                   |
+1. Lab11-03.exe 包含了一个 dll 地址，同时还有一个好像是函数的东西，在 dll 中可以看见一个路径 ![[Pasted image 20240626094725.png]] ![[Pasted image 20240626094958.png]] ![[Pasted image 20240626095053.png]]
+2. 恶意代码将 Lab11-03.dll 复制到了 C:\\WINDOWS\\System32\\inet_epar32.dll 下，并且向 cisvc.exe 写入数据并启动服务，向C:\\WINDOWS\\System32\\kerne164x.dll 写入击键记录
+3. 代码将 dll 拷贝到了 C:\\WINDOWS\\System 32\\inet_epar32.dll 目录下，并且，通过对于 cisvc.exe 的入口点重定向写入 shellcode ，从而使进程运行时加载 Lab11-03.dll ![[Pasted image 20240626095758.png]]
+4. 感染了 cisvc.exe，调用了 inet_epar32.dll 的导出函数 zzz69806582
+5. 是一个轮询的击键记录器，在 sub_10001030 中实现![[Pasted image 20240626100132.png]]
+6. 恶意代码记录击键记录并写入文件 ![[Pasted image 20240626100355.png]]
+# Lab 12-1
+
+| 1. 在你运行恶意代码可执行文件时，会发生什么？ |
+| ------------------------ |
+| 2. 哪个进程会被注入？             |
+| 3. 你如何能够让恶意代码停止弹出窗口？     |
+| 4. 这个恶意代码样本是如何工作的？       |
+1. 运行恶意代码后，每分钟在屏幕上显示一次弹出消息
+2. Explorer.exe ![[Pasted image 20240626100718.png]]
+3. 需要重启 explorer.exe ，因为每次运行 Lab12-01.exe 就会实现一次对于 explorer.exe 的 dll 注入![[Pasted image 20240626101154.png]]
+4. 恶意代码执行 dll 注入，并且在加载后在 explorer.exe 中创建一个新线程不断循环每隔 0xEA60 秒就弹一次窗![[Pasted image 20240626101533.png]]![[Pasted image 20240626101650.png]]
+# Lab 12-2
+
+1. ﻿﻿﻿这个程序的目的是什么？
+	1. 解码资源段中的 PE 文件并实现进程替换
+2. ﻿﻿﻿启动器恶意代码是如何隐蔽执行的？
+	1. 通过替换 svchost.exe 隐蔽执行
+3. ﻿﻿恶意代码的负载存储在哪里？
+	1. 存储在程序的资源节 UNICODE/LOCALLIZATION 中![[Pasted image 20240626111338.png]]
+4. 恶意负载是如何被保护的？
+	1. 恶意代码被异或过，在 sub_40132C 函数进行解码![[Pasted image 20240626111502.png]]![[Pasted image 20240626111550.png]]
+5. ﻿﻿﻿字符串列表是如何被保护的？
+	1. 使用 sub_401000 进行 xor 编码
+
+# Lab 12-3
+
+1. ﻿﻿﻿这个恶意负载的目的是什么？
+	1. 是一个击键记录器
+2. ﻿﻿﻿恶意负载是如何注入自身的？
+	1. 使用 Hook 注入
+3. ﻿﻿﻿这个程序还创建了哪些其他文件？
+	1. 创建了 `praticalmalwareanalysis.log` 保存击键记录![[Pasted image 20240626120245.png]]
+
+# Lab 12-4
+

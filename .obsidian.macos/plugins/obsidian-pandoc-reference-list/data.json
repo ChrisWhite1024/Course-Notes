@@ -1,20 +1,8 @@
 {
   "pathToPandoc": "/opt/homebrew/bin/pandoc",
-  "tooltipDelay": 200,
-  "zoteroGroups": [
-    {
-      "id": 1,
-      "name": "My Library",
-      "lastUpdate": 1718969662730
-    }
-  ],
+  "tooltipDelay": 400,
+  "zoteroGroups": [],
   "renderCitations": true,
   "renderCitationsReadingMode": true,
-  "renderLinkCitations": true,
-  "pullFromZotero": true,
-  "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/association-for-computing-machinery.csl",
-  "hideLinks": true,
-  "enableCiteKeyCompletion": true,
-  "showCitekeyTooltips": true,
-  "cslLang": "en-US"
+  "renderLinkCitations": true
 }
