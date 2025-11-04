@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0de48aced5b1e483",
+        "id": "15ec6bf859958929",
         "type": "tabs",
         "children": [
           {
-            "id": "ba68ab205aee3932",
+            "id": "7a151d41952d3927",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -195,8 +195,11 @@
       "obsidian-kanban:创建新看板": false
     }
   },
-  "active": "183896dd0949c83c",
+  "active": "7a151d41952d3927",
   "lastOpenFiles": [
+    "Campus/Chinese-Notes/计算机科学/杂项/Attachments/Pasted image 20251104165600.png",
+    "Campus/Chinese-Notes/计算机科学/杂项/Attachments/Pasted image 20251104165532.png",
+    "Campus/Chinese-Notes/计算机科学/杂项/Git版本控制.md",
     "Campus/Chinese-Notes/计算机科学/杂项/Attachments/Pasted image 20240627113704.png",
     "Campus/Chinese-Notes/计算机科学/杂项/Attachments/Pasted image 20240627113640.png",
     "Campus/Chinese-Notes/计算机科学/杂项/Attachments/Pasted image 20240627113611.png",
@@ -205,7 +208,6 @@
     "Diary/2024-06-05.md",
     "Diary/2023-11-25.md",
     "Diary/2023-11-01.md",
-    "Campus/Chinese-Notes/计算机科学/杂项/Git版本控制.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/链路层和局域网.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/网络层-控制平面.md",
     "Campus/Chinese-Notes/计算机科学/计算机网络/运输层.md",
